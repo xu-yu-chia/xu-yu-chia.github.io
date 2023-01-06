@@ -1,7 +1,43 @@
-# xu-yu-chia.github.io
+# Xu-Yu-Chia's note column
+
+## 個人資料
+<details>
+<summary>展開查看</summary>
+<ul>
+  <li>email: joshyymmdd@gmai.com</li>
+  <li>discord: Yu-Chia Xu#6086</li>
+  <li>IG: 許彧嘉</li>
+</ul>
+
+</details>
+
+
+## 自主學習
+
+<details>
+<summary>展開查看</summary>
+<p>高一下自主學習</p>
+<ul>
+  <li>筆記: https://reurl.cc/33EWX9</li>
+  <li>簡報展示: https://reurl.cc/GXyvpv</li>
+</ul>
+
+<p>高二上自主學習</p>
+<ul>
+  <li>筆記: https://reurl.cc/NGdg4e</li>
+  <li>簡報展示: https://reurl.cc/RO892e</li>
+</ul>
+
+</details>
 
 
 
+
+
+## Markdown語法練習
+<details>
+<summary>展開查看</summary>
+<pre>
 <h1>標題1</h1>
 <h2>標題2</h2>
 <h3>標題3</h3>
@@ -40,3 +76,5 @@
 
 
 <br>
+</pre>
+</details>
