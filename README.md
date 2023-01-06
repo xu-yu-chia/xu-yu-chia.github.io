@@ -19,7 +19,8 @@
   <li>C++筆記: <a href='https://reurl.cc/eWlggL' target='_blank'>https://reurl.cc/eWlggL</a></li>
   <li>解題筆記: <a href='https://reurl.cc/lZr2Oj' target='_blank'>https://reurl.cc/lZr2Oj</a></li>
 </ul>
-
+</details>
+  
 ## 自主學習
 
 <details>
