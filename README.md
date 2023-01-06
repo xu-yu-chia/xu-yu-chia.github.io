@@ -18,14 +18,14 @@
 <summary>展開查看</summary>
 <p>高一下自主學習</p>
 <ul>
-  <li>筆記: <a href='https://reurl.cc/33EWX9'>https://reurl.cc/33EWX9</a></li>
-  <li>簡報展示: <a href='https://reurl.cc/GXyvpv'>https://reurl.cc/GXyvpv</a></li>
+  <li>筆記: <a href='https://reurl.cc/33EWX9' target='_blank'>https://reurl.cc/33EWX9</a></li>
+  <li>簡報展示: <a href='https://reurl.cc/GXyvpv' target='_blank'>https://reurl.cc/GXyvpv</a></li>
 </ul>
 
 <p>高二上自主學習</p>
 <ul>
-  <li>筆記: <a href='https://reurl.cc/NGdg4e'>https://reurl.cc/NGdg4e</a></li>
-  <li>簡報展示: <a href='https://reurl.cc/RO892e'>https://reurl.cc/RO892e</a></li>
+  <li>筆記: <a href='https://reurl.cc/NGdg4e' target='_blank'>https://reurl.cc/NGdg4e</a></li>
+  <li>簡報展示: <a href='https://reurl.cc/RO892e' target='_blank'>https://reurl.cc/RO892e</a></li>
 </ul>
 
 </details>
