@@ -11,6 +11,14 @@
 
 </details>
 
+## C++程式學習紀錄
+
+<details>
+<summary>展開查看</summary>
+<ul>
+  <li>C++筆記: <a href='https://reurl.cc/eWlggL' target='_blank'>https://reurl.cc/eWlggL</a></li>
+  <li>解題筆記: <a href='https://reurl.cc/lZr2Oj' target='_blank'>https://reurl.cc/lZr2Oj</a></li>
+</ul>
 
 ## 自主學習
 
