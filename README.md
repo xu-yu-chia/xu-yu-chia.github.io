@@ -11,16 +11,6 @@
 
 </details>
 
-## 吳晨鶴專區
-
-<details>
-<summary>展開查看</summary>
-<ul>
-  <li>筆記: <a href='https://www.canva.com/design/DAFQSPGM9wQ/dI-JHfhTP_fP2ZGgIeHV0w/view?utm_content=DAFQSPGM9wQ&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink' target='_blank'>https://www.canva.com/design/DAFQSPGM9wQ/dI-JHfhTP_fP2ZGgIeHV0w/view?utm_content=DAFQSPGM9wQ&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink</a></li>
-</ul>
-</details>
-
-
 
 
 ## C++程式學習紀錄
@@ -49,9 +39,13 @@
   <li>簡報展示: <a href='https://reurl.cc/RO892e' target='_blank'>https://reurl.cc/RO892e</a></li>
 </ul>
 
+<p>高二下自主學習</p>
+<ul>
+  <li>筆記: <a href='https://reurl.cc/3OLybj' target='_blank'>https://reurl.cc/3OLybj</a></li>
+  <li>簡報展示: <a href=' ' target='_blank'> </a></li>
+</ul>
+
 </details>
-
-
 
 
 
