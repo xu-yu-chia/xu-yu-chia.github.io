@@ -22,7 +22,21 @@
   <li>解題筆記: <a href='https://reurl.cc/lZr2Oj' target='_blank'>https://reurl.cc/lZr2Oj</a></li>
 </ul>
 </details>
-  
+ 
+ 
+ 
+## 探究與實作成果報告
+
+<details>
+<summary>展開查看</summary>
+<ul>
+  <li>書報討論: <a href='https://reurl.cc/zAAXX6' target='_blank'>https://reurl.cc/zAAXX6</a></li>
+</ul>
+</details>
+   
+
+
+
 ## 自主學習
 
 <details>
