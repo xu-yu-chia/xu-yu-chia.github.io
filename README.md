@@ -1,16 +1,14 @@
-# Xu-Yu-Chia's note column
-
+<h1>高中課程紀錄-嘉義高中-許彧嘉</h1>
 
 <h2>個人資料</h2>
-<details>
-<summary>展開查看</summary>
+
+
 <ul>
   <li>email: joshyymmdd@gmai.com</li>
   <li>discord: Yu-Chia Xu#6086</li>
   <li>IG: 許彧嘉</li>
 </ul>
 
-</details>
 
 
 
