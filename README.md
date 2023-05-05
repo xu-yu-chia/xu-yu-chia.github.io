@@ -17,6 +17,7 @@
   <p>這是一個帶有背景色的區塊。</p>
 </div>	
 
+<img src="https://www.bing.com/images/search?view=detailV2&ccid=2qSpeBQt&id=1C8B8A9C130D55C7F2B3CE37BD92E9E2A64125A8&thid=OIP.2qSpeBQt5dNDvc0_LmKdNAHaGG&mediaurl=https%3a%2f%2fgss0.baidu.com%2f94o3dSag_xI4khGko9WTAnF6hhy%2fzhidao%2fpic%2fitem%2fc2fdfc039245d688f4ec2b98a6c27d1ed21b241b.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.daa4a978142de5d343bdcd3f2e629d34%3frik%3dqCVBpuLpkr03zg%26pid%3dImgRaw%26r%3d0&exph=1189&expw=1442&q=%e5%90%89%e5%a8%83%e5%a8%83&simid=608010478750931506&FORM=IRPRST&ck=F964D1C9E588F4ED0E3186DF8ECACCAE&selectedIndex=0&ajaxhist=0&ajaxserp=0" alt="圖片描述">
 
 
 
