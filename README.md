@@ -1,5 +1,13 @@
-
-
+<html>
+  <head>
+    <style>
+      body {
+        color: ＃8B4513;
+        background-color: ＃FFFFE0;
+      }
+    </style>
+  </head>
+  
 <p>&nbsp;</p>
 
 <h1 dir="auto" style="text-align:center">學習紀錄(嘉義高中-許彧嘉)</h1>
@@ -94,4 +102,4 @@
 </table>
 
 <p>&nbsp;</p>
-
+</html>
