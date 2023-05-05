@@ -11,7 +11,8 @@
    
   <h1>高中課程紀錄-嘉義高中-許彧嘉</h1>
   
-  
+  <p><img alt="smiley" src="https://cdn.ckeditor.com/4.8.0/full/plugins/smiley/images/regular_smile.png" style="height:23px; width:23px" title="smiley" /></p>
+
   
   <h2>個人資料</h2>
    <ul>
