@@ -13,7 +13,7 @@
 <h1 dir="auto" style="text-align:center">學習紀錄(嘉義高中-許彧嘉)</h1>
 
 <table border="0" cellpadding="0" cellspacing="0" style="width:100%">
-	<tbody background-color: LemonChiffon;>
+	<tbody>
 		<tr>
 			<td style="width:50%">
 			<h2 style="text-align:center">個人資料</h2>
