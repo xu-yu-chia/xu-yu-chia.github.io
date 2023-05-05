@@ -11,7 +11,7 @@
    
   <h1>高中課程紀錄-嘉義高中-許彧嘉</h1>
   
-  <iframe width="560" height="315" src="[https://www.youtube.com/embed/VIDEO_ID](https://www.youtube.com/watch?v=3d7xryjv6wU&ab_channel=cvman2010)" frameborder="0" allowfullscreen></iframe> 
+  <iframe width="560" height="315" src="[https://www.youtube.com/embed/96nEj0x7uIw]" frameborder="0" allowfullscreen></iframe> 
   
   <h2>個人資料</h2>
    <ul>
