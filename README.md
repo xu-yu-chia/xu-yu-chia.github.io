@@ -1,3 +1,16 @@
+<html>
+  <head>
+    <title>我的網站</title>
+    <style>
+      body {
+        color: white;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  
+
+
 <h1>學習紀錄(嘉義高中-許彧嘉)</h1>
 
 <h2>個人資料</h2>
@@ -50,3 +63,4 @@
 	</li>
 </ul>
 
+</html>
