@@ -2,8 +2,8 @@
   <head>
     <style>
       body {
-        color: ＃8B4513;
-        background-color: ＃FFFFE0;
+        color: SaddleBrown;
+        background-color: LemonChiffon;
       }
     </style>
   </head>
