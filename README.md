@@ -13,7 +13,7 @@
 
 <h1>學習紀錄(嘉義高中-許彧嘉)</h1>
 
-<div style="background-color: #f5f5f5; padding: 20px;">
+<div style="background-color:＃A9A9A9; padding: 20px;">
   <p>這是一個帶有背景色的區塊。</p>
 </div>	
 
