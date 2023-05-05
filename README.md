@@ -1,17 +1,16 @@
 <html>
    <style>
       body {
-        background-color: lightblue;
+        background-color: #FFFACD;
       }
    </style>
 
   
   <h1>高中課程紀錄-嘉義高中-許彧嘉</h1>
   
-  <body style="background-color: blue;">
-  <p>這是藍色背景的段落。</p>
-</body>
   
+  
+ <p style="color: red;">這是紅色文字。</p>
   
 <h2>個人資料</h2>
 
