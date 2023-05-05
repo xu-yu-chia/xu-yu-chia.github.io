@@ -8,12 +8,6 @@
 	<li>IG: 許彧嘉</li>
 </ul>
 
-<p><iframe align="left" frameborder="0" height="90" name="test" scrolling="no" src="https://www.youtube.com/watch?v=96nEj0x7uIw&amp;list=PL_Zw-CNTrpilixamRlTVvLOWQUJCHlrXo&amp;index=1&amp;ab_channel=Yu-ChiaHsu" title="u/3qu04" width="160"></iframe></p>
-
-<h2 dir="auto">&nbsp;</h2>
-
-<h2 dir="auto">&nbsp;</h2>
-
 <h2 dir="auto">科展</h2>
 
 <ul dir="auto">
@@ -35,23 +29,24 @@
 
 <h2 dir="auto">自主學習</h2>
 
-<p dir="auto">高一下自主學習</p>
-
 <ul dir="auto">
-	<li>筆記:&nbsp;<a href="https://reurl.cc/33EWX9" rel="nofollow">https://reurl.cc/33EWX9</a></li>
-	<li>簡報展示:&nbsp;<a href="https://reurl.cc/GXyvpv" rel="nofollow">https://reurl.cc/GXyvpv</a></li>
+	<li dir="ltr">高一下自主學習
+	<ul>
+		<li>筆記:&nbsp;<a href="https://reurl.cc/33EWX9" rel="nofollow">https://reurl.cc/33EWX9</a></li>
+		<li>簡報展示:&nbsp;<a href="https://reurl.cc/GXyvpv" rel="nofollow">https://reurl.cc/GXyvpv</a></li>
+	</ul>
+	</li>
+	<li dir="ltr">高二上自主學習
+	<ul>
+		<li>筆記:&nbsp;<a href="https://reurl.cc/NGdg4e" rel="nofollow">https://reurl.cc/NGdg4e</a></li>
+		<li>簡報展示:&nbsp;<a href="https://reurl.cc/RO892e" rel="nofollow">https://reurl.cc/RO892e</a></li>
+	</ul>
+	</li>
+	<li dir="ltr">高二下自主學習
+	<ul>
+		<li>筆記:&nbsp;<a href="https://reurl.cc/3OLybj" rel="nofollow">https://reurl.cc/3OLybj</a></li>
+		<li>簡報展示:</li>
+	</ul>
+	</li>
 </ul>
 
-<p dir="auto">高二上自主學習</p>
-
-<ul dir="auto">
-	<li>筆記:&nbsp;<a href="https://reurl.cc/NGdg4e" rel="nofollow">https://reurl.cc/NGdg4e</a></li>
-	<li>簡報展示:&nbsp;<a href="https://reurl.cc/RO892e" rel="nofollow">https://reurl.cc/RO892e</a></li>
-</ul>
-
-<p dir="auto">高二下自主學習</p>
-
-<ul dir="auto">
-	<li>筆記:&nbsp;<a href="https://reurl.cc/3OLybj" rel="nofollow">https://reurl.cc/3OLybj</a></li>
-	<li>簡報展示:</li>
-</ul>
