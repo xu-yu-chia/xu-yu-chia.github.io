@@ -1,7 +1,8 @@
 <html>
+   <title>我的網站</title>
    <style>
       body {
-        background-color: ＃000000;
+        background-color:＃000000;
         color: #FFFFFF;
       }
    </style>
