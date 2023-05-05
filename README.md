@@ -1,25 +1,21 @@
 <html>
    <style>
       body {
-        background-color: #FFFACD;
+        background-color: ＃000000;
+        color: #FFFFFF;
       }
    </style>
-
-  
   <h1>高中課程紀錄-嘉義高中-許彧嘉</h1>
-  
-  
-  
- <p style="color: red;">這是紅色文字。</p>
-  
-<h2>個人資料</h2>
+   <p style="color: red;">這是紅色文字。</p>
+  <h2>個人資料</h2>
+   <ul>
+      <li>email: joshyymmdd@gmai.com</li>
+      <li>discord: Yu-Chia Xu#6086</li>
+      <li>IG: 許彧嘉</li>
+    </ul>
 
 
-<ul>
-  <li>email: joshyymmdd@gmai.com</li>
-  <li>discord: Yu-Chia Xu#6086</li>
-  <li>IG: 許彧嘉</li>
-</ul>
+
 
 
 
