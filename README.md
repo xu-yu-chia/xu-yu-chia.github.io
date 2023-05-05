@@ -10,6 +10,9 @@
   </head>
    
   <h1>高中課程紀錄-嘉義高中-許彧嘉</h1>
+  <img src="image.jpg" alt="圖片描述" width="300" height="200">
+
+  ![](https://i.imgur.com/ELF8yJl.png)
   
   <iframe width="560" height="315" src="[https://www.youtube.com/embed/96nEj0x7uIw]" frameborder="0" allowfullscreen></iframe> 
   
