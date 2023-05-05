@@ -25,9 +25,9 @@
 		</tr>
 		<tr>
 			<td>
-			<p style="text-align:center">email: joshyymmdd@gmai.com</p>
+			<p style="text-align:center">Gmail: joshyymmdd@gmai.com</p>
 
-			<p style="text-align:center">discord: Yu-Chia Xu#6086</p>
+			<p style="text-align:center">Discord: Yu-Chia Xu#6086</p>
 
 			<p style="text-align:center">IG: 許彧嘉</p>
 			</td>
