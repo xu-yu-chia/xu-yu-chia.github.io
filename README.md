@@ -1,14 +1,4 @@
-<html>
-  <head>
-    <title>我的網站</title>
-    <style>
-      body {
-        color: white;
-        background-color: black;
-      }
-    </style>
-  </head>
-  
+
 
 <p>&nbsp;</p>
 
