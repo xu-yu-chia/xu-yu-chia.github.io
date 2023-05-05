@@ -1,6 +1,7 @@
 # Xu-Yu-Chia's note column
 
-## 個人資料
+
+<h2>個人資料</h2>
 <details>
 <summary>展開查看</summary>
 <ul>
@@ -13,7 +14,7 @@
 
 
 
-## 科展
+<h2>科展</h2>
 
 <details>
 <summary>展開查看</summary>
@@ -22,7 +23,7 @@
 </ul>
 </details>
 
-## C++程式學習紀錄
+<h2>C++程式學習紀錄</h2>
 
 <details>
 <summary>展開查看</summary>
@@ -34,7 +35,7 @@
  
  
  
-## 探究與實作成果報告
+<h2>探究與實作成果報告</h2>
 
 <details>
 <summary>展開查看</summary>
@@ -46,7 +47,7 @@
 
 
 
-## 自主學習
+<h2>自主學習</h2>
 
 <details>
 <summary>展開查看</summary>
