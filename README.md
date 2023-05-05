@@ -17,6 +17,9 @@
   <p>這是一個帶有背景色的區塊。</p>
 </div>	
 
+<div style="width: 100px; height: 100px; border-radius: 50%; background-color: red;"></div>
+
+
 <h2>個人資料</h2>
 
 <ul>
