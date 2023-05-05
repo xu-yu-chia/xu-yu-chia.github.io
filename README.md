@@ -1,133 +1,57 @@
-<html>
-  <head>
-    <title>我的網站</title>
-    <style>
-      body {
-        color: white;
-        background-color: black;
-      }
-    </style>
-  </head>
-   
-  <h1>高中課程紀錄-嘉義高中-許彧嘉</h1>
-  
-  <p><img alt="smiley" src="https://cdn.ckeditor.com/4.8.0/full/plugins/smiley/images/regular_smile.png" style="height:23px; width:23px" title="smiley" /></p>
+<h1>學習紀錄(嘉義高中-許彧嘉)</h1>
 
-  
-  <h2>個人資料</h2>
-   <ul>
-      <li>email: joshyymmdd@gmai.com</li>
-      <li>discord: Yu-Chia Xu#6086</li>
-      <li>IG: 許彧嘉</li>
-    </ul>
+<h2>個人資料</h2>
 
-
-
-
-
-
-
-<h2>科展</h2>
-
-<details>
-<summary>展開查看</summary>
 <ul>
-  <li>Post: <a href='https://reurl.cc/n72Q58' target='_blank'>https://reurl.cc/n72Q58</a></li>
-</ul>
-</details>
-
-<h2>C++程式學習紀錄</h2>
-
-<details>
-<summary>展開查看</summary>
-<ul>
-  <li>C++筆記: <a href='https://reurl.cc/eWlggL' target='_blank'>https://reurl.cc/eWlggL</a></li>
-  <li>解題筆記: <a href='https://reurl.cc/lZr2Oj' target='_blank'>https://reurl.cc/lZr2Oj</a></li>
-</ul>
-</details>
- 
- 
- 
-<h2>探究與實作成果報告</h2>
-
-<details>
-<summary>展開查看</summary>
-<ul>
-  <li>書報討論: <a href='https://reurl.cc/zAAXX6' target='_blank'>https://reurl.cc/zAAXX6</a></li>
-</ul>
-</details>
-   
-
-
-
-<h2>自主學習</h2>
-
-<details>
-<summary>展開查看</summary>
-<p>高一下自主學習</p>
-<ul>
-  <li>筆記: <a href='https://reurl.cc/33EWX9' target='_blank'>https://reurl.cc/33EWX9</a></li>
-  <li>簡報展示: <a href='https://reurl.cc/GXyvpv' target='_blank'>https://reurl.cc/GXyvpv</a></li>
+	<li>email: joshyymmdd@gmai.com</li>
+	<li>discord: Yu-Chia Xu#6086</li>
+	<li>IG: 許彧嘉</li>
 </ul>
 
-<p>高二上自主學習</p>
-<ul>
-  <li>筆記: <a href='https://reurl.cc/NGdg4e' target='_blank'>https://reurl.cc/NGdg4e</a></li>
-  <li>簡報展示: <a href='https://reurl.cc/RO892e' target='_blank'>https://reurl.cc/RO892e</a></li>
+<p><iframe align="left" frameborder="0" height="90" name="test" scrolling="no" src="https://www.youtube.com/watch?v=96nEj0x7uIw&amp;list=PL_Zw-CNTrpilixamRlTVvLOWQUJCHlrXo&amp;index=1&amp;ab_channel=Yu-ChiaHsu" title="u/3qu04" width="160"></iframe></p>
+
+<h2 dir="auto">&nbsp;</h2>
+
+<h2 dir="auto">&nbsp;</h2>
+
+<h2 dir="auto">科展</h2>
+
+<ul dir="auto">
+	<li>Post:&nbsp;<a href="https://reurl.cc/n72Q58" rel="nofollow">https://reurl.cc/n72Q58</a></li>
 </ul>
 
-<p>高二下自主學習</p>
-<ul>
-  <li>筆記: <a href='https://reurl.cc/3OLybj' target='_blank'>https://reurl.cc/3OLybj</a></li>
-  <li>簡報展示: <a href=' ' target='_blank'> </a></li>
+<h2 dir="auto">C++程式學習紀錄</h2>
+
+<ul dir="auto">
+	<li>C++筆記:&nbsp;<a href="https://reurl.cc/eWlggL" rel="nofollow">https://reurl.cc/eWlggL</a></li>
+	<li>解題筆記:&nbsp;<a href="https://reurl.cc/lZr2Oj" rel="nofollow">https://reurl.cc/lZr2Oj</a></li>
 </ul>
 
-</details>
+<h2 dir="auto">探究與實作成果報告</h2>
 
-
-
-## Markdown語法練習
-<details>
-<summary>展開查看</summary>
-<pre>
-<h1>標題1</h1>
-<h2>標題2</h2>
-<h3>標題3</h3>
-
-<p><strong>粗體</strong>或是<i>斜體</i>或是<strong><i>粗體加斜體</i></strong></p>
-<p>需要格行<br>格行</p>
-<p>需要格行<br><br>格兩行</p>
-
-<p>願望清單</p>
-<ul>
-  <li>清單1</li>
-  <li>清單2</li>
-  <li>清單3</li>
+<ul dir="auto">
+	<li>書報討論:&nbsp;<a href="https://reurl.cc/zAAXX6" rel="nofollow">https://reurl.cc/zAAXX6</a></li>
 </ul>
 
-<br>
+<h2 dir="auto">自主學習</h2>
 
-<ol>
-  <li>清單1</li>
-  <li>清單2</li>
-  <li>清單3</li>
-</ol>
+<p dir="auto">高一下自主學習</p>
 
-<a href='https://hackmd.io/@87DDB8mLTxuij-166W3TaA/0000'>自主學習筆記</a>
+<ul dir="auto">
+	<li>筆記:&nbsp;<a href="https://reurl.cc/33EWX9" rel="nofollow">https://reurl.cc/33EWX9</a></li>
+	<li>簡報展示:&nbsp;<a href="https://reurl.cc/GXyvpv" rel="nofollow">https://reurl.cc/GXyvpv</a></li>
+</ul>
 
-<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley'>原網頁開啟超連結</a>
+<p dir="auto">高二上自主學習</p>
 
-<br>
+<ul dir="auto">
+	<li>筆記:&nbsp;<a href="https://reurl.cc/NGdg4e" rel="nofollow">https://reurl.cc/NGdg4e</a></li>
+	<li>簡報展示:&nbsp;<a href="https://reurl.cc/RO892e" rel="nofollow">https://reurl.cc/RO892e</a></li>
+</ul>
 
-<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley' target='_blank'>另開網頁開啟超連結</a>
+<p dir="auto">高二下自主學習</p>
 
-
-<br>
-
-<p>-----------------------------------------------------</p>
-
-
-<br>
-</pre>
-</details>
-</html>
+<ul dir="auto">
+	<li>筆記:&nbsp;<a href="https://reurl.cc/3OLybj" rel="nofollow">https://reurl.cc/3OLybj</a></li>
+	<li>簡報展示:</li>
+</ul>
