@@ -1,11 +1,14 @@
 <html>
-   <title>我的網站</title>
-   <style>
+  <head>
+    <title>我的網站</title>
+    <style>
       body {
-        background-color:＃000000;
-        color: #FFFFFF;
+        color: white;
+        background-color: blue;
       }
-   </style>
+    </style>
+  </head>
+   
   <h1>高中課程紀錄-嘉義高中-許彧嘉</h1>
    <p style="color: red;">這是紅色文字。</p>
   <h2>個人資料</h2>
