@@ -103,6 +103,8 @@
 
 <p>&nbsp;</p>
 
+<h2 dir="auto" style="text-align:center">留言板</h2>
+	
 <script type="text/javascript" src="https://yellbox.com/yellbox.js?name=joshhsu"></script>
 
 </html>
