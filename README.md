@@ -93,7 +93,7 @@
 
 			<p style="text-align:center">筆記:&nbsp;<a href="https://reurl.cc/3OLybj" rel="nofollow">https://reurl.cc/3OLybj</a></p>
 
-			<p style="text-align:center">簡報展示:</p>
+			<p style="text-align:center">簡報展示:&nbsp;<a href="https://reurl.cc/E1pLzk" rel="nofollow">https://reurl.cc/E1pLzk</a></p>
 			</td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
