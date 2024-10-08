@@ -1,5 +1,11 @@
-<body text="5DAC81"
-  bgcolor="C0C0C0">
+<head>
+    <style>
+      body {
+        color: SaddleBrown;
+        background-color: LemonChiffon;
+      }
+    </style>
+</head>
 
 # Xu Yu Chia's Pages
 ## personal data
