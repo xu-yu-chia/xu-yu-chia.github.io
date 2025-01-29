@@ -1,66 +1,118 @@
-/* 全域樣式 */
+/* 基本樣式 */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a202c; /* 深灰背景 */
+    color: #edf2f7; /* 淺灰文字 */
     margin: 0;
     padding: 0;
-    background-color: #212121;
-    color: #333;
+}
+
+/* 設定主要內容區的最大寬度 */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 頂部導航欄 */
+header {
+    background-color: #2d3748;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .text-xl {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+header ul li a {
+    color: #edf2f7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header ul li a:hover {
+    color: #38b2ac; /* 懸停顯示淡綠色 */
+}
+
+/* 內容區塊 */
+section {
+    margin-top: 40px;
+    display: none; /* 預設隱藏 */
+}
+
+/* 顯示區塊 */
+section.active {
+    display: block;
+}
+
+/* 標題與描述 */
+h1, h2 {
+    font-weight: bold;
+    color: #edf2f7;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+p {
+    color: #e2e8f0;
+    font-size: 1.1rem;
+}
+
+/* 按鈕、連結互動效果 */
+a:hover {
+    text-decoration: underline;
+}
+
+.interactive:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.interactive {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* 漣漪效果 */
+body {
+    position: relative;
+    overflow-x: hidden;
 }
 
 .ripple {
     position: absolute;
     border-radius: 50%;
     transform: scale(0);
-    animation: ripple-animation 0.4s linear;
-    background: rgba(255, 255, 255, 0.3); /* 調整透明度 */
+    animation: ripple-animation 0.6s linear;
+    background: rgba(255, 255, 255, 0.3); /* 改為更透明 */
 }
+
 @keyframes ripple-animation {
     to {
-        transform: scale(2); /* 減小漣漪擴散範圍 */
-        opacity: 0; /* 讓漣漪淡出 */
+        transform: scale(2.5); /* 減小漣漪的擴散大小 */
+        opacity: 0;
     }
-}
-
-/* 頁首樣式 */
-header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 1.5em 0;
-}
-
-/* 主內容樣式 */
-main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-section {
-    margin-bottom: 20px;
-}
-
-h2 {
-    color: #4CAF50;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 5px;
-}
-
-/* 清單樣式 */
-ul {
-    list-style-type: square;
-    padding-left: 20px;
-}
-
-/* 頁尾樣式 */
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;
-    color: white;
-    margin-top: 20px;
 }
