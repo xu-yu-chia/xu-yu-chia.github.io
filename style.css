@@ -8,6 +8,20 @@ body {
     color: #333;
 }
 
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 0.4s linear;
+    background: rgba(255, 255, 255, 0.3); /* 調整透明度 */
+}
+@keyframes ripple-animation {
+    to {
+        transform: scale(2); /* 減小漣漪擴散範圍 */
+        opacity: 0; /* 讓漣漪淡出 */
+    }
+}
+
 /* 頁首樣式 */
 header {
     background-color: #4CAF50;
