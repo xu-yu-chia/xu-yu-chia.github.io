@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
 <html lang="zh-Hant">
-
+    
     
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script> 
 </head>
-
+    
     
 <body class="bg-gray-950 text-gray-200">
     <!-- 頂部導航欄 -->
@@ -33,12 +33,6 @@
         <section class="text-center py-20">
             <h1 class="text-4xl font-bold mb-4 interactive">歡迎來到Xu Yu-Chia's Blog</h1>
             <p class="text-lg text-gray-400">探索我的故事、專案和更多內容！</p>
-            <p class="text-lg text-gray-400"> </p>
-            <p class="text-lg text-gray-400"> </p>
-            <p class="text-lg text-gray-400"> </p>
-            <p class="text-lg text-gray-400"> </p>
-            <p class="text-lg text-gray-400"> </p>
-            <p class="text-lg text-gray-400"> </p>
         </section>
 
         
@@ -55,17 +49,14 @@
         <section id="projects" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">Project</h1>
             <ul class="space-y-4">
+                <!-- 卡片 -->
                 <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <h2 class="text-xl font-semibold">中央大學工學院程式競賽</h2>
-                    <p class="text-gray-400">工學院程式競賽擔任組長獲得第一名的佳績</p>
-                <li class="p-4 bg-gray-900 shadow rounded">
-                    <h2 class="text-xl font-semibold">
-                        <a href="#highschool-learning" class="hover:text-gray-400">高中自主學習</a>
-                    </h2>
-                    <p class="text-gray-400">自主學習成果發表榮獲嘉義高中佳作。</p>
-                </li>
+                    <a href="#project1" class="block p-4 bg-gray-900 shadow rounded hover:bg-gray-800 transition">
+                        <h2 class="text-xl font-semibold">中央大學工學院程式競賽</h2>
+                        <p class="text-gray-400">工學院程式競賽擔任組長獲得第一名的佳績</p>
+                    </a>
                 <!-- 高中自主學習卡片 -->
-                <li>
+                <li class="p-4 bg-gray-900 shadow rounded interactive">
                     <a href="#highschool-learning" class="block p-4 bg-gray-900 shadow rounded hover:bg-gray-800 transition">
                         <h2 class="text-xl font-semibold">高中自主學習</h2>
                         <p class="text-gray-400">自主學習成果發表榮獲嘉義高中佳作。</p>
@@ -75,7 +66,7 @@
             </ul>
         </section>
         
-        <!-- 專案內容 -->
+        <!-- project1 -->
         <section id="project1" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">中央大學工學院程式競賽</h1>
             <p>.</p>
@@ -85,6 +76,8 @@
             <p>.</p>
         </section>
         
+        
+         <!-- highschool-learning -->
         <section id="highschool-learning" class="hidden">
             <h1 class="text-2xl font-bold mb-4">高中自主學習</h1>
             <p>這是我在嘉義高中期間進行的自主學習專案，主題為「XXXXX」。</p>
@@ -125,6 +118,6 @@
         <p>瀏覽次數：<span id="viewCount">0</span></p>
     </footer>
 
-
+    
 </body>
 </html>
