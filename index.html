@@ -3,38 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的個人網站</title>
+    <title>我的個人部落格</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <h1>歡迎來到我的網站</h1>
-        <p>這是一個簡單的介紹頁面</p>
-    </header>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- 側邊欄 -->
+        <aside class="w-64 bg-blue-600 text-white flex flex-col">
+            <div class="p-4 text-center text-xl font-bold border-b border-blue-400">
+                我的部落格
+            </div>
+            <nav class="flex-grow p-4">
+                <ul class="space-y-4">
+                    <li><a href="#about" class="block hover:bg-blue-500 p-2 rounded">自我介紹</a></li>
+                    <li><a href="#projects" class="block hover:bg-blue-500 p-2 rounded">專案</a></li>
+                    <li><a href="#blog" class="block hover:bg-blue-500 p-2 rounded">部落格文章</a></li>
+                    <li><a href="#contact" class="block hover:bg-blue-500 p-2 rounded">聯絡我</a></li>
+                </ul>
+            </nav>
+            <footer class="p-4 text-center text-sm border-t border-blue-400">
+                © 2025 我的部落格
+            </footer>
+        </aside>
 
-    <main>
-        <section>
-            <h2>關於我</h2>
-            <p>嗨，我是你的名字，一位熱愛學習和創作的開發者。我喜歡程式設計、跑步和挑戰自己。</p>
-        </section>
+        <!-- 主內容 -->
+        <main class="flex-grow p-8 overflow-auto">
+            <!-- 自我介紹 -->
+            <section id="about" class="mb-8">
+                <h1 class="text-2xl font-bold mb-4">自我介紹</h1>
+                <p>嗨，我是你的名字，一位熱愛程式設計和跑步的開發者！我目前就讀中央大學土木工程系，並對專案開發和學習新技術充滿熱情。</p>
+            </section>
 
-        <section>
-            <h2>我的興趣</h2>
-            <ul>
-                <li>程式設計</li>
-                <li>跑步（尤其是馬拉松）</li>
-                <li>探索新技術</li>
-            </ul>
-        </section>
+            <!-- 專案 -->
+            <section id="projects" class="mb-8">
+                <h1 class="text-2xl font-bold mb-4">專案</h1>
+                <ul class="space-y-4">
+                    <li class="p-4 bg-white shadow rounded">
+                        <h2 class="text-xl font-semibold">專案名稱 1</h2>
+                        <p class="text-gray-700">這是一個描述專案的簡短介紹。</p>
+                    </li>
+                    <li class="p-4 bg-white shadow rounded">
+                        <h2 class="text-xl font-semibold">專案名稱 2</h2>
+                        <p class="text-gray-700">這是一個描述專案的簡短介紹。</p>
+                    </li>
+                </ul>
+            </section>
 
-        <section>
-            <h2>聯絡我</h2>
-            <p>Email: <a href="mailto:example@gmail.com">example@gmail.com</a></p>
-        </section>
-    </main>
+            <!-- 部落格文章 -->
+            <section id="blog" class="mb-8">
+                <h1 class="text-2xl font-bold mb-4">部落格文章</h1>
+                <ul class="space-y-4">
+                    <li class="p-4 bg-white shadow rounded">
+                        <a href="#" class="text-xl font-semibold text-blue-600">文章標題 1</a>
+                        <p class="text-gray-700">這是一篇文章的簡短摘要。</p>
+                    </li>
+                    <li class="p-4 bg-white shadow rounded">
+                        <a href="#" class="text-xl font-semibold text-blue-600">文章標題 2</a>
+                        <p class="text-gray-700">這是一篇文章的簡短摘要。</p>
+                    </li>
+                </ul>
+            </section>
 
-    <footer>
-        <p>© 2025 我的個人網站. 保留所有權利.</p>
-    </footer>
+            <!-- 聯絡我 -->
+            <section id="contact">
+                <h1 class="text-2xl font-bold mb-4">聯絡我</h1>
+                <p>如果有任何問題或合作機會，歡迎透過以下方式聯絡我：</p>
+                <p>Email: <a href="mailto:example@gmail.com" class="text-blue-600">example@gmail.com</a></p>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
