@@ -28,12 +28,12 @@
         position: absolute;
         border-radius: 50%;
         transform: scale(0);
-        animation: ripple-animation 0.4s linear; /* 調整動畫時間更短 */
+        animation: ripple-animation 0.3s linear; /* 調整動畫時間更短 */
         background: rgba(255, 255, 255, 0.3); /* 調整透明度 */
     }
     @keyframes ripple-animation {
         to {
-            transform: scale(2); /* 減小漣漪的大小 */
+            transform: scale(1.5); /* 減小漣漪的大小 */
             opacity: 0;
         }
     }
@@ -55,7 +55,7 @@
     </header>
 
     <!-- 主內容 -->
-    <main class="max-w-6xl mx-auto p-8" id="home">
+    <main class="max-w-6xl mx-auto p-8">
         <!-- 主頁內容 -->
         <section class="text-center py-20">
             <h1 class="text-4xl font-bold mb-4 interactive">歡迎來到我的個人部落格</h1>
