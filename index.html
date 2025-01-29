@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的個人部落格</title>
-    <!-- 網頁圖標 -->
+    <!-- 修正網頁圖標 -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,13 +40,13 @@
             }
         }
 
-        /* 深色系背景與文字 */
+        /* 背景設定為全黑 */
         body {
-            background-color: #181818;
+            background-color: #000000;
             color: #e0e0e0;
         }
         .bg-gray-900 {
-            background-color: #2d2d2d;
+            background-color: #1a1a1a; /* 深灰色背景 */
         }
         .text-gray-400 {
             color: #b3b3b3;
@@ -58,32 +58,30 @@
             background-color: #121212;
         }
 
-        /* 歡迎頁面 */
-        #welcome-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: white;
+        /* 主頁內容樣式 */
+        #main-page {
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            height: 100vh;
+            flex-direction: column;
         }
-
-        #welcome-page h1 {
+        #main-page h1 {
             font-size: 3rem;
             font-weight: bold;
             text-align: center;
         }
+        #main-page p {
+            font-size: 1.5rem;
+            color: #d1d1d1;
+        }
     </style>
 </head>
 <body class="bg-gray-950 text-gray-200">
-    <!-- 歡迎頁面 -->
-    <div id="welcome-page">
+    <!-- 主頁 -->
+    <div id="main-page">
         <h1>歡迎來到我的個人部落格</h1>
+        <p>探索我的故事、專案和更多內容！</p>
     </div>
 
     <!-- 頂部導航欄 -->
@@ -166,11 +164,6 @@
                 if (target) target.classList.remove('hidden');
             });
         });
-
-        // 歡迎頁面過渡
-        setTimeout(() => {
-            document.getElementById('welcome-page').style.display = 'none';
-        }, 3000); // 3秒後隱藏歡迎頁面
 
         // 滑鼠點擊漣漪效果
         document.body.addEventListener('click', (e) => {
