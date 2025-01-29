@@ -27,28 +27,28 @@
             position: absolute;
             border-radius: 50%;
             transform: scale(0);
-            animation: ripple-animation 0.3s linear;
-            background: rgba(255, 255, 255, 0.2);
+            animation: ripple-animation 0.6s linear;
+            background: rgba(255, 255, 255, 0.6);
         }
         @keyframes ripple-animation {
             to {
-                transform: scale(1.5);
+                transform: scale(4);
                 opacity: 0;
             }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-300">
+<body class="bg-gray-950 text-gray-200">
     <!-- 頂部導航欄 -->
-    <header class="bg-gray-800 text-white p-4 shadow-md sticky top-0 z-10">
+    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
         <nav class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="text-xl font-bold">我的部落格</div>
             <ul class="flex space-x-6">
-                <li><a href="#home" class="hover:text-gray-400 flex items-center"><img src="logo.png" alt="Logo" class="h-5 w-5 mr-1">主頁</a></li>
-                <li><a href="#about" class="hover:text-gray-400 flex items-center"><img src="logo.png" alt="Logo" class="h-5 w-5 mr-1">自我介紹</a></li>
-                <li><a href="#projects" class="hover:text-gray-400 flex items-center"><img src="logo.png" alt="Logo" class="h-5 w-5 mr-1">專案</a></li>
-                <li><a href="#blog" class="hover:text-gray-400 flex items-center"><img src="logo.png" alt="Logo" class="h-5 w-5 mr-1">部落格文章</a></li>
-                <li><a href="#contact" class="hover:text-gray-400 flex items-center"><img src="logo.png" alt="Logo" class="h-5 w-5 mr-1">聯絡我</a></li>
+                <li><a href="#home" class="hover:text-gray-400">主頁</a></li>
+                <li><a href="#about" class="hover:text-gray-400">自我介紹</a></li>
+                <li><a href="#projects" class="hover:text-gray-400">專案</a></li>
+                <li><a href="#blog" class="hover:text-gray-400">部落格文章</a></li>
+                <li><a href="#contact" class="hover:text-gray-400">聯絡我</a></li>
             </ul>
         </nav>
     </header>
@@ -61,44 +61,44 @@
             <p class="text-lg text-gray-400">探索我的故事、專案和更多內容！</p>
         </section>
 
-        <!-- 自我介紹 -->
-        <section id="about" class="hidden bg-gray-900">
+        <!-- 自我介紹（隱藏於主頁外） -->
+        <section id="about" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">自我介紹</h1>
             <p>嗨，我是你的名字，一位熱愛程式設計和跑步的開發者！我目前就讀中央大學土木工程系，並對專案開發和學習新技術充滿熱情。</p>
         </section>
 
-        <!-- 專案 -->
-        <section id="projects" class="hidden bg-gray-900">
+        <!-- 專案（隱藏於主頁外） -->
+        <section id="projects" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">專案</h1>
             <ul class="space-y-4">
-                <li class="p-4 bg-gray-800 shadow rounded interactive">
+                <li class="p-4 bg-gray-900 shadow rounded interactive">
                     <h2 class="text-xl font-semibold">專案名稱 1</h2>
                     <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
                 </li>
-                <li class="p-4 bg-gray-800 shadow rounded interactive">
+                <li class="p-4 bg-gray-900 shadow rounded interactive">
                     <h2 class="text-xl font-semibold">專案名稱 2</h2>
                     <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
                 </li>
             </ul>
         </section>
 
-        <!-- 部落格文章 -->
-        <section id="blog" class="hidden bg-gray-900">
+        <!-- 部落格文章（隱藏於主頁外） -->
+        <section id="blog" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">部落格文章</h1>
             <ul class="space-y-4">
-                <li class="p-4 bg-gray-800 shadow rounded interactive">
+                <li class="p-4 bg-gray-900 shadow rounded interactive">
                     <a href="#" class="text-xl font-semibold text-blue-400">文章標題 1</a>
                     <p class="text-gray-400">這是一篇文章的簡短摘要。</p>
                 </li>
-                <li class="p-4 bg-gray-800 shadow rounded interactive">
+                <li class="p-4 bg-gray-900 shadow rounded interactive">
                     <a href="#" class="text-xl font-semibold text-blue-400">文章標題 2</a>
                     <p class="text-gray-400">這是一篇文章的簡短摘要。</p>
                 </li>
             </ul>
         </section>
 
-        <!-- 聯絡我 -->
-        <section id="contact" class="hidden bg-gray-900">
+        <!-- 聯絡我（隱藏於主頁外） -->
+        <section id="contact" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">聯絡我</h1>
             <p>如果有任何問題或合作機會，歡迎透過以下方式聯絡我：</p>
             <p>Email: <a href="mailto:example@gmail.com" class="text-blue-400">example@gmail.com</a></p>
@@ -106,7 +106,7 @@
     </main>
 
     <!-- 頁腳 -->
-    <footer class="bg-gray-800 text-gray-400 text-center py-4 mt-10">
+    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
         <p>© 2025 我的部落格. 保留所有權利.</p>
         <p>瀏覽次數：<span id="viewCount">0</span></p>
     </footer>
@@ -132,11 +132,11 @@
             const ripple = document.createElement('div');
             ripple.className = 'ripple';
             document.body.appendChild(ripple);
-            const size = Math.max(e.target.clientWidth, e.target.clientHeight) * 1.2; // Smaller ripple size
+            const size = Math.max(window.innerWidth, window.innerHeight);
             ripple.style.width = ripple.style.height = `${size}px`;
             ripple.style.left = `${e.pageX - size / 2}px`;
             ripple.style.top = `${e.pageY - size / 2}px`;
-            setTimeout(() => ripple.remove(), 300);
+            setTimeout(() => ripple.remove(), 600);
         });
     </script>
 </body>
