@@ -1,166 +1,85 @@
-/* 基本樣式設定 */
+/* 全站通用樣式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #121212; /* 深灰色背景 */
-    color: #e0e0e0; /* 淺灰色文字 */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  line-height: 1.6;
 }
 
-a {
-    color: #4fa3f7; /* 藍色連結 */
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline; /* 滑鼠懸停時顯示底線 */
-}
-
-h1, h2 {
-    color: #f5f5f5; /* 白色標題 */
-}
-
-/* 設定連結和互動元素 */
-.interactive {
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.interactive:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* 互動效果，增加縮放與陰影 */
-}
-
-/* 頂部導航欄 */
-header {
-    background-color: #1e1e1e; /* 深灰色背景 */
-    padding: 16px 24px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* 顯示陰影 */
-}
-
-header .text-xl {
-    font-weight: bold;
-}
-
-header ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 24px;
-}
-
-header li {
-    display: inline-block;
-}
-
-header a {
-    color: #bdbdbd; /* 淺灰色文字 */
-    transition: color 0.2s;
-}
-
-header a:hover {
-    color: #ffffff; /* 滑鼠懸停時變白 */
-}
-
-/* 主頁內容 */
-main {
-    padding: 48px 24px;
-    max-width: 1024px;
-    margin: 0 auto;
-}
-
-/* 各個區段 */
-section {
-    margin-bottom: 48px;
-}
-
-section h1 {
-    font-size: 2.5rem; /* 大標題 */
-    font-weight: bold;
-}
-
-section p {
-    font-size: 1rem;
-    color: #bdbdbd; /* 淺灰色文字 */
-}
-
-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-section ul li {
-    background-color: #2c2c2c; /* 每個專案或文章的背景 */
-    padding: 16px;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    transition: background-color 0.3s ease;
-}
-
-section ul li:hover {
-    background-color: #3a3a3a; /* 滑鼠懸停變更背景顏色 */
-}
-
-section ul li h2 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #ffffff; /* 文章標題顯示為白色 */
-}
-
-section ul li p {
-    color: #bdbdbd; /* 文章描述顯示為灰色 */
-}
-
-section ul li a {
-    color: #4fa3f7; /* 藍色文章標題 */
-}
-
-section ul li a:hover {
-    color: #ffffff; /* 滑鼠懸停時變為白色 */
-}
-
-/* 頁腳樣式 */
-footer {
-    background-color: #1e1e1e; /* 深灰背景 */
-    color: #bdbdbd; /* 淺灰色文字 */
-    padding: 24px 0;
-    text-align: center;
-}
-
-footer p {
-    font-size: 1rem;
-}
-
-/* 滑鼠點擊漣漪效果 */
-body {
-    position: relative;
-    overflow-x: hidden;
-}
-
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    transform: scale(0);
-    animation: ripple-animation 0.6s linear;
-    background: rgba(255, 255, 255, 0.6);
-}
-
-@keyframes ripple-animation {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-/* 設置頁面元素的間距和邊距 */
 .container {
-    padding: 20px;
+  display: flex;
+  min-height: 100vh;
 }
 
-.hidden {
-    display: none;
+/* 目錄 */
+.sidebar {
+  width: 250px;
+  background-color: #1e1e1e;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 10px 20px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #e0e0e0;
+  display: block;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  background-color: #333;
+}
+
+/* 主要內容區域 */
+main {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+section {
+  background-color: #333;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #fff;
+}
+
+/* 頁腳 */
+footer {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
