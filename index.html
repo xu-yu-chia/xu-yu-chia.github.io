@@ -1,53 +1,24 @@
 <!DOCTYPE html>
 <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
 <html lang="zh-Hant">
+
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xu Yu-Chia's Blog</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 滑鼠互動效果 */
-        a:hover {
-            text-decoration: underline;
-        }
-        .interactive:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        .interactive {
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        /* 改進的漣漪效果 */
-        body {
-            position: relative;
-            overflow-x: hidden;
-        }
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-animation 0.4s ease-out; /* 更自然的動畫時間與效果 */
-            background: rgba(255, 255, 255, 0.2); /* 更柔和的透明度 */
-            pointer-events: none; /* 防止影響點擊事件 */
-        }
-        @keyframes ripple-animation {
-            to {
-                transform: scale(1.5); /* 更小的漣漪大小 */
-                opacity: 0;
-            }
-        }
-    </style>
+    <script src="script.js" defer></script> 
 </head>
+
+    
 <body class="bg-gray-950 text-gray-200">
     <!-- 頂部導航欄 -->
     <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
         <nav class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold"><a herf ="https://xu-yu-chia.github.io/">Xu Yu-Chia's Blog</a></div>
+            <div class="text-xl font-bold"><a herf ="https://xu-yu-chia.github.io">Xu Yu-Chia's Blog</a></div>
             <ul class="flex space-x-6">
-                <li><a href="https://xu-yu-chia.github.io/" class="hover:text-gray-400">Home</a></li>
                 <li><a href="#about" class="hover:text-gray-400">About Me</a></li>
                 <li><a href="#projects" class="hover:text-gray-400">Project</a></li>
                 <li><a href="#blog" class="hover:text-gray-400">Other Blogs</a></li>
@@ -62,6 +33,12 @@
         <section class="text-center py-20">
             <h1 class="text-4xl font-bold mb-4 interactive">歡迎來到Xu Yu-Chia's Blog</h1>
             <p class="text-lg text-gray-400">探索我的故事、專案和更多內容！</p>
+            <p class="text-lg text-gray-400"> </p>
+            <p class="text-lg text-gray-400"> </p>
+            <p class="text-lg text-gray-400"> </p>
+            <p class="text-lg text-gray-400"> </p>
+            <p class="text-lg text-gray-400"> </p>
+            <p class="text-lg text-gray-400"> </p>
         </section>
 
         
@@ -79,15 +56,45 @@
             <h1 class="text-2xl font-bold mb-4 interactive">Project</h1>
             <ul class="space-y-4">
                 <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <h2 class="text-xl font-semibold">專案名稱 1</h2>
-                    <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
+                    <h2 class="text-xl font-semibold">中央大學工學院程式競賽</h2>
+                    <p class="text-gray-400">工學院程式競賽擔任組長獲得第一名的佳績</p>
+                <li class="p-4 bg-gray-900 shadow rounded">
+                    <h2 class="text-xl font-semibold">
+                        <a href="#highschool-learning" class="hover:text-gray-400">高中自主學習</a>
+                    </h2>
+                    <p class="text-gray-400">自主學習成果發表榮獲嘉義高中佳作。</p>
                 </li>
-                <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <h2 class="text-xl font-semibold">專案名稱 2</h2>
-                    <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
+                <!-- 高中自主學習卡片 -->
+                <li>
+                    <a href="#highschool-learning" class="block p-4 bg-gray-900 shadow rounded hover:bg-gray-800 transition">
+                        <h2 class="text-xl font-semibold">高中自主學習</h2>
+                        <p class="text-gray-400">自主學習成果發表榮獲嘉義高中佳作。</p>
+                    </a>
                 </li>
+
             </ul>
         </section>
+        
+        <!-- 專案內容 -->
+        <section id="project1" class="hidden">
+            <h1 class="text-2xl font-bold mb-4 interactive">中央大學工學院程式競賽</h1>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+        </section>
+        
+        <section id="highschool-learning" class="hidden">
+            <h1 class="text-2xl font-bold mb-4">高中自主學習</h1>
+            <p>這是我在嘉義高中期間進行的自主學習專案，主題為「XXXXX」。</p>
+            <ul class="list-disc list-inside text-gray-400">
+                <li>完成主題研究並參與校內發表會</li>
+                <li>獲得校方頒發的「佳作」獎項</li>
+            </ul>
+        </section>
+
+
 
         <!-- 部落格文章（隱藏於主頁外） -->
         <section id="blog" class="hidden">
@@ -118,34 +125,6 @@
         <p>瀏覽次數：<span id="viewCount">0</span></p>
     </footer>
 
-    <script>
-        // 模擬瀏覽次數
-        const viewCount = localStorage.getItem('viewCount') || 0;
-        document.getElementById('viewCount').textContent = parseInt(viewCount) + 1;
-        localStorage.setItem('viewCount', parseInt(viewCount) + 1);
 
-        // 簡單顯示內容切換
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', event => {
-                event.preventDefault();
-                document.querySelectorAll('main section').forEach(section => section.classList.add('hidden'));
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) target.classList.remove('hidden');
-            });
-        });
-
-        // 滑鼠點擊漣漪效果
-        document.body.addEventListener('click', (e) => {
-            const ripple = document.createElement('div');
-            ripple.className = 'ripple';
-            document.body.appendChild(ripple);
-
-            const size = 100; // 固定漣漪大小更小
-            ripple.style.width = ripple.style.height = `${size}px`;
-            ripple.style.left = `${e.pageX - size / 2}px`;
-            ripple.style.top = `${e.pageY - size / 2}px`;
-            setTimeout(() => ripple.remove(), 400);
-        });
-    </script>
 </body>
 </html>
