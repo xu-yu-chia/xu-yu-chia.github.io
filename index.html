@@ -18,24 +18,24 @@
         .interactive {
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        /* 滑鼠點擊漣漪效果 */
-        body {
-            position: relative;
-            overflow-x: hidden;
+        /* 改進的漣漪效果 */
+    body {
+        position: relative;
+        overflow-x: hidden;
+    }
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple-animation 0.4s linear; /* 調整動畫時間更短 */
+        background: rgba(255, 255, 255, 0.3); /* 調整透明度 */
+    }
+    @keyframes ripple-animation {
+        to {
+            transform: scale(2); /* 減小漣漪的大小 */
+            opacity: 0;
         }
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-            background: rgba(255, 255, 255, 0.6);
-        }
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
+    }
     </style>
 </head>
 <body class="bg-gray-950 text-gray-200">
