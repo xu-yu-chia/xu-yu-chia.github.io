@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<link rel="shortcut icon" href="logo.ico" type="image/x-icon">
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的個人部落格</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* 滑鼠互動效果 */
@@ -20,32 +20,55 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
         /* 改進的漣漪效果 */
-    body {
-        position: relative;
-        overflow-x: hidden;
-    }
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        transform: scale(0);
-        animation: ripple-animation 0.3s linear; /* 調整動畫時間更短 */
-        background: rgba(255, 255, 255, 0.3); /* 調整透明度 */
-    }
-    @keyframes ripple-animation {
-        to {
-            transform: scale(1.5); /* 減小漣漪的大小 */
-            opacity: 0;
+        body {
+            position: relative;
+            overflow-x: hidden;
         }
-    }
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-animation 0.3s linear; 
+            background: rgba(255, 255, 255, 0.3);
+        }
+        @keyframes ripple-animation {
+            to {
+                transform: scale(1.5); 
+                opacity: 0;
+            }
+        }
+        /* 下拉式目錄效果 */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            color: black;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-200">
+<body class="bg-gray-100 text-gray-900">
     <!-- 頂部導航欄 -->
-    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
+    <header class="bg-white text-black p-4 shadow-md sticky top-0 z-10">
         <nav class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="text-xl font-bold">我的部落格</div>
             <ul class="flex space-x-6">
-                <li><a href="#home" class="hover:text-gray-400">主頁</a></li>
+                <li class="dropdown">
+                    <a href="#home" class="hover:text-gray-400">主頁</a>
+                    <ul class="dropdown-menu p-2">
+                        <li><a href="#welcome" class="block px-4 py-2 hover:bg-gray-200">歡迎</a></li>
+                        <li><a href="#overview" class="block px-4 py-2 hover:bg-gray-200">導覽</a></li>
+                    </ul>
+                </li>
                 <li><a href="#about" class="hover:text-gray-400">自我介紹</a></li>
                 <li><a href="#projects" class="hover:text-gray-400">專案</a></li>
                 <li><a href="#blog" class="hover:text-gray-400">部落格文章</a></li>
@@ -57,17 +80,11 @@
     <!-- 主內容 -->
     <main class="max-w-6xl mx-auto p-8">
         <!-- 主頁內容 -->
-        <section class="text-center py-20">
+        <section id="home" class="text-center py-20">
             <h1 class="text-4xl font-bold mb-4 interactive">歡迎來到我的個人部落格</h1>
-            <p class="text-lg text-gray-400">探索我的故事、專案和更多內容！</p>
+            <p class="text-lg text-gray-600">探索我的故事、專案和更多內容！</p>
         </section>
 
-        <!-- 主頁內容 -->
-        <section id="home" class="hidden">
-            <h1 class="text-4xl font-bold mb-4 interactive">歡迎來到我的個人部落格</h1>
-            <p class="text-lg text-gray-400">探索我的故事、專案和更多內容！</p>
-        </section>
-        
         <!-- 自我介紹（隱藏於主頁外） -->
         <section id="about" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">自我介紹</h1>
@@ -78,13 +95,13 @@
         <section id="projects" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">專案</h1>
             <ul class="space-y-4">
-                <li class="p-4 bg-gray-900 shadow rounded interactive">
+                <li class="p-4 bg-gray-200 shadow rounded interactive">
                     <h2 class="text-xl font-semibold">專案名稱 1</h2>
-                    <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
+                    <p class="text-gray-600">這是一個描述專案的簡短介紹。</p>
                 </li>
-                <li class="p-4 bg-gray-900 shadow rounded interactive">
+                <li class="p-4 bg-gray-200 shadow rounded interactive">
                     <h2 class="text-xl font-semibold">專案名稱 2</h2>
-                    <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
+                    <p class="text-gray-600">這是一個描述專案的簡短介紹。</p>
                 </li>
             </ul>
         </section>
@@ -93,36 +110,50 @@
         <section id="blog" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">部落格文章</h1>
             <ul class="space-y-4">
-                <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <a href="#" class="text-xl font-semibold text-blue-400">文章標題 1</a>
-                    <p class="text-gray-400">這是一篇文章的簡短摘要。</p>
+                <li class="p-4 bg-gray-200 shadow rounded interactive">
+                    <a href="#" class="text-xl font-semibold text-blue-600">文章標題 1</a>
+                    <p class="text-gray-600">這是一篇文章的簡短摘要。</p>
                 </li>
-                <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <a href="#" class="text-xl font-semibold text-blue-400">文章標題 2</a>
-                    <p class="text-gray-400">這是一篇文章的簡短摘要。</p>
+                <li class="p-4 bg-gray-200 shadow rounded interactive">
+                    <a href="#" class="text-xl font-semibold text-blue-600">文章標題 2</a>
+                    <p class="text-gray-600">這是一篇文章的簡短摘要。</p>
                 </li>
             </ul>
         </section>
 
-        <!-- 聯絡我（隱藏於主頁外） -->
+        <!-- 聯絡我（新增留言板） -->
         <section id="contact" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">聯絡我</h1>
             <p>如果有任何問題或合作機會，歡迎透過以下方式聯絡我：</p>
-            <p>Email: <a href="mailto:example@gmail.com" class="text-blue-400">example@gmail.com</a></p>
+            <p>Email: <a href="mailto:example@gmail.com" class="text-blue-600">example@gmail.com</a></p>
+
+            <!-- 留言板 -->
+            <div class="mt-8">
+                <h2 class="text-xl font-bold mb-4">留言板</h2>
+                <form id="commentForm" class="space-y-4">
+                    <textarea id="commentInput" class="w-full p-2 border rounded" placeholder="輸入你的留言"></textarea>
+                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">提交留言</button>
+                </form>
+                <ul id="commentsList" class="mt-4 space-y-2">
+                </ul>
+            </div>
         </section>
     </main>
 
     <!-- 頁腳 -->
-    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
+    <footer class="bg-white text-gray-600 text-center py-4 mt-10">
         <p>© 2025 我的部落格. 保留所有權利.</p>
         <p>瀏覽次數：<span id="viewCount">0</span></p>
     </footer>
 
     <script>
-        // 模擬瀏覽次數
-        const viewCount = localStorage.getItem('viewCount') || 0;
-        document.getElementById('viewCount').textContent = parseInt(viewCount) + 1;
-        localStorage.setItem('viewCount', parseInt(viewCount) + 1);
+        // 獲取真實瀏覽次數
+        async function updateViewCount() {
+            const response = await fetch('https://api.countapi.xyz/hit/yourdomain.com/visits');
+            const data = await response.json();
+            document.getElementById('viewCount').textContent = data.value;
+        }
+        updateViewCount();
 
         // 簡單顯示內容切換
         document.querySelectorAll('nav a').forEach(link => {
@@ -137,13 +168,29 @@
         // 滑鼠點擊漣漪效果
         document.body.addEventListener('click', (e) => {
             const ripple = document.createElement('div');
-            ripple.className = 'ripple';
+            ripple.className = "ripple";
+            ripple.style.width = ripple.style.height = Math.max(document.body.clientWidth, document.body.clientHeight) + "px";
+            ripple.style.left = e.clientX - ripple.offsetWidth / 2 + "px";
+            ripple.style.top = e.clientY - ripple.offsetHeight / 2 + "px";
             document.body.appendChild(ripple);
-            const size = Math.max(window.innerWidth, window.innerHeight);
-            ripple.style.width = ripple.style.height = `${size}px`;
-            ripple.style.left = `${e.pageX - size / 2}px`;
-            ripple.style.top = `${e.pageY - size / 2}px`;
-            setTimeout(() => ripple.remove(), 600);
+            ripple.addEventListener("animationend", () => ripple.remove());
+        });
+
+        // 留言板功能
+        const commentForm = document.getElementById('commentForm');
+        const commentInput = document.getElementById('commentInput');
+        const commentsList = document.getElementById('commentsList');
+
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                const commentItem = document.createElement('li');
+                commentItem.textContent = commentText;
+                commentItem.className = 'p-2 border rounded bg-gray-100';
+                commentsList.appendChild(commentItem);
+                commentInput.value = '';
+            }
         });
     </script>
 </body>
