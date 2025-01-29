@@ -7,71 +7,94 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
-    <div class="flex h-screen">
-        <!-- 側邊欄 -->
-        <aside class="w-64 bg-blue-600 text-white flex flex-col">
-            <div class="p-4 text-center text-xl font-bold border-b border-blue-400">
-                我的部落格
-            </div>
-            <nav class="flex-grow p-4">
-                <ul class="space-y-4">
-                    <li><a href="#about" class="block hover:bg-blue-500 p-2 rounded">自我介紹</a></li>
-                    <li><a href="#projects" class="block hover:bg-blue-500 p-2 rounded">專案</a></li>
-                    <li><a href="#blog" class="block hover:bg-blue-500 p-2 rounded">部落格文章</a></li>
-                    <li><a href="#contact" class="block hover:bg-blue-500 p-2 rounded">聯絡我</a></li>
-                </ul>
-            </nav>
-            <footer class="p-4 text-center text-sm border-t border-blue-400">
-                © 2025 我的部落格
-            </footer>
-        </aside>
+<body class="bg-gray-900 text-gray-200">
+    <!-- 頂部導航欄 -->
+    <header class="bg-gray-800 text-white p-4 shadow-md sticky top-0 z-10">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold">我的部落格</div>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="hover:text-gray-400">主頁</a></li>
+                <li><a href="#about" class="hover:text-gray-400">自我介紹</a></li>
+                <li><a href="#projects" class="hover:text-gray-400">專案</a></li>
+                <li><a href="#blog" class="hover:text-gray-400">部落格文章</a></li>
+                <li><a href="#contact" class="hover:text-gray-400">聯絡我</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- 主內容 -->
-        <main class="flex-grow p-8 overflow-auto">
-            <!-- 自我介紹 -->
-            <section id="about" class="mb-8">
-                <h1 class="text-2xl font-bold mb-4">自我介紹</h1>
-                <p>嗨，我是你的名字，一位熱愛程式設計和跑步的開發者！我目前就讀中央大學土木工程系，並對專案開發和學習新技術充滿熱情。</p>
-            </section>
+    <!-- 主內容 -->
+    <main class="max-w-6xl mx-auto p-8" id="home">
+        <!-- 主頁內容 -->
+        <section class="text-center py-20">
+            <h1 class="text-4xl font-bold mb-4">歡迎來到我的個人部落格</h1>
+            <p class="text-lg text-gray-400">探索我的故事、專案和更多內容！</p>
+        </section>
 
-            <!-- 專案 -->
-            <section id="projects" class="mb-8">
-                <h1 class="text-2xl font-bold mb-4">專案</h1>
-                <ul class="space-y-4">
-                    <li class="p-4 bg-white shadow rounded">
-                        <h2 class="text-xl font-semibold">專案名稱 1</h2>
-                        <p class="text-gray-700">這是一個描述專案的簡短介紹。</p>
-                    </li>
-                    <li class="p-4 bg-white shadow rounded">
-                        <h2 class="text-xl font-semibold">專案名稱 2</h2>
-                        <p class="text-gray-700">這是一個描述專案的簡短介紹。</p>
-                    </li>
-                </ul>
-            </section>
+        <!-- 自我介紹（隱藏於主頁外） -->
+        <section id="about" class="hidden">
+            <h1 class="text-2xl font-bold mb-4">自我介紹</h1>
+            <p>嗨，我是你的名字，一位熱愛程式設計和跑步的開發者！我目前就讀中央大學土木工程系，並對專案開發和學習新技術充滿熱情。</p>
+        </section>
 
-            <!-- 部落格文章 -->
-            <section id="blog" class="mb-8">
-                <h1 class="text-2xl font-bold mb-4">部落格文章</h1>
-                <ul class="space-y-4">
-                    <li class="p-4 bg-white shadow rounded">
-                        <a href="#" class="text-xl font-semibold text-blue-600">文章標題 1</a>
-                        <p class="text-gray-700">這是一篇文章的簡短摘要。</p>
-                    </li>
-                    <li class="p-4 bg-white shadow rounded">
-                        <a href="#" class="text-xl font-semibold text-blue-600">文章標題 2</a>
-                        <p class="text-gray-700">這是一篇文章的簡短摘要。</p>
-                    </li>
-                </ul>
-            </section>
+        <!-- 專案（隱藏於主頁外） -->
+        <section id="projects" class="hidden">
+            <h1 class="text-2xl font-bold mb-4">專案</h1>
+            <ul class="space-y-4">
+                <li class="p-4 bg-gray-800 shadow rounded">
+                    <h2 class="text-xl font-semibold">專案名稱 1</h2>
+                    <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
+                </li>
+                <li class="p-4 bg-gray-800 shadow rounded">
+                    <h2 class="text-xl font-semibold">專案名稱 2</h2>
+                    <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
+                </li>
+            </ul>
+        </section>
 
-            <!-- 聯絡我 -->
-            <section id="contact">
-                <h1 class="text-2xl font-bold mb-4">聯絡我</h1>
-                <p>如果有任何問題或合作機會，歡迎透過以下方式聯絡我：</p>
-                <p>Email: <a href="mailto:example@gmail.com" class="text-blue-600">example@gmail.com</a></p>
-            </section>
-        </main>
-    </div>
+        <!-- 部落格文章（隱藏於主頁外） -->
+        <section id="blog" class="hidden">
+            <h1 class="text-2xl font-bold mb-4">部落格文章</h1>
+            <ul class="space-y-4">
+                <li class="p-4 bg-gray-800 shadow rounded">
+                    <a href="#" class="text-xl font-semibold text-blue-400">文章標題 1</a>
+                    <p class="text-gray-400">這是一篇文章的簡短摘要。</p>
+                </li>
+                <li class="p-4 bg-gray-800 shadow rounded">
+                    <a href="#" class="text-xl font-semibold text-blue-400">文章標題 2</a>
+                    <p class="text-gray-400">這是一篇文章的簡短摘要。</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 聯絡我（隱藏於主頁外） -->
+        <section id="contact" class="hidden">
+            <h1 class="text-2xl font-bold mb-4">聯絡我</h1>
+            <p>如果有任何問題或合作機會，歡迎透過以下方式聯絡我：</p>
+            <p>Email: <a href="mailto:example@gmail.com" class="text-blue-400">example@gmail.com</a></p>
+        </section>
+    </main>
+
+    <!-- 頁腳 -->
+    <footer class="bg-gray-800 text-gray-400 text-center py-4 mt-10">
+        <p>© 2025 我的部落格. 保留所有權利.</p>
+        <p>瀏覽次數：<span id="viewCount">0</span></p>
+    </footer>
+
+    <script>
+        // 模擬瀏覽次數
+        const viewCount = localStorage.getItem('viewCount') || 0;
+        document.getElementById('viewCount').textContent = parseInt(viewCount) + 1;
+        localStorage.setItem('viewCount', parseInt(viewCount) + 1);
+
+        // 簡單顯示內容切換
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                document.querySelectorAll('main section').forEach(section => section.classList.add('hidden'));
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.classList.remove('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
