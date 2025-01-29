@@ -1,10 +1,52 @@
+/* 全域樣式 */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
     color: #333;
 }
 
-h1 {
+/* 頁首樣式 */
+header {
+    background-color: #4CAF50;
+    color: white;
     text-align: center;
+    padding: 1.5em 0;
+}
+
+/* 主內容樣式 */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
     color: #4CAF50;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+}
+
+/* 清單樣式 */
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+/* 頁尾樣式 */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
 }
