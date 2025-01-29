@@ -1,143 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的個人部落格</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 滑鼠互動效果 */
-        a:hover {
-            text-decoration: underline;
-        }
-        .interactive:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        .interactive {
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        /* 滑鼠點擊漣漪效果 */
-        body {
-            position: relative;
-            overflow-x: hidden;
-        }
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-            background: rgba(255, 255, 255, 0.6);
-        }
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的簡單網站</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-950 text-gray-200">
-    <!-- 頂部導航欄 -->
-    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
-        <nav class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold">我的部落格</div>
-            <ul class="flex space-x-6">
-                <li><a href="#home" class="hover:text-gray-400">主頁</a></li>
-                <li><a href="#about" class="hover:text-gray-400">自我介紹</a></li>
-                <li><a href="#projects" class="hover:text-gray-400">專案</a></li>
-                <li><a href="#blog" class="hover:text-gray-400">部落格文章</a></li>
-                <li><a href="#contact" class="hover:text-gray-400">聯絡我</a></li>
-            </ul>
-        </nav>
-    </header>
+<body>
+  <div class="container">
+    <!-- 目錄 -->
+    <nav class="sidebar">
+      <ul>
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#interests">我的興趣</a></li>
+      </ul>
+    </nav>
 
-    <!-- 主內容 -->
-    <main class="max-w-6xl mx-auto p-8" id="home">
-        <!-- 主頁內容 -->
-        <section class="text-center py-20">
-            <h1 class="text-4xl font-bold mb-4 interactive">歡迎來到我的個人部落格</h1>
-            <p class="text-lg text-gray-400">探索我的故事、專案和更多內容！</p>
-        </section>
+    <!-- 主要內容區 -->
+    <main>
+      <header>
+        <h1>歡迎來到我的簡單網站</h1>
+      </header>
 
-        <!-- 自我介紹（隱藏於主頁外） -->
-        <section id="about" class="hidden">
-            <h1 class="text-2xl font-bold mb-4 interactive">自我介紹</h1>
-            <p>嗨，我是你的名字，一位熱愛程式設計和跑步的開發者！我目前就讀中央大學土木工程系，並對專案開發和學習新技術充滿熱情。</p>
-        </section>
+      <section id="about">
+        <h2>關於我</h2>
+        <p>這是一個展示簡單 HTML 和 CSS 的範例網站。</p>
+      </section>
 
-        <!-- 專案（隱藏於主頁外） -->
-        <section id="projects" class="hidden">
-            <h1 class="text-2xl font-bold mb-4 interactive">專案</h1>
-            <ul class="space-y-4">
-                <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <h2 class="text-xl font-semibold">專案名稱 1</h2>
-                    <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
-                </li>
-                <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <h2 class="text-xl font-semibold">專案名稱 2</h2>
-                    <p class="text-gray-400">這是一個描述專案的簡短介紹。</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- 部落格文章（隱藏於主頁外） -->
-        <section id="blog" class="hidden">
-            <h1 class="text-2xl font-bold mb-4 interactive">部落格文章</h1>
-            <ul class="space-y-4">
-                <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <a href="#" class="text-xl font-semibold text-blue-400">文章標題 1</a>
-                    <p class="text-gray-400">這是一篇文章的簡短摘要。</p>
-                </li>
-                <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <a href="#" class="text-xl font-semibold text-blue-400">文章標題 2</a>
-                    <p class="text-gray-400">這是一篇文章的簡短摘要。</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- 聯絡我（隱藏於主頁外） -->
-        <section id="contact" class="hidden">
-            <h1 class="text-2xl font-bold mb-4 interactive">聯絡我</h1>
-            <p>如果有任何問題或合作機會，歡迎透過以下方式聯絡我：</p>
-            <p>Email: <a href="mailto:example@gmail.com" class="text-blue-400">example@gmail.com</a></p>
-        </section>
+      <section id="interests">
+        <h2>我的興趣</h2>
+        <ul>
+          <li>寫程式</li>
+          <li>跑步</li>
+          <li>閱讀書籍</li>
+        </ul>
+      </section>
     </main>
 
-    <!-- 頁腳 -->
-    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
-        <p>© 2025 我的部落格. 保留所有權利.</p>
-        <p>瀏覽次數：<span id="viewCount">0</span></p>
+    <footer>
+      <p>© 2025 我的網站</p>
     </footer>
-
-    <script>
-        // 模擬瀏覽次數
-        const viewCount = localStorage.getItem('viewCount') || 0;
-        document.getElementById('viewCount').textContent = parseInt(viewCount) + 1;
-        localStorage.setItem('viewCount', parseInt(viewCount) + 1);
-
-        // 簡單顯示內容切換
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', event => {
-                event.preventDefault();
-                document.querySelectorAll('main section').forEach(section => section.classList.add('hidden'));
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) target.classList.remove('hidden');
-            });
-        });
-
-        // 滑鼠點擊漣漪效果
-        document.body.addEventListener('click', (e) => {
-            const ripple = document.createElement('div');
-            ripple.className = 'ripple';
-            document.body.appendChild(ripple);
-            const size = Math.max(window.innerWidth, window.innerHeight);
-            ripple.style.width = ripple.style.height = `${size}px`;
-            ripple.style.left = `${e.pageX - size / 2}px`;
-            ripple.style.top = `${e.pageY - size / 2}px`;
-            setTimeout(() => ripple.remove(), 600);
-        });
-    </script>
+  </div>
 </body>
 </html>
