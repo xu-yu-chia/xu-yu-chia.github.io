@@ -121,29 +121,29 @@
         <!-- project1 -->
         <section id="project1" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">中央大學工學院程式競賽</h1>
-              <h1>C++ 程式設計專題：數據編碼與加密技術</h1>
+              <h1 class="text-1.5xl font-bold mb-2 interactive">C++ 程式設計專題：數據編碼與加密技術</h1>
 
-              <h2>組長與組員</h2>
+              <h2 class="text-1xl  interactive">團隊成員</h2>
               <ul>
                 <li>組長：許彧嘉</li>
                 <li>組員：林祐豪、林冠廷、陳辰、郭峯升、黃博廷、黃紹威</li>
               </ul>
 
-              <h2>主旨</h2>
+              <h2 class="text-1xl  interactive">主旨</h2>
               <p>本專題目的在讓學生學習並掌握數據編碼與加密技術，這些技術在現代資訊安全中扮演著重要角色。該專題結合了 Base64 編碼解碼和位移加密解密兩種基本的加密技術，並將其應用在多次編碼和解碼的流程中，進一步挑戰學生在程式設計中的思維和問題解決能力。</p>
 
-              <h2>專題目標 & 學習重點</h2>
+              <h2 class="text-1xl  interactive">專題目標 & 學習重點</h2>
               <ul>
                 <li><strong>Base64 編碼解碼</strong>：學習如何將資料轉換成 Base64 編碼，這是現代網路傳輸中常見的編碼方法，並且能理解它如何確保資料在不同系統間的兼容性和安全性。</li>
                 <li><strong>位移加密算法</strong>：通過位移加密，學生可以理解更簡單的加密原理，這為學習更複雜的加密技術（如 AES、RSA 等）奠定基礎。</li>
                 <li><strong>處理多次編碼與解碼</strong>：這樣的操作可以幫助學生理解數據處理的複雜性，並學會如何有效地管理多步驟的處理過程。</li>
               </ul>
 
-              <h2>題目</h2>
+              <h2 class="text-1xl  interactive">題目</h2>
               <h3>多層Base64與位移加密解密系統的設計與實作</h3>
               <p>請撰寫一個 C++ 程式，實現以下功能：</p>
 
-              <h3>功能要求</h3>
+              <h3 class="text-0.5xl ">功能要求</h3>
               <ul>
                 <li><strong>多層Base64編碼與位移加密</strong>：
                   <ul>
@@ -168,7 +168,7 @@
                 </li>
               </ul>
 
-              <h3>使用者輸入與輸出格式</h3>
+              <h3  class="text-0.5xl">使用者輸入與輸出格式</h3>
               <ul>
                 <li>使用者選擇模式：「E」表示加密，「D」表示解密。</li>
                 <li>使用者輸入字串與兩個密鑰：</li>
@@ -178,147 +178,147 @@
                 </ul>
               </ul>
 
-              <h2>結論與展望</h2>
+              <h2 class="text-1xl  interactive">結論與展望</h2>
               <p>多層加密系統在安全性方面存在挑戰，但透過結合其他加密演算法、增加錯誤誘導與假訊息層，以及設計多步驗證與防護機制，可以有效提升安全性並防範暴力破解。未來，我們將持續研究更強大的加密技術，以確保資料安全。</p>
 
-              <h2>程式碼</h2>
-              <pre>
-            #include <iostream>
-            #include <bitset>
-            using namespace std;
-
-            // 將索引值轉換為 Base64 字符
-            char indexToBase64Char(int index) {
-                if (index >= 0 && index <= 25) return 'A' + index; // A–Z
-                if (index >= 26 && index <= 51) return 'a' + (index - 26); // a–z
-                if (index >= 52 && index <= 61) return '0' + (index - 52); // 0–9
-                if (index == 62) return '+'; // +
-                if (index == 63) return '/'; // /
-                return '\0'; // 非法值
-            }
-
-            // 將 Base64 字符轉換為索引值
-            int base64CharToIndex(char c) {
-                if (c >= 'A' && c <= 'Z') return c - 'A'; // A–Z
-                if (c >= 'a' && c <= 'z') return c - 'a' + 26; // a–z
-                if (c >= '0' && c <= '9') return c - '0' + 52; // 0–9
-                if (c == '+') return 62; // +
-                if (c == '/') return 63; // /
-                return -1; // 非法字符
-            }
-
-            // Base64 編碼
-            string base64Encode(const string &input) {
-                string binaryData = "", encoded = "";
-                for (int i = 0; i < input.size(); i++) {
-                    bitset<8> bits(static_cast<unsigned long long>(input[i]));
-                    binaryData += bits.to_string();
-                }
-                while (binaryData.size() % 6 != 0) binaryData += "0";
-                for (int i = 0; i < binaryData.size(); i += 6) {
-                    bitset<6> bits(binaryData.substr(i, 6));
-                    int index = static_cast<int>(bits.to_ulong());
-                    encoded += indexToBase64Char(index);
-                }
-                while (encoded.size() % 4 != 0) encoded += '=';
-                return encoded;
-            }
-
-            // Base64 解碼
-            string base64Decode(const string &input) {
-                string binaryData = "", decoded = "";
-                size_t padding = 0;
-                string strippedInput = input;
-
-                for (int i = strippedInput.size() - 1; i >= 0 && strippedInput[i] == '='; i--) {
-                    strippedInput.erase(i, 1);
-                    padding++;
-                }
-
-                for (int i = 0; i < strippedInput.size(); i++) {
-                    int index = base64CharToIndex(strippedInput[i]);
-                    if (index == -1) return "解碼失敗";
-                    bitset<6> bits(index);
-                    binaryData += bits.to_string();
-                }
-
-                if (padding > 0) binaryData.erase(binaryData.end() - padding * 2, binaryData.end());
-                for (int i = 0; i < binaryData.size(); i += 8) {
-                    bitset<8> bits(binaryData.substr(i, 8));
-                    decoded += static_cast<char>(bits.to_ulong());
-                }
-                return decoded;
-            }
-
-            // 位移加密
-            string shiftEncrypt(const string &input, int k) {
-                string encrypted = "";
-                for (int i = 0; i < input.size(); i++) {
-                    char c = input[i];
-                    if (c >= 32 && c <= 126) {
-                        char shifted = (c - 32 + k) % 95 + 32;
-                        encrypted += shifted;
-                    } else {
-                        encrypted += c;
+              <h2 class="text-1xl  interactive">程式碼：</h2>
+              <pre><code>
+                    #include <iostream>
+                    #include <bitset>
+                    using namespace std;
+        
+                    // 將索引值轉換為 Base64 字符
+                    char indexToBase64Char(int index) {
+                        if (index >= 0 && index <= 25) return 'A' + index; // A–Z
+                        if (index >= 26 && index <= 51) return 'a' + (index - 26); // a–z
+                        if (index >= 52 && index <= 61) return '0' + (index - 52); // 0–9
+                        if (index == 62) return '+'; // +
+                        if (index == 63) return '/'; // /
+                        return '\0'; // 非法值
                     }
-                }
-                return encrypted;
-            }
-
-            // 位移解密
-            string shiftDecrypt(const string &input, int k) {
-                string decrypted = "";
-                for (int i = 0; i < input.size(); i++) {
-                    char c = input[i];
-                    if (c >= 32 && c <= 126) {
-                        char shifted = (c - 32 - k + 95) % 95 + 32;
-                        decrypted += shifted;
-                    } else {
-                        decrypted += c;
+        
+                    // 將 Base64 字符轉換為索引值
+                    int base64CharToIndex(char c) {
+                        if (c >= 'A' && c <= 'Z') return c - 'A'; // A–Z
+                        if (c >= 'a' && c <= 'z') return c - 'a' + 26; // a–z
+                        if (c >= '0' && c <= '9') return c - '0' + 52; // 0–9
+                        if (c == '+') return 62; // +
+                        if (c == '/') return 63; // /
+                        return -1; // 非法字符
                     }
-                }
-                return decrypted;
-            }
-
-            // 主程式
-            int main() {
-                string mode, input;
-                int n, k;
-
-                cout << "歡迎使用加密解密系統" << endl;
-                cout << "請選擇模式（E：加密，D：解密）: ";
-                cin >> mode;
-                cin.ignore();
-                cout << "請輸入字串: ";
-                getline(cin, input);
-                cout << "請輸入密鑰1(建議小一點): ";
-                cin >> n;
-                cout << "請輸入密鑰2: ";
-                cin >> k;
-
-                if (mode == "E") {
-                    for (int i = 0; i < n; i++) {
-                        input = base64Encode(input);
-                        input = shiftEncrypt(input, k);
-                    }
-                    cout << "加密後結果: " << input << endl;
-                } else if (mode == "D") {
-                    for (int i = 0; i < n; i++) {
-                        input = shiftDecrypt(input, k);
-                        input = base64Decode(input);
-                        if (input == "解碼失敗") {
-                            cout << "解碼失敗" << endl;
-                            return 0;
+        
+                    // Base64 編碼
+                    string base64Encode(const string &input) {
+                        string binaryData = "", encoded = "";
+                        for (int i = 0; i < input.size(); i++) {
+                            bitset<8> bits(static_cast<unsigned long long>(input[i]));
+                            binaryData += bits.to_string();
                         }
+                        while (binaryData.size() % 6 != 0) binaryData += "0";
+                        for (int i = 0; i < binaryData.size(); i += 6) {
+                            bitset<6> bits(binaryData.substr(i, 6));
+                            int index = static_cast<int>(bits.to_ulong());
+                            encoded += indexToBase64Char(index);
+                        }
+                        while (encoded.size() % 4 != 0) encoded += '=';
+                        return encoded;
                     }
-                    cout << "解碼後結果: " << input << endl;
-                } else {
-                    cout << "無效的模式！請輸入 'E' 或 'D'。" << endl;
-                }
-
-                return 0;
-            }
-              </pre>
+        
+                    // Base64 解碼
+                    string base64Decode(const string &input) {
+                        string binaryData = "", decoded = "";
+                        size_t padding = 0;
+                        string strippedInput = input;
+        
+                        for (int i = strippedInput.size() - 1; i >= 0 && strippedInput[i] == '='; i--) {
+                            strippedInput.erase(i, 1);
+                            padding++;
+                        }
+        
+                        for (int i = 0; i < strippedInput.size(); i++) {
+                            int index = base64CharToIndex(strippedInput[i]);
+                            if (index == -1) return "解碼失敗";
+                            bitset<6> bits(index);
+                            binaryData += bits.to_string();
+                        }
+        
+                        if (padding > 0) binaryData.erase(binaryData.end() - padding * 2, binaryData.end());
+                        for (int i = 0; i < binaryData.size(); i += 8) {
+                            bitset<8> bits(binaryData.substr(i, 8));
+                            decoded += static_cast<char>(bits.to_ulong());
+                        }
+                        return decoded;
+                    }
+        
+                    // 位移加密
+                    string shiftEncrypt(const string &input, int k) {
+                        string encrypted = "";
+                        for (int i = 0; i < input.size(); i++) {
+                            char c = input[i];
+                            if (c >= 32 && c <= 126) {
+                                char shifted = (c - 32 + k) % 95 + 32;
+                                encrypted += shifted;
+                            } else {
+                                encrypted += c;
+                            }
+                        }
+                        return encrypted;
+                    }
+        
+                    // 位移解密
+                    string shiftDecrypt(const string &input, int k) {
+                        string decrypted = "";
+                        for (int i = 0; i < input.size(); i++) {
+                            char c = input[i];
+                            if (c >= 32 && c <= 126) {
+                                char shifted = (c - 32 - k + 95) % 95 + 32;
+                                decrypted += shifted;
+                            } else {
+                                decrypted += c;
+                            }
+                        }
+                        return decrypted;
+                    }
+        
+                    // 主程式
+                    int main() {
+                        string mode, input;
+                        int n, k;
+        
+                        cout << "歡迎使用加密解密系統" << endl;
+                        cout << "請選擇模式（E：加密，D：解密）: ";
+                        cin >> mode;
+                        cin.ignore();
+                        cout << "請輸入字串: ";
+                        getline(cin, input);
+                        cout << "請輸入密鑰1(建議小一點): ";
+                        cin >> n;
+                        cout << "請輸入密鑰2: ";
+                        cin >> k;
+        
+                        if (mode == "E") {
+                            for (int i = 0; i < n; i++) {
+                                input = base64Encode(input);
+                                input = shiftEncrypt(input, k);
+                            }
+                            cout << "加密後結果: " << input << endl;
+                        } else if (mode == "D") {
+                            for (int i = 0; i < n; i++) {
+                                input = shiftDecrypt(input, k);
+                                input = base64Decode(input);
+                                if (input == "解碼失敗") {
+                                    cout << "解碼失敗" << endl;
+                                    return 0;
+                                }
+                            }
+                            cout << "解碼後結果: " << input << endl;
+                        } else {
+                            cout << "無效的模式！請輸入 'E' 或 'D'。" << endl;
+                        }
+        
+                        return 0;
+                    }
+              <code></pre>
         </section>
         
         
