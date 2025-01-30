@@ -43,7 +43,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 });
 
-//interactive遍歷
 document.querySelectorAll("*").forEach(element => {
-      element.setAttribute("interactive", "true");
-    });
+  element.classList.add("interactive");
+});
+
