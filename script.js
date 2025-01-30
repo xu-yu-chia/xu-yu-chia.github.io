@@ -1,6 +1,7 @@
-const viewCount = localStorage.getItem('viewCount') || 3571;
+const viewCount =  Math.floor(Math.random() * 10000);  // 隨機產生 0 到 9999 的數字
 document.getElementById('viewCount').textContent = parseInt(viewCount) + 1;
 localStorage.setItem('viewCount', parseInt(viewCount) + 1);
+
 
 // 簡單顯示內容切換
 document.querySelectorAll('nav a').forEach(link => {
