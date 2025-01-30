@@ -277,14 +277,97 @@
         </section>
 
         
-         <!-- project2 -->
-        <section id="project2" class="hidden">
-            <h1 class="text-2xl font-bold mb-4 interactive">高中自主學習</h1>
-            <p>這是我在嘉義高中期間進行的自主學習專案，主題為「XXXXX」。</p>
-            <ul class="list-disc list-inside text-gray-400 interactive">
-                <li>完成主題研究並參與校內發表會</li>
-                <li>獲得校方頒發的「佳作」獎項</li>
-            </ul>
+        <!-- Project2 Section -->
+        <section id="project2" class="p-8 bg-gray-900 text-white rounded-2xl shadow-lg">
+            <!-- Title -->
+            <header class="mb-8 text-center">
+                <h1 class="text-4xl font-extrabold mb-4 text-cyan-400 hover:text-cyan-300 transition-all">
+                    Arduino 電子元件運用與實作
+                </h1>
+                <h2 class="text-3xl font-bold text-cyan-300">
+                    <span>高精度溫濕度計與俄羅斯方塊</span>
+                </h2>
+            </header>
+
+            <!-- Video Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專案影片</h3>
+                <div class="flex justify-center">
+                    <iframe class="rounded-lg shadow-md" width="560" height="315" src="https://www.youtube.com/embed/fHl4a61_1b4" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Project Overview -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專案簡介</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    本專案旨在學習並熟悉 Arduino 電子元件的使用，透過設計與實作高精度溫濕度計與俄羅斯方塊，讓我更深入了解電子元件與通訊協定的應用。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    專案包括學習 OLED 顯示器、溫濕度感測器（DHT11、AHT10）以及 LED 矩陣等元件，並應用 I2C 與 SPI 通訊協定完成實作。
+                </p>
+            </div>
+
+            <!-- Goals & Outcomes -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專題目標 & 預期成果</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-cyan-400">高精度溫濕度計：</strong>
+                        結合 AHT10 感測器與 OLED(SPI) 顯示器，實現準確顯示溫濕度數據。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">俄羅斯方塊遊戲：</strong>
+                        利用按鈕與 LED 矩陣模組實作經典的俄羅斯方塊，提升遊戲互動體驗。
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Technical Highlights -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">技術亮點</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-cyan-400">通訊協定學習：</strong>
+                        熟悉 I2C 與 SPI 通訊協定，應用於元件間的資料傳輸。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">元件整合：</strong>
+                        融合多個電子元件如 DHT11、AHT10、OLED 顯示器和 LED 矩陣。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">程式設計挑戰：</strong>
+                        解決如複雜條件判斷、元件驅動程式撰寫等技術難點。
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Challenges & Reflection -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">挑戰與反思</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    在實作過程中，遇到多次元件接腳錯誤與程式邏輯問題，特別是 LED 矩陣顯示控制的複雜性。但這些挑戰也提升了我的除錯能力與對元件操作的熟練度。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    這次專案讓我更加理解電子元件的運作原理，同時也激發了對電子工程的更大興趣，期待未來能挑戰更複雜的專案設計。
+                </p>
+            </div>
+
+            <!-- Project Code -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">程式碼：</h3>
+                <p class="text-gray-300 leading-relaxed">
+                    專案程式碼可參考以下資源：
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li><a href="https://hackmd.io/-dWvxZlRQQO02c_KQil0aA" class="text-cyan-400 underline" target="_blank">高精度溫濕度計程式碼</a></li>
+                    <li><a href="https://hackmd.io/-dWvxZlRQQO02c_KQil0aA#%E4%BF%84%E7%BE%85%E6%96%AF%E6%96%B9%E5%A1%8A" class="text-cyan-400 underline" target="_blank">俄羅斯方塊程式碼</a></li>
+                </ul>
+            </div>
         </section>
 
 
