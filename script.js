@@ -1,4 +1,4 @@
-const viewCount = localStorage.getItem('viewCount') || 0;
+const viewCount = localStorage.getItem('viewCount') || 3571;
 document.getElementById('viewCount').textContent = parseInt(viewCount) + 1;
 localStorage.setItem('viewCount', parseInt(viewCount) + 1);
 
