@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="歡迎來到 Xu Yu-Chia's(許彧嘉) Blog！探索我的專案、跑步紀錄和更多精彩內容！">
     <title>Xu Yu-Chia's Blog</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -119,90 +120,122 @@
 
             </ul>
         </section>
-        
-        <!-- project1 -->
-        <section id="project1" class="hidden">
-            <h1 class="text-4xl font-bold mb-4 interactive text-white-400">中央大學工學院程式競賽</h1>
-            <h2 class="text-3xl font-bold mb-4 interactive text-cyan-300"><span> C++ 程式設計專題：數據編碼與加密技術 </span></h2>
-            <h3 class="text-2xl font-bold mb-1 interactive text-cyan mt-6">成果影片</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/wvgr3S6WTZQ?si=6dRDctGfHAZ4SO4F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-            </iframe>
-            
-            <h3 class="text-2xl font-bold mb-1 interactive text-cyan mt-6">團隊成員</h3>
-            <ul class="list-inside text-gray-300">
-                <li>組長：許彧嘉</li>
-                <li>組員：林祐豪、林冠廷、陳辰、郭峯升、黃博廷、黃紹威</li>
-            </ul>
-        
-            <h3 class="text-2xl font-bold mb-1 interactive text-cyan mt-6">專題主旨</h3>
-            <p class="text-gray-300">本專題目的在讓學生學習並掌握數據編碼與加密技術，這些技術在現代資訊安全中扮演著重要角色。</p>
-            <p class="text-gray-300">該專題結合了 Base64 編碼解碼和位移加密解密兩種基本的加密技術，並將其應用在多次編碼和解碼的流程中，進一步挑戰學生在程式設計中的思維和問題解決能力。</p>
-        
-            <h3 class="text-2xl font-bold mb-1 interactive text-cyan mt-6">專題目標 & 學習重點</h3>
-            <ul class="list-disc list-inside text-gray-300">
-                <li><strong>Base64 編碼解碼：</strong>學習如何將資料轉換成 Base64 編碼，這是現代網路傳輸中常見的編碼方法，並且能理解它如何確保資料在不同系統間的兼容性和安全性。</li>
-                <li><strong>位移加密算法：</strong>通過位移加密，學生可以理解更簡單的加密原理，這為學習更複雜的加密技術（如 AES、RSA 等）奠定基礎。</li>
-                <li><strong>處理多次編碼與解碼：</strong>這樣的操作可以幫助學生理解數據處理的複雜性，並學會如何有效地管理多步驟的處理過程。</li>
-            </ul>
-        
-            <h3 class="text-2xl font-bold mb-1 interactive text-cyan mt-6">題目</h3>
-            <h4 class="text-xl font-bold mb-1 interactive text-white-300 mt-6">多層Base64與位移加密解密系統的設計與實作</h4>
-            <p class="text-gray-300">請撰寫一個 C++ 程式，實現以下功能：</p>
-        
-            <h4 class="text-xl font-bold mb-1 interactive text-white mt-6">功能要求</h4>
-            <ul class="list-disc list-inside text-gray-300">
-                <li><strong>多層Base64編碼與位移加密：</strong>
-                    <ul class="list-inside text-gray-300">
-                        <li>支援對輸入文字執行多層 Base64 編碼，多次編碼後再進行位移加密。</li>
-                        <li>加密次數由密鑰控制，每層編碼和加密順序如下：</li>
-                        <ul class="list-inside text-gray-300">
-                            <li>將文字轉為 Base64 編碼。</li>
-                            <li>重複上述步驟，執行指定的層數（密鑰1）。</li>
-                            <li>對文字執行位移加密：移動位數（密鑰2）。</li>
-                        </ul>
-                    </ul>
-                </li>
-                <li><strong>多層 Base64 解碼與位移解密：</strong>
-                    <ul class="list-inside text-gray-300">
-                        <li>解密過程與加密順序相反，由密鑰1控制執行層數，每層解碼和解密順序如下：</li>
-                        <ul class="list-inside text-gray-300">
-                            <li>對文字執行位移解密：移動位數（密鑰2）。</li>
-                            <li>解碼 Base64 字串。</li>
-                            <li>重複步驟2，執行指定的層數（密鑰1）。</li>
-                        </ul>
-                    </ul>
-                </li>
-            </ul>
-        
-            <h4 class="text-xl font-bold mb-1 interactive text-white mt-6">使用者輸入與輸出格式</h4>
-            <ul class="list-disc list-inside text-gray-300">
-                <li>使用者選擇模式：「E」表示加密，「D」表示解密。</li>
-                <li>使用者輸入字串與兩個密鑰：</li>
-                <ul class="list-inside text-gray-300">
-                    <li>密鑰1：指定 Base64 和位移加密/解密的層數。</li>
-                    <li>密鑰2：指定位移加密的位移量。</li>
+
+
+        <!-- Project1 Section -->
+        <section id="project1" class="p-8 bg-gray-900 text-white rounded-2xl shadow-lg">
+            <!-- Title -->
+            <header class="mb-8 text-center">
+                <h1 class="text-4xl font-extrabold mb-4 text-cyan-400 hover:text-cyan-300 transition-all">
+                    中央大學工學院程式競賽
+                </h1>
+                <h2 class="text-3xl font-bold text-cyan-300">
+                    <span>C++ 程式設計專題：數據編碼與加密技術</span>
+                </h2>
+            </header>
+
+            <!-- Video Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">成果影片</h3>
+                <div class="flex justify-center">
+                    <iframe class="rounded-lg shadow-md" width="560" height="315" src="https://www.youtube.com/embed/wvgr3S6WTZQ?si=6dRDctGfHAZ4SO4F" 
+                        title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Team Members -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">團隊成員</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li><span class="font-semibold text-cyan-400">組長：</span>許彧嘉</li>
+                    <li><span class="font-semibold text-cyan-400">組員：</span>林祐豪、林冠廷、陳辰、郭峯升、黃博廷、黃紹威</li>
                 </ul>
-            </ul>
-        
-            <h3 class="text-2xl font-bold mb-1 interactive text-cyan mt-6">結論與展望</h3>
-            <p class="text-gray-300">多層加密系統在安全性方面存在挑戰，但透過結合其他加密演算法、增加錯誤誘導與假訊息層，以及設計多步驗證與防護機制，可以有效提升安全性並防範暴力破解。未來，我們將持續研究更強大的加密技術，以確保資料安全。</p>
-        
-            <h3 class="text-2xl font-bold mb-1 interactive text-cyan mt-6">程式碼：</h3>
-            <pre><code class="language-cpp text-gray-300">
-        #include <iostream>
-        #include <bitset>
+            </div>
+
+            <!-- Project Purpose -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專題主旨</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    本專題目的在讓學生學習並掌握數據編碼與加密技術，這些技術在現代資訊安全中扮演著重要角色。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    專題結合 Base64 編碼解碼和位移加密解密兩種基本技術，並將其應用在多次編碼與解碼流程中，挑戰學生的程式設計思維與問題解決能力。
+                </p>
+            </div>
+
+            <!-- Goals & Learning Highlights -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專題目標 & 學習重點</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-cyan-400">Base64 編碼解碼：</strong>
+                        學習資料轉換為 Base64 編碼以提升系統兼容性與安全性。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">位移加密算法：</strong>
+                        理解簡單加密原理，為學習複雜加密技術奠定基礎。
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">多次編碼與解碼處理：</strong>
+                        學習多步驟數據處理的管理與應用。
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Assignment Details -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">題目</h3>
+                <h4 class="text-xl font-semibold mb-4 text-cyan-300">多層 Base64 與位移加密解密系統的設計與實作</h4>
+                <p class="text-gray-300 mb-6">請撰寫一個 C++ 程式，實現以下功能：</p>
+
+                <h4 class="text-xl font-semibold mb-4 text-cyan-300">功能要求</h4>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-cyan-400">多層 Base64 編碼與位移加密：</strong>
+                        <ul class="list-disc list-inside ml-6 space-y-2">
+                            <li>支援對輸入文字執行多層 Base64 編碼，並多次編碼後進行位移加密。</li>
+                            <li>加密次數由密鑰控制。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-cyan-400">多層 Base64 解碼與位移解密：</strong>
+                        <ul class="list-disc list-inside ml-6 space-y-2">
+                            <li>解密過程與加密順序相反，層數與位移量由密鑰控制。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">結論與展望</h3>
+                <p class="text-gray-300 leading-relaxed">
+                    多層加密系統雖存在挑戰，但透過結合其他加密演算法與多步驗證，安全性將進一步提升。未來將持續研究更強大的加密技術以確保資料安全。
+                </p>
+            </div>
+
+            <!-- Code Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">程式碼：</h3>
+                <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg shadow-md overflow-auto">
+        <code class="language-cpp">
+        #include &lt;iostream&gt;
+        #include &lt;bitset&gt;
         using namespace std;
-        
+
         // 將索引值轉換為 Base64 字符
         char indexToBase64Char(int index) {
-            if (index >= 0 && index <= 25) return 'A' + index; // A–Z
-            if (index >= 26 && index <= 51) return 'a' + (index - 26); // a–z
-            if (index >= 52 && index <= 61) return '0' + (index - 52); // 0–9
-            if (index == 62) return '+'; // +
-            if (index == 63) return '/'; // /
-            return '\0'; // 非法值
+            if (index >= 0 && index <= 25) return 'A' + index;
+            if (index >= 26 && index <= 51) return 'a' + (index - 26);
+            if (index >= 52 && index <= 61) return '0' + (index - 52);
+            if (index == 62) return '+';
+            if (index == 63) return '/';
+            return '\0';
         }
-        
+
         // Base64 編碼
         string base64Encode(const string &input) {
             string binaryData = "", encoded = "";
@@ -219,7 +252,7 @@
             while (encoded.size() % 4 != 0) encoded += '=';
             return encoded;
         }
-        
+
         // 主程式
         int main() {
             string mode, input;
@@ -234,15 +267,15 @@
             cin >> n;
             cout << "請輸入密鑰2: ";
             cin >> k;
-        
+
             // 加密或解密邏輯略...
             return 0;
         }
-            </code></pre>
+        </code>
+                </pre>
+            </div>
         </section>
 
-
-        
         
          <!-- project2 -->
         <section id="project2" class="hidden">
