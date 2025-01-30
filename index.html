@@ -221,64 +221,64 @@
             <div class="mb-12">
                 <h3 class="text-2xl font-bold mb-4 text-cyan-200">程式碼：</h3>
                 <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg shadow-md overflow-auto">
-        <code class="language-cpp">
-        #include &lt;iostream&gt;
-        #include &lt;bitset&gt;
-        using namespace std;
+                    <code class="language-cpp">
+                    #include &lt;iostream&gt;
+                    #include &lt;bitset&gt;
+                    using namespace std;
 
-        // 將索引值轉換為 Base64 字符
-        char indexToBase64Char(int index) {
-            if (index >= 0 && index <= 25) return 'A' + index;
-            if (index >= 26 && index <= 51) return 'a' + (index - 26);
-            if (index >= 52 && index <= 61) return '0' + (index - 52);
-            if (index == 62) return '+';
-            if (index == 63) return '/';
-            return '\0';
-        }
+                    // 將索引值轉換為 Base64 字符
+                    char indexToBase64Char(int index) {
+                        if (index >= 0 && index <= 25) return 'A' + index;
+                        if (index >= 26 && index <= 51) return 'a' + (index - 26);
+                        if (index >= 52 && index <= 61) return '0' + (index - 52);
+                        if (index == 62) return '+';
+                        if (index == 63) return '/';
+                        return '\0';
+                    }
 
-        // Base64 編碼
-        string base64Encode(const string &input) {
-            string binaryData = "", encoded = "";
-            for (int i = 0; i < input.size(); i++) {
-                bitset<8> bits(static_cast<unsigned long long>(input[i]));
-                binaryData += bits.to_string();
-            }
-            while (binaryData.size() % 6 != 0) binaryData += "0";
-            for (int i = 0; i < binaryData.size(); i += 6) {
-                bitset<6> bits(binaryData.substr(i, 6));
-                int index = static_cast<int>(bits.to_ulong());
-                encoded += indexToBase64Char(index);
-            }
-            while (encoded.size() % 4 != 0) encoded += '=';
-            return encoded;
-        }
+                    // Base64 編碼
+                    string base64Encode(const string &input) {
+                        string binaryData = "", encoded = "";
+                        for (int i = 0; i < input.size(); i++) {
+                            bitset<8> bits(static_cast<unsigned long long>(input[i]));
+                            binaryData += bits.to_string();
+                        }
+                        while (binaryData.size() % 6 != 0) binaryData += "0";
+                        for (int i = 0; i < binaryData.size(); i += 6) {
+                            bitset<6> bits(binaryData.substr(i, 6));
+                            int index = static_cast<int>(bits.to_ulong());
+                            encoded += indexToBase64Char(index);
+                        }
+                        while (encoded.size() % 4 != 0) encoded += '=';
+                        return encoded;
+                    }
 
-        // 主程式
-        int main() {
-            string mode, input;
-            int n, k;
-            cout << "歡迎使用加密解密系統" << endl;
-            cout << "請選擇模式（E：加密，D：解密）: ";
-            cin >> mode;
-            cin.ignore();
-            cout << "請輸入字串: ";
-            getline(cin, input);
-            cout << "請輸入密鑰1(建議小一點): ";
-            cin >> n;
-            cout << "請輸入密鑰2: ";
-            cin >> k;
+                    // 主程式
+                    int main() {
+                        string mode, input;
+                        int n, k;
+                        cout << "歡迎使用加密解密系統" << endl;
+                        cout << "請選擇模式（E：加密，D：解密）: ";
+                        cin >> mode;
+                        cin.ignore();
+                        cout << "請輸入字串: ";
+                        getline(cin, input);
+                        cout << "請輸入密鑰1(建議小一點): ";
+                        cin >> n;
+                        cout << "請輸入密鑰2: ";
+                        cin >> k;
 
-            // 加密或解密邏輯略...
-            return 0;
-        }
-        </code>
+                        // 加密或解密邏輯略...
+                        return 0;
+                    }
+                    </code>
                 </pre>
             </div>
         </section>
 
         
         <!-- Project2 Section -->
-        <section id="project2" class="p-8 bg-gray-900 text-white rounded-2xl shadow-lg">
+        <section id="project2" class="p-8 bg-gray-900 text-white rounded-2xl shadow-lg hidden">
             <!-- Title -->
             <header class="mb-8 text-center">
                 <h1 class="text-4xl font-extrabold mb-4 text-cyan-400 hover:text-cyan-300 transition-all">
@@ -356,17 +356,591 @@
                     這次專案讓我更加理解電子元件的運作原理，同時也激發了對電子工程的更大興趣，期待未來能挑戰更複雜的專案設計。
                 </p>
             </div>
-
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">作品圖片</h3>
+                <img src="tetris.png" height="444" width="562" alt="tetris">
+            </div>
+            
             <!-- Project Code -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">程式碼：</h3>
-                <p class="text-gray-300 leading-relaxed">
-                    專案程式碼可參考以下資源：
-                </p>
-                <ul class="list-disc list-inside space-y-2 text-gray-300">
-                    <li><a href="https://hackmd.io/-dWvxZlRQQO02c_KQil0aA" class="text-cyan-400 underline" target="_blank">高精度溫濕度計程式碼</a></li>
-                    <li><a href="https://hackmd.io/-dWvxZlRQQO02c_KQil0aA#%E4%BF%84%E7%BE%85%E6%96%AF%E6%96%B9%E5%A1%8A" class="text-cyan-400 underline" target="_blank">俄羅斯方塊程式碼</a></li>
-                </ul>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">俄羅斯方塊程式碼：</h3>
+                <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg shadow-md overflow-auto">
+                    <code class="language-cpp">
+                    #include <LedControl.h>
+                    #define INI_speed 500 //初始速度 單位ms
+
+                    //按鈕腳位定義
+                    #define Rotate 2
+                    #define Right 3
+                    #define Left 4
+                    #define Down 5
+
+                    //LED陣列腳未定義
+                    #define CIN 6
+                    #define CS 7
+                    #define CLK 8
+
+                    //長寬
+                    #define Width 8
+                    #define Height 10
+
+                    class Timer
+                    {
+                      private:
+                        long Time;
+
+                      public:
+                        void TimerShutdown()
+                        {
+                          Time = -1;
+                        }
+
+                        void TimerSet()
+                        {
+                          Time = millis();
+                        }
+
+                        bool TimerTimeout(long Millis)
+                        {
+                          long C_Time = millis();
+                          if ((C_Time - Time) < Millis || Time == -1)
+                          {
+                            return false;
+                          }
+                          else
+                          {
+                            return true;
+                          }
+                        }
+                    };
+
+                    /*
+                      方塊種類定義
+                      0  | 1 | 2
+                      ___|___|___
+                      3  | 4 | 5
+                      ___|___|___
+                      6  | 7 | 8
+                    */
+
+                    //Blocktype[方塊種類][選轉次數][補正碼] 
+                    /*
+                       補正碼
+                       以4為中心x、y的相對位置
+                    */
+
+                    int Blocktype[7][4][4] = {
+                      {{3, 4, 5, 4}, {1, 4, 7, 4}, {3, 4, 5, 4}, {1, 4, 7, 4}}, //0  I
+                      {{0, 1, 3, 4}, {0, 1, 3, 4}, {0, 1, 3, 4}, {0, 1, 3, 4}}, //1  O
+                      {{1, 3, 4, 5}, {1, 4, 5, 7}, {3, 4, 5, 7}, {1, 3, 4, 7}}, //2  T
+                      {{1, 2, 3, 4}, {1, 4, 5, 8}, {4, 5, 6, 7}, {0, 3, 4, 7}}, //3  S
+                      {{0, 1, 4, 5}, {2, 4, 5, 7}, {3, 4, 7, 8}, {1, 3, 4, 6}}, //4  Z
+                      {{0, 3, 4, 5}, {1, 2, 4, 7}, {3, 4, 5, 8}, {1, 4, 6, 7}}, //5  J
+                      {{2, 3, 4, 5}, {1, 4, 7, 8}, {3, 4, 5, 6}, {0, 1, 4, 7}}  //6  L
+                    };
+
+
+
+                    int x_c[9] = { -1, 0, 1, -1, 0, 1, -1, 0, 1};
+                    int y_c[9] = { -1, -1, -1, 0, 0, 0, 1, 1, 1};
+
+                    //狀態定義
+                    int gravity = INI_speed;   //重力(掉落速度)
+                    int state = -1;            //狀態
+                    int T_map[Height][Width];  //地圖矩陣
+                    int C_block = -1;          //目前方塊種類
+                    int C_rotate = 0;          //目前旋轉狀態
+                    int C_pos[2];              //目前方塊4號位置 0->y , 1->x;
+                    int score = 0;             //分數
+
+
+                    bool legit = true;         //檢測動作是否合法
+
+                    Timer Timer1[10];
+                    LedControl LC = LedControl(CIN, CLK, CS, 1); //LED矩陣物件
+
+                    /*
+                       左上角為原點
+                       向右為+
+                       向下為+
+                    */
+
+                    void Update(int Map[Height][Width])
+                    {
+                      for (int i = 2; i < Height; i++)
+                      {
+                        for (int j = 0; j < Width; j++)
+                        {
+                          bool temp;
+                          if (Map[i][j] == 0)
+                          {
+                            temp = false;
+                          }
+                          else
+                          {
+                            temp = true;
+                          }
+                          LC.setLed(0, j, 9 - i, temp);
+                          //Serial.print(Map[i][j]);
+                        }
+                        //Serial.println();
+                      }
+                    }
+
+                    void C_Rotate(int nextstate)
+                    {
+                      legit = true;
+                      int New_rotate = (C_rotate + 1) % 4;
+                      for (int i = 0; i < 4; i++)
+                      {
+                        int n = Blocktype[C_block][New_rotate][i];
+                        int new_x = C_pos[1] + x_c[n];
+                        int new_y = C_pos[0] + y_c[n];
+
+                        if ( T_map[new_y][new_x] == 1 || new_x > 7 || new_x < 0 || new_y >= Height )
+                        {
+                          legit = false;
+                          break;
+                        }
+                      }
+
+                      if (legit)
+                      {
+                        for ( int i = 0 ; i < 4 ; i++ )
+                        {
+                          int n = Blocktype[C_block][C_rotate][i];
+                          T_map[C_pos[0] + y_c[n]][C_pos[1] + x_c[n]] = 0;
+                        }
+                        C_rotate = New_rotate;
+                        for (int i = 0; i < 4; i++)
+                        {
+                          int n = Blocktype[C_block][C_rotate][i];
+                          int new_x = C_pos[1] + x_c[n];
+                          int new_y = C_pos[0] + y_c[n];
+                          T_map[new_y][new_x] = 2;
+                        }
+                      }
+                      state = nextstate;
+                      Update(T_map);
+                    }
+
+                    void C_Right(int nextstate)
+                    {
+                      legit = true;
+                      for (int i = 0; i < 4; i++)
+                      {
+                        int n = Blocktype[C_block][C_rotate][i];
+                        int new_x = C_pos[1] + x_c[n] + 1;
+                        int new_y = C_pos[0] + y_c[n];
+                        if ( T_map[new_y][new_x] == 1 || new_x > 7 )
+                        {
+                          legit = false;
+                          break;
+                        }
+                      }
+
+                      if (legit)
+                      {
+                        for (int i = 0; i < 4; i++)
+                        {
+                          int n = Blocktype[C_block][C_rotate][i];
+                          int old_x = C_pos[1] + x_c[n];
+                          int old_y = C_pos[0] + y_c[n];
+                          T_map[old_y][old_x] = 0;
+                        }
+                        C_pos[1] += 1;
+                        for (int i = 0; i < 4; i++)
+                        {
+                          int n = Blocktype[C_block][C_rotate][i];
+                          int new_x = C_pos[1] + x_c[n];
+                          int new_y = C_pos[0] + y_c[n];
+                          T_map[new_y][new_x] = 2;
+                        }
+                      }
+                      state = nextstate;
+                      Update(T_map);
+                    }
+
+                    void C_Left(int nextstate)
+                    {
+                      legit = true;
+                      for (int i = 0; i < 4; i++)
+                      {
+                        int n = Blocktype[C_block][C_rotate][i];
+                        int new_x = C_pos[1] + x_c[n] - 1;
+                        int new_y = C_pos[0] + y_c[n];
+                        if (T_map[new_y][new_x] == 1 || new_x < 0)
+                        {
+                          legit = false;
+                          break;
+                        }
+                      }
+
+                      if (legit)
+                      {
+                        for (int i = 0; i < 4; i++)
+                        {
+                          int n = Blocktype[C_block][C_rotate][i];
+                          int old_x = C_pos[1] + x_c[n];
+                          int old_y = C_pos[0] + y_c[n];
+                          T_map[old_y][old_x] = 0;
+                        }
+                        C_pos[1] -= 1;
+                        for (int i = 0; i < 4; i++)
+                        {
+                          int n = Blocktype[C_block][C_rotate][i];
+                          int new_x = C_pos[1] + x_c[n];
+                          int new_y = C_pos[0] + y_c[n];
+                          T_map[new_y][new_x] = 2;
+                        }
+                      }
+                      state = nextstate;
+                      Update(T_map);
+                    }
+
+                    void C_Down(int nextstate)
+                    {
+                      legit = true;
+                      for (int i = 0; i < 4; i++)
+                      {
+                        int n = Blocktype[C_block][C_rotate][i];
+                        int new_x = C_pos[1] + x_c[n];
+                        int new_y = C_pos[0] + y_c[n] + 1;
+                        if (T_map[new_y][new_x] == 1 || new_y >= Height)
+                        {
+                          legit = false;
+                          break;
+                        }
+                      }
+                      for (int i = 0; i < 4; i++)
+                      {
+                        int n = Blocktype[C_block][C_rotate][i];
+                        int old_x = C_pos[1] + x_c[n];
+                        int old_y = C_pos[0] + y_c[n];
+
+                        if (legit)
+                        {
+                          T_map[old_y][old_x] = 0;
+                        }
+                        else
+                        {
+                          T_map[old_y][old_x] = 1;
+                        }
+
+                      }
+                      if (legit)
+                      {
+                        C_pos[0] += 1;
+                        for (int i = 0; i < 4; i++)
+                        {
+                          int n = Blocktype[C_block][C_rotate][i];
+                          int new_x = C_pos[1] + x_c[n];
+                          int new_y = C_pos[0] + y_c[n];
+                          T_map[new_y][new_x] = 2;
+                        }
+                        state = nextstate;
+                      }
+                      else
+                      {
+                        for (int i = 0; i < Height ; i++)
+                        {
+                          bool check = true;
+                          for (int j = 0; j < Width; j++)
+                          {
+                            if (T_map[i][j] != 1)
+                            {
+                              check = false;
+                              break;
+                            }
+                          }
+                          if (check == false)
+                          {
+                            continue;
+                          }
+                          else
+                          { 
+                            score += 10;
+                            gravity = INI_speed - score;
+                            Update(T_map);
+                            delay(10);
+                            for (int j = i ; j >= 1 ; j--)
+                            {
+                              for (int k = 0 ; k < Width ; k++)
+                              {
+                                T_map[j][k] = T_map[j - 1][k];
+                              }
+                            }
+                            for (int k = 0 ; k < Width ; k++)
+                            {
+                              T_map[0][k] = 0;
+                            }
+                            Update(T_map);
+                          }
+                        }
+                        bool over = false;
+                        for (int i = 0; i < Width ; i++)
+                        {
+                          if (T_map[1][i] == 1)
+                          {
+                            over = true;
+                            break;
+                          }
+                        }
+                        if (over)
+                        {
+                          for (int i = Height - 1; i >= 1; i--)
+                          {
+                            for (int j = 0; j < 8; j++)
+                            {
+                              T_map[i][j] = 0;
+                              LC.setLed(0, i - 1, j, false);
+                              Update(T_map);
+                            }
+                          }
+                          state = -1;
+                        }
+                        else
+                        {
+                          state = 15;
+                        }
+                      }
+                      Timer1[0].TimerSet();
+                      Update(T_map);
+                    }
+
+                    void setup()
+                    {
+                      Serial.begin(9600);
+
+                      //定義接角模式
+                      pinMode(Rotate, INPUT);
+                      pinMode(Right, INPUT);
+                      pinMode(Left, INPUT);
+                      pinMode(Down, INPUT);
+
+                      pinMode(CIN, OUTPUT);
+                      pinMode(CS, OUTPUT);
+                      pinMode(CLK, OUTPUT);
+                      pinMode(A0, INPUT);
+
+                      randomSeed(analogRead(A0));   //產生隨機種子碼，A0空接會取得空氣中電壓，可視為亂碼
+                      C_block = random(7); 
+
+                      //LED矩陣開啟
+                      LC.shutdown(0, false);
+
+                      //LED矩陣挑整亮度(0~15)
+                      LC.setIntensity(0, 5);
+
+                      for (int i = 0 ; i < 10; i++) //重設所有計時器
+                      {
+                        Timer1[i].TimerShutdown();
+                      }
+
+                      //清空地圖
+                      for (int i = 0; i < Height; i++)
+                      {
+                        for (int j = 0; j < Width; j++)
+                        {
+                          T_map[i][j] = 0;
+                        }
+                      }
+                    }
+                    void loop()
+                    {
+                      Serial.println(state);
+                      switch (state)
+                      {
+                        case -1://數值初始化
+                          score = 0;
+                          gravity = INI_speed;
+                          for (int i = 0 ; i < 10; i++) //重設所有計時器
+                          {
+                            Timer1[i].TimerShutdown();
+                          }
+                          for (int i = 0; i <= 8; i++)
+                          {
+                            for (int j = 0; j < 8; j++)
+                            {
+                              T_map[i][j] = 0;
+                            }
+                          }
+                          state = 0;
+                          break;
+
+
+                        case 0:
+                          if (digitalRead(Rotate) == HIGH)
+                          {
+                            state = 10;
+                          }
+                          break;
+
+                        case 10:
+                          if (digitalRead(Rotate) == LOW)
+                          {
+                            state = 14;
+                          }
+                          break;
+
+                        case 14:
+                          for (int i = 0; i < Height; i++)
+                          {
+                            for (int j = 0; j < 8; j++)
+                            {
+                              T_map[i][j] = 0;
+                            }
+                            state = 15;
+                          }
+                          break;
+
+                        case 15:                //產生隨機方塊
+                          C_block = random(7);
+                          C_pos[0] = 1;         //y
+                          C_pos[1] = 4;         //x
+                          C_rotate = 0;
+                          state = 20;
+                          break;
+
+                        case 20:
+                          Timer1[0].TimerSet();
+                          state = 25;
+                          break;
+
+                        case 25://偵測按鈕
+                          if (digitalRead(Rotate) == HIGH)
+                          {
+                            Serial.println("rotate");
+                            Timer1[1].TimerSet();
+                            state = 30;
+                          }
+                          else if (digitalRead(Right) == HIGH)
+                          {
+                            Serial.println("right");
+                            Timer1[1].TimerSet();
+                            state = 35;
+                          }
+                          else if (digitalRead(Left) == HIGH)
+                          {
+                            Serial.println("left");
+                            Timer1[1].TimerSet();
+                            state = 40;
+                          }
+                          else if (digitalRead(Down) == HIGH)
+                          {
+                            Serial.println("down");
+                            Timer1[1].TimerSet();
+                            state = 45;
+                          }
+                          break;
+
+                        case 30://旋轉
+                          if (digitalRead(Rotate) == LOW)
+                          {
+                            C_Rotate(25);
+                          }
+                          else if (Timer1[1].TimerTimeout(500))
+                          {
+                            Timer1[2].TimerSet();
+                            state = 31;
+                          }
+                          break;
+
+                        case 31:
+                          if (digitalRead(Rotate) == LOW)
+                          {
+                            C_Rotate(25);
+                          }
+                          else if (Timer1[2].TimerTimeout(100))
+                          {
+                            Timer1[2].TimerSet();
+                            C_Rotate(state);
+                          }
+                          break;
+
+
+                        case 35://右移
+                          if (digitalRead(Right) == LOW)
+                          {
+                            C_Right(25);
+                          }
+                          else if (Timer1[1].TimerTimeout(500))
+                          {
+                            Timer1[2].TimerSet();
+                            state = 36;
+                          }
+                          break;
+
+                        case 36:
+                          if (digitalRead(Right) == LOW)
+                          {
+                            C_Right(25);
+                          }
+                          else if (Timer1[2].TimerTimeout(100))
+                          {
+                            Timer1[2].TimerSet();
+                            C_Right(state);
+                          }
+                          break;
+
+                        case 40://左移
+                          if (digitalRead(Left) == LOW)
+                          {
+                            C_Left(25);
+                          }
+                          else if (Timer1[1].TimerTimeout(500))
+                          {
+                            Timer1[2].TimerSet();
+                            state = 41;
+                          }
+                          break;
+
+                        case 41:
+                          if (digitalRead(Left) == LOW)
+                          {
+                            C_Left(25);
+                          }
+                          else if (Timer1[2].TimerTimeout(100))
+                          {
+                            Timer1[2].TimerSet();
+                            C_Left(state);
+                          }
+                          break;
+
+                        case 45://下移
+                          if (digitalRead(Down) == LOW)
+                          {
+                            C_Down(25);
+                          }
+                          else if (Timer1[1].TimerTimeout(500))
+                          {
+                            Timer1[2].TimerSet();
+                            state = 46;
+                          }
+                          break;
+
+                        case 46:
+                          if (digitalRead(Down) == LOW)
+                          {
+                            C_Down(25);
+                          }
+                          else if (Timer1[2].TimerTimeout(100))
+                          {
+                            Timer1[2].TimerSet();
+                            C_Down(state);
+                          }
+                          break;
+                      }
+
+                      //Fall down
+                      if (Timer1[0].TimerTimeout(gravity))
+                      {
+                        C_Down(state);
+                      }
+                    }
+
+                    </code>
+                </pre>
             </div>
         </section>
 
