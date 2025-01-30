@@ -40,7 +40,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         const target = document.querySelector(link.getAttribute('href'));
         if (target) {
             target.classList.remove('hidden');
-            target.scrollIntoView({ behavior: 'smooth' }); // 平滑滾動到目標區塊
+            //target.scrollIntoView({ behavior: 'smooth' }); // 平滑滾動到目標區塊
         }
     });
 });
