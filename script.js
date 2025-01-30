@@ -42,8 +42,4 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         }
     });
 });
-/*
-document.querySelectorAll("*").forEach(element => {
-  element.classList.add("interactive");
-});
-*/
+
