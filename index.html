@@ -16,19 +16,28 @@
     
 <body class="bg-gray-950 text-gray-200">
     <!-- 頂部導航欄 -->
-    <!--
+    
     <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
         <nav class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold"><a href ="#home">Xu Yu-Chia's Blog</a></div>
-            <ul class="flex space-x-6">
-                <li><a href="#about" class="hover:text-gray-400">About Me</a></li>
-                <li><a href="#projects" class="hover:text-gray-400">Project</a></li>
+            <div class="text-xl font-bold">
+                <a href="#home">Xu Yu-Chia's Blog</a>
+            </div>
+            <ul class="flex space-x-6 relative">
+                <li class="group relative">
+                    <a href="#projects" class="hover:text-gray-400">Project</a>
+                    <ul class="absolute hidden group-hover:flex flex-col bg-gray-800 text-sm rounded shadow-lg mt-2 w-40">
+                        <li><a href="#project1" class="block px-6 py-2 hover:bg-gray-700">中央大學工學院程式競賽</a></li>
+                        <li><a href="#highschool-learning" class="block px-6 py-2 hover:bg-gray-700">高中自主學習</a></li>
+                    </ul>
+                </li>
                 <li><a href="#blog" class="hover:text-gray-400">Other Blogs</a></li>
                 <li><a href="#contact" class="hover:text-gray-400">Contact Me</a></li>
             </ul>
         </nav>
     </header>
-    -->
+
+    
+    <!--
     <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
         <nav class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="text-xl font-bold">
@@ -39,8 +48,8 @@
                 <li class="group relative">
                     <a href="#projects" class="hover:text-gray-400">Project</a>
                     <ul class="absolute hidden group-hover:block bg-gray-800 text-sm rounded shadow-lg mt-2 w-40">
-                        <li><a href="#project1" class="block px-4 py-2 hover:bg-gray-700">中央大學工學院程式競賽</a></li>
-                        <li><a href="#highschool-learning" class="block px-4 py-2 hover:bg-gray-700">高中自主學習</a></li>
+                        <li><a href="#project1" class="block px-6 py-2 hover:bg-gray-700">中央大學工學院程式競賽</a></li>
+                        <li><a href="#highschool-learning" class="block px-6 py-2 hover:bg-gray-700">高中自主學習</a></li>
                     </ul>
                 </li>
                 <li><a href="#blog" class="hover:text-gray-400">Other Blogs</a></li>
@@ -48,7 +57,7 @@
             </ul>
         </nav>
     </header>
-
+    -->
 
 
     <!-- 主內容 -->
