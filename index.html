@@ -10,7 +10,29 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
 </head>
+    
+<style>
+    .green-text {
+      color: green;
+    }
+    .orange-text {
+      color: orange;
+    }
+    .red-text {
+      color: red;
+    }
+    .blue-text {
+      color: blue;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: ＃FFF8DC;
+    }
+</style>
+
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4HJBBE2WF"></script>
@@ -129,9 +151,11 @@
                 <li>組員：林祐豪、林冠廷、陳辰、郭峯升、黃博廷、黃紹威</li>
               </ul>
 
-              <h2 class="text-2xl font-bold mb-1 interactive">主旨</h2>
-              <p>本專題目的在讓學生學習並掌握數據編碼與加密技術，這些技術在現代資訊安全中扮演著重要角色。該專題結合了 Base64 編碼解碼和位移加密解密兩種基本的加密技術，並將其應用在多次編碼和解碼的流程中，進一步挑戰學生在程式設計中的思維和問題解決能力。</p>
-
+            <h2 class="text-2xl font-bold mb-1 interactive">主旨</h2>
+            <p>本專題目的在讓學生學習並掌握數據編碼與加密技術，這些技術在現代資訊安全中扮演著重要角色。</p>
+            <p>該專題結合了 Base64 編碼解碼和位移加密解密兩種基本的加密技術</p>
+            <p>並將其應用在多次編碼和解碼的流程中，進一步挑戰學生在程式設計中的思維和問題解決能力。</p>
+            
               <h2 class="text-2xl font-bold mb-1 interactive">專題目標 & 學習重點</h2>
               <ul>
                 <li><strong>Base64 編碼解碼</strong>：學習如何將資料轉換成 Base64 編碼，這是現代網路傳輸中常見的編碼方法，並且能理解它如何確保資料在不同系統間的兼容性和安全性。</li>
@@ -182,7 +206,7 @@
               <p>多層加密系統在安全性方面存在挑戰，但透過結合其他加密演算法、增加錯誤誘導與假訊息層，以及設計多步驗證與防護機制，可以有效提升安全性並防範暴力破解。未來，我們將持續研究更強大的加密技術，以確保資料安全。</p>
 
               <h2 class="text-2xl font-bold mb-1 interactive">程式碼：</h2>
-              <pre><code>
+              <pre><code class="language-cpp">
                     #include <iostream>
                     #include <bitset>
                     using namespace std;
