@@ -21,6 +21,7 @@
 
   gtag('config', 'G-Z4HJBBE2WF');
 </script>
+
     
 <body class="bg-gray-950 text-gray-200">
     <!-- 頂部導航欄 -->
@@ -70,20 +71,28 @@
         
         
         <!-- 主頁（隱藏於主頁外） -->
-        <section id="home" class="hidden">
-            <h1 class="text-2xl font-bold mb-4 interactive">主頁</h1>
-            <p>嗨</p>
-            <p class="interactive">恭喜你回到主頁</p>
-            
+        <section id="home" class="text-center py-20 hidden">
+            <h1 class="text-4xl font-bold mb-4 interactive">歡迎來到Xu Yu-Chia's Blog</h1>
+            <p class="text-lg text-gray-400">探索我的故事、專案和更多內容！</p>
         </section>
         
         <!-- 自我介紹（隱藏於主頁外） -->
         <section id="about" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">About Me</h1>
-            <p>嗨</p>
-            <p>我是一位熱愛程式設計和跑步的開發者</p>
-            <p>我目前就讀中央大學</p>
-            <p>並對專案開發和學習新技術充滿熱情</p>
+            <p class="interactive">嗨</p>
+            <p class="interactive">我是許彧嘉</p>
+            <p class="interactive">一位熱愛程式設計和跑步的開發者</p>
+            <p class="interactive">我目前就讀中央大學(大一菜鳥</p>
+            <p class="interactive">並對專案開發和學習新技術充滿熱情</p>
+            <p class="interactive"> </p>
+            <p class="interactive">       __                   __</p>
+            <p class="interactive">      / /  ____    _____   / /</p>
+            <p class="interactive"> __  / /  / __ \  / ___/  / __ \</p>
+            <p class="interactive">/ /_/ /  / /_/ / (__  )  / / / /</p>
+            <p class="interactive">\____/   \____/ /____/  /_/ /_/</p>
+            
+
+
         </section>
 
         <!-- 專案（隱藏於主頁外） -->
@@ -93,13 +102,13 @@
                 <!-- 卡片 -->
                 <li class="p-4 bg-gray-900 shadow rounded interactive">
                     <a href="#project1" class="block p-4 bg-gray-900 shadow rounded hover:bg-gray-800 transition">
-                        <h2 class="text-xl font-semibold">中央大學工學院程式競賽</h2>
-                        <p class="text-gray-400">工學院程式競賽擔任組長獲得第一名的佳績</p>
+                        <h2 class="text-xl font-semibold">工學院程式競賽</h2>
+                        <p class="text-gray-400">中央大學工學院程式競賽擔任組長榮獲第一名的佳績</p>
                     </a>
                 <!-- 高中自主學習卡片 -->
                 <li class="p-4 bg-gray-900 shadow rounded interactive">
-                    <a href="#highschool-learning" class="block p-4 bg-gray-900 shadow rounded hover:bg-gray-800 transition">
-                        <h2 class="text-xl font-semibold">高中自主學習</h2>
+                    <a href="#project2" class="block p-4 bg-gray-900 shadow rounded hover:bg-gray-800 transition">
+                        <h2 class="text-xl font-semibold">自主學習</h2>
                         <p class="text-gray-400">自主學習成果發表榮獲嘉義高中佳作。</p>
                     </a>
                 </li>
@@ -110,16 +119,215 @@
         <!-- project1 -->
         <section id="project1" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">中央大學工學院程式競賽</h1>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
+            <h2><strong>C++ </strong><strong>程式設計專題</strong><strong>數據編碼與加密技術</strong></h2>
+            <p>組長：許彧嘉</p>
+            <p>組員：林祐豪、林冠廷、陳辰、郭峯升、黃博廷、黃紹威</p>
+            <h3>主旨：</h3>
+            <p>本專題目的在讓學生學習並掌握數據編碼與加密技術，這些技術在現代資訊安全中扮演著重要角色。該專題結合了Base64編碼解碼和位移加密解密兩種基本的加密技術，並將其應用在多次編碼和解碼的流程中，進一步挑戰學生在程式設計中的思維和問題解決能力。</p>
+            <h3>專題目標&amp;學習重點：</h3>
+            <ul>
+            <li>Base64 編碼解碼<br />
+            <ul>
+            <li>學習如何將資料轉換成 Base64 編碼，這是現代網路傳輸中常見的編碼方法，並且能理解它如何確保資料在不同系統間的兼容性和安全性</li>
+            </ul>
+            </li>
+            <li>位移加密算法<br />
+            <ul>
+            <li>通過位移加密，學生可以理解更簡單的加密原理，這為學習更複雜的加密技術（如AES、RSA等）奠定基礎</li>
+            </ul>
+            </li>
+            <li>處理多次編碼與解碼
+            <ul>
+            <li>這樣的操作可以幫助學生理解數據處理的複雜性，並學會如何有效地管理多步驟的處理過程</li>
+            </ul>
+            </li>
+            </ul>
+            <h3>題目：</h3>
+            <p>多層Base64與位移加密解密系統的設計與實作<br />請撰寫一個C++程式，實現以下功能：</p>
+            <ul>
+            <li>多層Base64編碼與位移加密
+            <ul>
+            <li>支援對輸入文字執行多層 Base64 編碼，多次編碼後再進行位移加密</li>
+            <li>加密次數由密鑰控制，每層編碼和加密順序如下
+            <ul>
+            <li>將文字轉為 Base64 編碼</li>
+            <li>重複上述步驟，執行指定的層數(密鑰1)</li>
+            <li>對文字執行 位移加密：移動位數(密鑰2)</li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            <li>多層 Base64 解碼與位移解密
+            <ul>
+            <li>解密過程與加密順序相反，由密鑰1控制執行層數，每層解碼和解密順序如下
+            <ul>
+            <li>對文字執行 位移解密：移動位數(密鑰2)</li>
+            <li>解碼 Base64 字串</li>
+            <li>重複步驟2，執行指定的層數(密鑰1)</li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            <li>使用者輸入與輸出格式
+            <ul>
+            <li>使用者選擇模式：「E」表示加密，「D」表示解密</li>
+            <li>使用者輸入字串與兩個密鑰：
+            <ul>
+            <li>密鑰1：指定 Base64 和位移加密/解密的層數</li>
+            <li>密鑰2：指定位移加密的位移量</li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+            <h3>程式碼：</h3>
+            <pre>
+                <code>
+                    #include <bits/stdc++.h>
+                    using namespace std;
+
+                    // 將索引值轉換為 Base64 字符
+                    char indexToBase64Char(int index) {
+                        if (index >= 0 && index <= 25) return 'A' + index; // A–Z
+                        if (index >= 26 && index <= 51) return 'a' + (index - 26); // a–z
+                        if (index >= 52 && index <= 61) return '0' + (index - 52); // 0–9
+                        if (index == 62) return '+'; // +
+                        if (index == 63) return '/'; // /
+                        return '\0'; // 非法值
+                    }
+
+                    // 將 Base64 字符轉換為索引值
+                    int base64CharToIndex(char c) {
+                        if (c >= 'A' && c <= 'Z') return c - 'A'; // A–Z
+                        if (c >= 'a' && c <= 'z') return c - 'a' + 26; // a–z
+                        if (c >= '0' && c <= '9') return c - '0' + 52; // 0–9
+                        if (c == '+') return 62; // +
+                        if (c == '/') return 63; // /
+                        return -1; // 非法字符
+                    }
+
+                    // Base64 編碼
+                    string base64Encode(const string &input) {
+                        string binaryData = "", encoded = "";
+                        for (int i = 0; i < input.size(); i++) {
+                            bitset<8> bits(static_cast<unsigned char>(input[i]));
+                            binaryData += bits.to_string();
+                        }
+                        while (binaryData.size() % 6 != 0) binaryData += "0";
+                        for (int i = 0; i < binaryData.size(); i += 6) {
+                            bitset<6> bits(binaryData.substr(i, 6));
+                            int index = static_cast<int>(bits.to_ulong());
+                            encoded += indexToBase64Char(index);
+                        }
+                        while (encoded.size() % 4 != 0) encoded += '=';
+                        return encoded;
+                    }
+
+                    // Base64 解碼
+                    string base64Decode(const string &input) {
+                        string binaryData = "", decoded = "";
+                        size_t padding = 0;
+                        string strippedInput = input;
+
+                        // 使用 for 迴圈移除 '=' 填充字符
+                        for (int i = strippedInput.size() - 1; i >= 0 && strippedInput[i] == '='; i--) {
+                            strippedInput.erase(i, 1);  // 用 erase 移除 '=' 填充字符
+                            padding++;
+                        }
+
+                        for (int i = 0; i < strippedInput.size(); i++) {
+                            int index = base64CharToIndex(strippedInput[i]);
+                            if (index == -1) return "解碼失敗";
+                            bitset<6> bits(index);
+                            binaryData += bits.to_string();
+                        }
+
+                        if (padding > 0) binaryData.erase(binaryData.end() - padding * 2, binaryData.end());
+                        for (int i = 0; i < binaryData.size(); i += 8) {
+                            bitset<8> bits(binaryData.substr(i, 8));
+                            decoded += static_cast<char>(bits.to_ulong());
+                        }
+                        return decoded;
+                    }
+
+                    // 位移加密
+                    string shiftEncrypt(const string &input, int k) {
+                        string encrypted = "";
+                        for (int i = 0; i < input.size(); i++) {
+                            char c = input[i];
+                            if (c >= 32 && c <= 126) {
+                                char shifted = (c - 32 + k) % 95 + 32;
+                                encrypted += shifted;
+                            } else {
+                                encrypted += c; // 非可見字符保持不變
+                            }
+                        }
+                        return encrypted;
+                    }
+
+                    // 位移解密
+                    string shiftDecrypt(const string &input, int k) {
+                        string decrypted = "";
+                        for (int i = 0; i < input.size(); i++) {
+                            char c = input[i];
+                            if (c >= 32 && c <= 126) {
+                                char shifted = (c - 32 - k + 95) % 95 + 32;
+                                decrypted += shifted;
+                            } else {
+                                decrypted += c; // 非可見字符保持不變
+                            }
+                        }
+                        return decrypted;
+                    }
+
+                    // 主程式
+                    int main() {
+                        string mode, input;
+                        int n, k;
+
+                        cout<< "歡迎使用加密解密系統"<<endl<<endl;
+                        cout << "請輸入模式 (E 表示編碼, D 表示解碼): ";
+                        cin >> mode;
+                        cin.ignore();
+                        cout << "請輸入字串: ";
+                        getline(cin, input);
+                        cout << "請輸入密鑰1(建議小一點): ";
+                        cin >> n;
+                        cout << "請輸入密鑰2: ";
+                        cin >> k;
+
+                        if (mode == "E") {
+                            for (int i = 0; i < n; i++) {
+                                input = base64Encode(input);
+                                input = shiftEncrypt(input, k);
+                            }
+                            cout << "加密後結果: " << input << endl;
+                        } else if (mode == "D") {
+                            for (int i = 0; i < n; i++) {
+                                input = shiftDecrypt(input, k);
+                                input = base64Decode(input);
+                                if (input == "解碼失敗") {
+                                    cout << "解碼失敗" << endl;
+                                    return 0;
+                                }
+                            }
+                            cout << "解碼後結果: " << input << endl;
+                        } else {
+                            cout << "無效的模式！請輸入 'E' 或 'D'。" << endl;
+                        }
+
+                        return 0;
+                    }
+                </code>
+            </pre>
+            <p>&nbsp;</p>
+            <h3>結論與展望：</h3>
+            <p>多層加密系統在安全性方面存在挑戰，但透過結合其他加密演算法、增加錯誤誘導與假訊息層，以及設計多步驗證與防護機制，可以有效提升安全性並防範暴力破解。 未來，我們將持續研究更強大的加密技術，以確保資料安全</p>
         </section>
         
         
-         <!-- highschool-learning -->
-        <section id="highschool-learning" class="hidden">
+         <!-- project2 -->
+        <section id="project2" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">高中自主學習</h1>
             <p>這是我在嘉義高中期間進行的自主學習專案，主題為「XXXXX」。</p>
             <ul class="list-disc list-inside text-gray-400 interactive">
