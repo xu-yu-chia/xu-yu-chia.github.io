@@ -45,3 +45,23 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 });
 
+// 初始化點擊計數器
+let clickCount = 0;
+
+// 獲取超連結元素
+const link = document.getElementById('customLink');
+
+// 添加點擊事件監聽器
+link.addEventListener('click', function(event) {
+    event.preventDefault(); // 阻止默認的連結行為
+    clickCount++;
+
+    // 檢查是否達到5次點擊
+    if (clickCount === 5) {
+        // 跳轉到你想要的網址
+        window.location.href = 'https://example.com'; // 更換為你想要的URL
+    } else {
+        // 可以更新UI來顯示當前點擊次數，但這裡我們只是簡單地不做任何事情
+        console.log('點擊次數:', clickCount);
+    }
+});
