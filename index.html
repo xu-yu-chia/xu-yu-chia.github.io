@@ -6,9 +6,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="歡迎來到 Xu Yu-Chia's(許彧嘉) Blog！探索我的專案、跑步紀錄和更多精彩內容！">
+    <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
     <title>Xu Yu-Chia's Blog</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
     
@@ -1130,7 +1131,7 @@
             </div>
         </section>
 
-
+        <!-- 運動紀事 -->
         <section id="sports_record" class="hidden">
             <h1 class="text-3xl font-bold mb-6 text-center text-gradient">運動紀事</h1>
         
@@ -1194,12 +1195,39 @@
 
 
         <!-- 聯絡我（隱藏於主頁外） -->
-        <section id="contact" class="hidden">
-            <h1 class="text-2xl font-bold mb-4 interactive">Contact Me</h1>
-            <p>如果有任何問題或合作機會，歡迎透過以下方式聯絡我：</p>
-            <p>Email: <a href="mailto:joshyymmdd@gmail.com" class="text-blue-400 interactive" target="_blank" rel="noopener noreferrer">joshyymmdd@gmail.com</a></p>
-            <p>FB: <a href="https://www.facebook.com/vm.josh.5/" class="text-blue-400 interactive" target="_blank" rel="noopener noreferrer">許彧嘉</a></p>
-            <p>IG: <a href="https://www.instagram.com/yu.chia_hsu/" class="text-blue-400 interactive" target="_blank" rel="noopener noreferrer">yu.chia_hsu</a></p>
+        <!-- Contact Section -->
+        <section id="contact" class="hidden p-6 bg-gray-100 rounded-2xl shadow-lg">
+            <h1 class="text-3xl font-extrabold mb-6 text-gray-800 interactive">📬 Contact Me</h1>
+            <p class="mb-4 text-gray-600">如果有任何問題或合作機會，歡迎透過以下方式聯絡我：</p>
+            <div class="space-y-4">
+                <!-- Email -->
+                <div class="flex items-center gap-4">
+                    <i class="fas fa-envelope text-blue-500 text-2xl"></i>
+                    <p>Email: 
+                        <a href="mailto:joshyymmdd@gmail.com" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">
+                            joshyymmdd@gmail.com
+                        </a>
+                    </p>
+                </div>
+                <!-- Facebook -->
+                <div class="flex items-center gap-4">
+                    <i class="fab fa-facebook text-blue-600 text-2xl"></i>
+                    <p>FB: 
+                        <a href="https://www.facebook.com/vm.josh.5/" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">
+                            許彧嘉
+                        </a>
+                    </p>
+                </div>
+                <!-- Instagram -->
+                <div class="flex items-center gap-4">
+                    <i class="fab fa-instagram text-pink-500 text-2xl"></i>
+                    <p>IG: 
+                        <a href="https://www.instagram.com/yu.chia_hsu/" class="text-pink-500 underline hover:text-pink-600" target="_blank" rel="noopener noreferrer">
+                            yu.chia_hsu
+                        </a>
+                    </p>
+                </div>
+            </div>
         </section>
     </main>
 
