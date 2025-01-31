@@ -45,7 +45,7 @@
         }
 
         .menu-item:hover {
-            background: white;
+            background: black;
             color: yellow;
         }
 
@@ -61,7 +61,7 @@
             margin-left: -40px;
             position: absolute;
             top: 20px;
-            color: white;
+            color: black;
             text-align: center;
             line-height: 80px;
             transform: translate3d(0, 0, 0);
@@ -73,7 +73,7 @@
         .hamburger {
             width: 25px;
             height: 3px;
-            background: white;
+            background: black;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -172,60 +172,9 @@
     <!-- 主內容 -->
     <main class="max-w-6xl mx-auto p-8">
         
-        <!-- 主頁內容 -->
-        <section class="relative text-center py-20 bg-gray-950 text-white">
-          
-          
-          <!-- 標題與副標題 -->
-          <div class="relative z-10">
-            <h1 class="text-5xl font-extrabold mb-4  animate-fadeIn">
-              歡迎來到 <span class="text-yellow-300">Xu Yu-Chia's Blog</span>
-            </h1>
-            <p class="text-lg text-gray-200 animate-slideUp">探索我的故事、專案和更多內容！</p>
-          </div>
-          
-          <!-- 按鈕 -->
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <nav class="menu">
-                <input type="checkbox" class="menu-open" id="menu-open">
-                <label class="menu-open-button" for="menu-open">
-                    <span class="hamburger hamburger-1"></span>
-                    <span class="hamburger hamburger-2"></span>
-                    <span class="hamburger hamburger-3"></span>
-                </label>
-                
-                <a href="#home" class="menu-item"><i class="fa fa-home"></i></a>
-                <a href="#about" class="menu-item"><i class="fa fa-info"></i></a>
-                <a href="#project" class="menu-item"><i class="fa fa-folder"></i></a>
-                <a href="#sports_record" class="menu-item"><i class="fa fa-running"></i></a>
-                <a href="#contact" class="menu-item"><i class="fa fa-phone"></i></a>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="blank" class="menu-item"><i class="fa fa-poop"></i></a>
-            </nav>
-        
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-                <defs>
-                    <filter id="shadowed-goo">
-                        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
-                        <feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-                        <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
-                        <feColorMatrix in="shadow" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
-                        <feOffset in="shadow" dx="1" dy="1" result="shadow" />
-                        <feBlend in2="shadow" in="goo" result="goo" />
-                        <feBlend in2="goo" in="SourceGraphic" result="mix" />
-                    </filter>
-                </defs>
-            </svg>
-
-        </section>
-        
         
         <!-- 主頁（隱藏於主頁外） -->
-        <section id="home" class="relative text-center py-20 bg-gray-950 text-white hidden">
+        <section id="home" class="relative text-center py-20 bg-gray-950 text-white">
           
           <!-- 標題與副標題 -->
           <div class="relative z-10">
