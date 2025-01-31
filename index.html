@@ -29,7 +29,7 @@
         }
 
         .menu-item {
-            background: #ff4081;
+            background: #FFF176;
             border-radius: 100%;
             width: 80px;
             height: 80px;
@@ -46,7 +46,7 @@
 
         .menu-item:hover {
             background: white;
-            color: #ff4081;
+            color: #FFF176;
         }
 
         .menu-open {
@@ -54,7 +54,7 @@
         }
 
         .menu-open-button {
-            background: #ff4081;
+            background: #FFF176;
             border-radius: 100%;
             width: 80px;
             height: 80px;
@@ -185,11 +185,43 @@
           </div>
           
           <!-- 按鈕 -->
-          <div class="mt-10 relative z-10">
-            <a href="#about" class="px-6 py-3 text-lg font-medium bg-yellow-300 text-black rounded-full shadow-lg hover:shadow-2xl hover:bg-yellow-400 transition-transform duration-300 transform hover:scale-105">
-              開始探索 🚀
-            </a>
-          </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <nav class="menu">
+                <input type="checkbox" class="menu-open" id="menu-open">
+                <label class="menu-open-button" for="menu-open">
+                    <span class="hamburger hamburger-1"></span>
+                    <span class="hamburger hamburger-2"></span>
+                    <span class="hamburger hamburger-3"></span>
+                </label>
+                
+                <a href="#" class="menu-item"><i class="fa fa-home"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-bar-chart"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-plus"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-heart"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-envelope"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-cog"></i></a>
+            </nav>
+        
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs>
+                    <filter id="shadowed-goo">
+                        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                        <feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                        <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+                        <feColorMatrix in="shadow" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
+                        <feOffset in="shadow" dx="1" dy="1" result="shadow" />
+                        <feBlend in2="shadow" in="goo" result="goo" />
+                        <feBlend in2="goo" in="SourceGraphic" result="mix" />
+                    </filter>
+                </defs>
+            </svg>
+
         </section>
         
         
@@ -205,11 +237,9 @@
           </div>
           
           <!-- 按鈕 -->
-          <div class="mt-10 relative z-10">
-            <a href="#about" class="px-6 py-3 text-lg font-medium bg-yellow-300 text-black rounded-full shadow-lg hover:shadow-2xl hover:bg-yellow-400 transition-transform duration-300 transform hover:scale-105">
-              開始探索 🚀
-            </a>
-          </div>
+            <br>
+            <br>
+            <br>
             <br>
             <br>
             <br>
