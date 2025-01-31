@@ -12,7 +12,111 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style>
+        .menu {
+            position: absolute;
+            left: 50%;
+            margin-left: -210px;
+            padding-top: 20px;
+            padding-left: 210px;
+            width: 420px;
+            height: 300px;
+            box-sizing: border-box;
+            font-size: 20px;
+            text-align: left;
+            filter: url('#shadowed-goo');
+        }
+
+        .menu-item {
+            background: #ff4081;
+            border-radius: 100%;
+            width: 80px;
+            height: 80px;
+            margin-left: -40px;
+            position: absolute;
+            top: 20px;
+            color: white;
+            text-align: center;
+            line-height: 80px;
+            transform: translate3d(0, 0, 0);
+            transition: transform ease-out 200ms;
+            text-decoration: none;
+        }
+
+        .menu-item:hover {
+            background: white;
+            color: #ff4081;
+        }
+
+        .menu-open {
+            display: none;
+        }
+
+        .menu-open-button {
+            background: #ff4081;
+            border-radius: 100%;
+            width: 80px;
+            height: 80px;
+            margin-left: -40px;
+            position: absolute;
+            top: 20px;
+            color: white;
+            text-align: center;
+            line-height: 80px;
+            transform: translate3d(0, 0, 0);
+            transition: transform ease-out 200ms;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            width: 25px;
+            height: 3px;
+            background: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -12.5px;
+            margin-top: -1.5px;
+            transition: transform 200ms;
+        }
+
+        .hamburger-1 { transform: translate3d(0, -8px, 0); }
+        .hamburger-2 { transform: translate3d(0, 0, 0); }
+        .hamburger-3 { transform: translate3d(0, 8px, 0); }
+
+        .menu-open:checked + .menu-open-button .hamburger-1 {
+            transform: translate3d(0, 0, 0) rotate(45deg);
+        }
+        .menu-open:checked + .menu-open-button .hamburger-2 {
+            transform: translate3d(0, 0, 0) scale(0.1, 1);
+        }
+        .menu-open:checked + .menu-open-button .hamburger-3 {
+            transform: translate3d(0, 0, 0) rotate(-45deg);
+        }
+
+        .menu-open:checked ~ .menu-item {
+            transition-timing-function: cubic-bezier(0.935, 0.000, 0.340, 1.330);
+        }
+
+        /* 调整6个菜单项的位置 */
+        .menu-open:checked ~ .menu-item:nth-child(3) { transform: translate(0px, -125px); }
+        .menu-open:checked ~ .menu-item:nth-child(4) { transform: translate(106px, -62.5px); }
+        .menu-open:checked ~ .menu-item:nth-child(5) { transform: translate(106px, 62.5px); }
+        .menu-open:checked ~ .menu-item:nth-child(6) { transform: translate(0px, 125px); }
+        .menu-open:checked ~ .menu-item:nth-child(7) { transform: translate(-106px, 62.5px); }
+        .menu-open:checked ~ .menu-item:nth-child(8) { transform: translate(-106px, -62.5px); }
+
+        /* 调整动画时间 */
+        .menu-item { transition-duration: 70ms; }
+        .menu-item:nth-child(3) { transition-duration: 70ms; }
+        .menu-item:nth-child(4) { transition-duration: 120ms; }
+        .menu-item:nth-child(5) { transition-duration: 170ms; }
+        .menu-item:nth-child(6) { transition-duration: 220ms; }
+        .menu-item:nth-child(7) { transition-duration: 270ms; }
+        .menu-item:nth-child(8) { transition-duration: 320ms; }
+    </style>
 </head>
     
 
@@ -106,6 +210,40 @@
               開始探索 🚀
             </a>
           </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <nav class="menu">
+                <input type="checkbox" class="menu-open" id="menu-open">
+                <label class="menu-open-button" for="menu-open">
+                    <span class="hamburger hamburger-1"></span>
+                    <span class="hamburger hamburger-2"></span>
+                    <span class="hamburger hamburger-3"></span>
+                </label>
+                
+                <a href="#" class="menu-item"><i class="fa fa-home"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-bar-chart"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-plus"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-heart"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-envelope"></i></a>
+                <a href="#" class="menu-item"><i class="fa fa-cog"></i></a>
+            </nav>
+        
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs>
+                    <filter id="shadowed-goo">
+                        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                        <feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                        <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+                        <feColorMatrix in="shadow" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
+                        <feOffset in="shadow" dx="1" dy="1" result="shadow" />
+                        <feBlend in2="shadow" in="goo" result="goo" />
+                        <feBlend in2="goo" in="SourceGraphic" result="mix" />
+                    </filter>
+                </defs>
+            </svg>
+
         </section>
         
         <!-- 自我介紹（隱藏於主頁外） -->
