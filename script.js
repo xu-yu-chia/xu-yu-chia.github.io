@@ -59,7 +59,7 @@ link.addEventListener('click', function(event) {
     // 檢查是否達到5次點擊
     if (clickCount === 5) {
         // 跳轉到你想要的網址
-        window.location.href = 'https://example.com'; // 更換為你想要的URL
+        window.location.href = "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing"; // 更換為你想要的URL
     } else {
         // 可以更新UI來顯示當前點擊次數，但這裡我們只是簡單地不做任何事情
         console.log('點擊次數:', clickCount);
