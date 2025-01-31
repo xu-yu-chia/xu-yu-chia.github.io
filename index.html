@@ -224,25 +224,34 @@
                 <h3 class="text-2xl font-bold mb-4 text-cyan-200">程式碼：</h3>
                 <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg shadow-md overflow-auto">
                     <code class="language-cpp">
-                    #include &lt;iostream&gt;
-                    #include &lt;bitset&gt;
+                    #include <bits/stdc++.h>
                     using namespace std;
-
+                    
                     // 將索引值轉換為 Base64 字符
                     char indexToBase64Char(int index) {
-                        if (index >= 0 && index <= 25) return 'A' + index;
-                        if (index >= 26 && index <= 51) return 'a' + (index - 26);
-                        if (index >= 52 && index <= 61) return '0' + (index - 52);
-                        if (index == 62) return '+';
-                        if (index == 63) return '/';
-                        return '\0';
+                        if (index >= 0 && index <= 25) return 'A' + index; // A–Z
+                        if (index >= 26 && index <= 51) return 'a' + (index - 26); // a–z
+                        if (index >= 52 && index <= 61) return '0' + (index - 52); // 0–9
+                        if (index == 62) return '+'; // +
+                        if (index == 63) return '/'; // /
+                        return '\0'; // 非法值
                     }
-
+                    
+                    // 將 Base64 字符轉換為索引值
+                    int base64CharToIndex(char c) {
+                        if (c >= 'A' && c <= 'Z') return c - 'A'; // A–Z
+                        if (c >= 'a' && c <= 'z') return c - 'a' + 26; // a–z
+                        if (c >= '0' && c <= '9') return c - '0' + 52; // 0–9
+                        if (c == '+') return 62; // +
+                        if (c == '/') return 63; // /
+                        return -1; // 非法字符
+                    }
+                    
                     // Base64 編碼
                     string base64Encode(const string &input) {
                         string binaryData = "", encoded = "";
                         for (int i = 0; i < input.size(); i++) {
-                            bitset<8> bits(static_cast<unsigned long long>(input[i]));
+                            bitset<8> bits(static_cast<unsigned char>(input[i]));
                             binaryData += bits.to_string();
                         }
                         while (binaryData.size() % 6 != 0) binaryData += "0";
@@ -254,13 +263,71 @@
                         while (encoded.size() % 4 != 0) encoded += '=';
                         return encoded;
                     }
-
+                    
+                    // Base64 解碼
+                    string base64Decode(const string &input) {
+                        string binaryData = "", decoded = "";
+                        size_t padding = 0;
+                        string strippedInput = input;
+                    
+                        // 使用 for 迴圈移除 '=' 填充字符
+                        for (int i = strippedInput.size() - 1; i >= 0 && strippedInput[i] == '='; i--) {
+                            strippedInput.erase(i, 1);  // 用 erase 移除 '=' 填充字符
+                            padding++;
+                        }
+                    
+                        for (int i = 0; i < strippedInput.size(); i++) {
+                            int index = base64CharToIndex(strippedInput[i]);
+                            if (index == -1) return "解碼失敗";
+                            bitset<6> bits(index);
+                            binaryData += bits.to_string();
+                        }
+                    
+                        if (padding > 0) binaryData.erase(binaryData.end() - padding * 2, binaryData.end());
+                        for (int i = 0; i < binaryData.size(); i += 8) {
+                            bitset<8> bits(binaryData.substr(i, 8));
+                            decoded += static_cast<char>(bits.to_ulong());
+                        }
+                        return decoded;
+                    }
+                    
+                    // 位移加密
+                    string shiftEncrypt(const string &input, int k) {
+                        string encrypted = "";
+                        for (int i = 0; i < input.size(); i++) {
+                            char c = input[i];
+                            if (c >= 32 && c <= 126) {
+                                char shifted = (c - 32 + k) % 95 + 32;
+                                encrypted += shifted;
+                            } else {
+                                encrypted += c; // 非可見字符保持不變
+                            }
+                        }
+                        return encrypted;
+                    }
+                    
+                    // 位移解密
+                    string shiftDecrypt(const string &input, int k) {
+                        string decrypted = "";
+                        for (int i = 0; i < input.size(); i++) {
+                            char c = input[i];
+                            if (c >= 32 && c <= 126) {
+                                char shifted = (c - 32 - k + 95) % 95 + 32;
+                                decrypted += shifted;
+                            } else {
+                                decrypted += c; // 非可見字符保持不變
+                            }
+                        }
+                        return decrypted;
+                    }
+                    
                     // 主程式
                     int main() {
                         string mode, input;
                         int n, k;
-                        cout << "歡迎使用加密解密系統" << endl;
-                        cout << "請選擇模式（E：加密，D：解密）: ";
+                    
+                        cout << "歡迎使用簡化加密解密系統" << endl << endl;
+                        cout << "請輸入模式 (E 表示編碼, D 表示解碼): ";
                         cin >> mode;
                         cin.ignore();
                         cout << "請輸入字串: ";
@@ -269,10 +336,30 @@
                         cin >> n;
                         cout << "請輸入密鑰2: ";
                         cin >> k;
-
-                        // 加密或解密邏輯略...
+                    
+                        if (mode == "E") {
+                            for (int i = 0; i < n; i++) {
+                                input = base64Encode(input);
+                                input = shiftEncrypt(input, k);
+                            }
+                            cout << "加密後結果: " << input << endl;
+                        } else if (mode == "D") {
+                            for (int i = 0; i < n; i++) {
+                                input = shiftDecrypt(input, k);
+                                input = base64Decode(input);
+                                if (input == "解碼失敗") {
+                                    cout << "解碼失敗" << endl;
+                                    return 0;
+                                }
+                            }
+                            cout << "解碼後結果: " << input << endl;
+                        } else {
+                            cout << "無效的模式！請輸入 'E' 或 'D'。" << endl;
+                        }
+                    
                         return 0;
                     }
+
                     </code>
                 </pre>
             </div>
@@ -946,6 +1033,91 @@
             </div>
         </section>
 
+                              
+        <!-- Project3 Section -->
+        <section id="project3" class="p-8 bg-gray-800 text-white rounded-2xl shadow-lg hidden">
+            <!-- Title -->
+            <header class="mb-8 text-center">
+                <h1 class="text-4xl font-extrabold mb-4 text-green-400 hover:text-green-300 transition-all">
+                    阿克曼轉向機構的研究與實作
+                </h1>
+                <h2 class="text-3xl font-bold text-green-300">
+                    <span>自走車實作與轉向系統應用</span>
+                </h2>
+            </header>
+        
+            <!-- Project Overview -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">專案簡介</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    本專案研究阿克曼轉向機構在自走車上的應用，實作一套靈活可靠的轉向系統，解決傳統轉向裝置的不足，並透過 Arduino 實現遙控及精準控制。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    專案結合伺服馬達、紅外線遙控器與多種電子元件，探討轉向結構、車體設計與程式控制的最佳實踐。
+                </p>
+            </div>
+        
+            <!-- Goals & Outcomes -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">專題目標 & 預期成果</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-green-400">阿克曼轉向系統：</strong>
+                        實現符合阿克曼幾何理論的轉向結構，增強轉彎靈活性與穩定性。
+                    </li>
+                    <li>
+                        <strong class="text-green-400">自主移動平台：</strong>
+                        利用 Arduino 控制伺服馬達與 TT 馬達，搭建穩定的自走車底盤。
+                    </li>
+                    <li>
+                        <strong class="text-green-400">多場景應用：</strong>
+                        測試自走車在不同轉向半徑與環境中的應用價值。
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Technical Highlights -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">技術亮點</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300">
+                    <li>
+                        <strong class="text-green-400">阿克曼理論應用：</strong>
+                        理解並實現阿克曼比例計算，確保轉向時車輪角度精確。
+                    </li>
+                    <li>
+                        <strong class="text-green-400">硬體整合：</strong>
+                        包括 3D 列印車體、伺服馬達控制轉向、L298N 驅動動力輪。
+                    </li>
+                    <li>
+                        <strong class="text-green-400">紅外線遙控：</strong>
+                        使用紅外線遙控器進行多功能控制，如前進、後退、轉向與速度調整。
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Challenges & Reflection -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">挑戰與反思</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    在實作過程中，遇到車體結構設計、電源分配與紅外線干擾等挑戰，透過持續調整與測試，成功優化了自走車性能並解決問題。
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    這次研究讓我們更深入理解轉向機構的應用價值，同時也為未來機器人設計提供了寶貴經驗。
+                </p>
+            </div>
+        
+            <!-- Project Code -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-4 text-green-200">程式碼：</h3>
+                <p class="text-gray-300 leading-relaxed">
+                    專案程式碼可參考以下資源：
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li><a href="https://reurl.cc/edr3Db" class="text-green-400 underline" target="_blank">阿克曼轉向相關程式碼</a></li>
+                    <li><a href="https://reurl.cc/Mye04K" class="text-green-400 underline" target="_blank">自走車程式碼與控制邏輯</a></li>
+                </ul>
+            </div>
+        </section>
 
 
         <section id="sports_record" class="hidden">
