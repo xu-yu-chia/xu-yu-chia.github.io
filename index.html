@@ -1401,17 +1401,6 @@
             <!-- 使用 HTML5 影片 -->
             <video src="rickroll.mp4" type="video/mp4" autoplay loop controls></video>
         </section>
-
-        <script>
-        // 嘗試在頁面加載後自動播放影片
-        document.addEventListener('DOMContentLoaded', function() {
-          const video = document.getElementById('background-video');
-          video.muted = false; // 取消靜音
-          video.play().catch(function(error) {
-            console.log('自動播放失敗:', error);
-          });
-        });
-      </script>
     </main>
 
     <!-- 頁腳 -->
