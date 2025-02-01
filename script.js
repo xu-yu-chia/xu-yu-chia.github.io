@@ -65,3 +65,16 @@ link.addEventListener('click', function(event) {
         console.log('點擊次數:', clickCount);
     }
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash; // 取得URL中的#部分
+  if (hash) {
+    const targetSection = document.querySelector(hash);
+    if (targetSection) {
+      document.querySelectorAll('div[hidden]').forEach(section => {
+        section.hidden = true; // 先隱藏所有區塊
+      });
+      targetSection.hidden = false; // 顯示對應的區塊
+    }
+  }
+});
