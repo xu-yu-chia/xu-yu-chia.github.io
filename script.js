@@ -66,15 +66,24 @@ link.addEventListener('click', function(event) {
     }
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-  const hash = window.location.hash; // 取得URL中的#部分
+function showSectionFromHash() {
+  const hash = window.location.hash; // 取得 URL 中的 hash，例如 #section1
   if (hash) {
     const targetSection = document.querySelector(hash);
     if (targetSection) {
-      document.querySelectorAll('div[hidden]').forEach(section => {
-        section.hidden = true; // 先隱藏所有區塊
+      // 隱藏所有區塊（加上 hidden class）
+      document.querySelectorAll('div').forEach(section => {
+        section.classList.add('hidden');
       });
-      targetSection.hidden = false; // 顯示對應的區塊
+      // 顯示對應區塊（移除 hidden class）
+      targetSection.classList.remove('hidden');
     }
   }
-});
+}
+
+// 頁面載入完成後執行
+window.addEventListener('DOMContentLoaded', showSectionFromHash);
+
+// 當 hash 變化時，執行切換
+window.addEventListener('hashchange', showSectionFromHash);
+
