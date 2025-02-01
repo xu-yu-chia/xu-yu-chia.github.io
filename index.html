@@ -148,29 +148,6 @@
         </nav>
     </header>
     
-    <!--
-    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
-        <nav class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold">
-                <a href="#home">Xu Yu-Chia's Blog</a>
-            </div>
-            <ul class="flex space-x-6 relative">
-                <li><a href="#about" class="hover:text-gray-400">About Me</a></li>
-                <li class="group relative">
-                    <a href="#projects" class="hover:text-gray-400">Project</a>
-                    <ul class="absolute hidden group-hover:block bg-gray-800 text-sm rounded shadow-lg mt-2 w-40">
-                        <li><a href="#project1" class="block px-6 py-2 hover:bg-gray-700">中央大學工學院程式競賽</a></li>
-                        <li><a href="#highschool-learning" class="block px-6 py-2 hover:bg-gray-700">高中自主學習</a></li>
-                    </ul>
-                </li>
-                <li><a href="#blog" class="hover:text-gray-400">Other Blogs</a></li>
-                <li><a href="#contact" class="hover:text-gray-400">Contact Me</a></li>
-            </ul>
-        </nav>
-    </header>
-    -->
-
-
     <!-- 主內容 -->
     <main class="max-w-6xl mx-auto p-8">
         
@@ -1401,26 +1378,26 @@
                               
     <script>
         function showSectionFromHash() {
-          const hash = window.location.hash;
-          console.log("Current hash:", hash);
-    
+          const hash = window.location.hash; // 取得 URL 中的 hash，例如 #section1
           if (hash) {
             const targetSection = document.querySelector(hash);
-            console.log("Target section:", targetSection);
-    
             if (targetSection) {
-              document.querySelectorAll('div[hidden]').forEach(section => {
-                section.hidden = true;
+              // 隱藏所有區塊（加上 hidden class）
+              document.querySelectorAll('div').forEach(section => {
+                section.classList.add('hidden');
               });
-              targetSection.hidden = false;
-            } else {
-              console.log("No matching section found for:", hash);
+              // 顯示對應區塊（移除 hidden class）
+              targetSection.classList.remove('hidden');
             }
           }
         }
-    
+        
+        // 頁面載入完成後執行
         window.addEventListener('DOMContentLoaded', showSectionFromHash);
+        
+        // 當 hash 變化時，執行切換
         window.addEventListener('hashchange', showSectionFromHash);
+
       </script>
     
 </body>
