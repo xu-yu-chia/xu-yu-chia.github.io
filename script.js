@@ -3,16 +3,29 @@ document.getElementById('viewCount').textContent = parseInt(viewCount) + 1;
 localStorage.setItem('viewCount', parseInt(viewCount) + 1);
 
 
-
-// 簡單顯示內容切換
-document.querySelectorAll('nav a').forEach(link => {
+// 監聽超連結的點擊事件
+document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', event => {
-        event.preventDefault();
-        document.querySelectorAll('main section').forEach(section => section.classList.add('hidden'));
         const target = document.querySelector(link.getAttribute('href'));
-        if (target) target.classList.remove('hidden');
+
+        if (target) {
+            event.preventDefault(); // 阻止預設行為（跳轉到目標）
+
+            // 隱藏所有的 section
+            document.querySelectorAll('main section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // 顯示目標 section
+            target.classList.remove('hidden');
+            // target.scrollIntoView({ behavior: 'smooth' }); // 平滑滾動到目標區塊
+        } else {
+            // 如果找不到目標 section，讓瀏覽器跳轉到原本的 href
+            window.location.href = link.getAttribute('href');
+        }
     });
 });
+
 
 // 滑鼠點擊漣漪效果
 document.body.addEventListener('click', (e) => {
@@ -26,24 +39,7 @@ document.body.addEventListener('click', (e) => {
     ripple.style.top = `${e.pageY - size / 2}px`;
     setTimeout(() => ripple.remove(), 400);
 });
-// 監聽超連結的點擊事件
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', event => {
-        event.preventDefault(); // 阻止預設行為（跳轉到目標）
 
-        // 隱藏所有的 section
-        document.querySelectorAll('main section').forEach(section => {
-            section.classList.add('hidden');
-        });
-
-        // 顯示目標 section
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-            target.classList.remove('hidden');
-            //target.scrollIntoView({ behavior: 'smooth' }); // 平滑滾動到目標區塊
-        }
-    });
-});
 
 // 初始化點擊計數器
 let clickCount = 0;
