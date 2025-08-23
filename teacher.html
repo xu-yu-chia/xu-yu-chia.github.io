@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>許彧嘉 (Xu Yu-Chia) - 專業家教</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+        }
+        .content-section {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Initial state for scroll animation */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        /* State when section is visible */
+        .content-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Typing cursor effect */
+        #subtitle-text::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { color: transparent }
+            50% { color: #93c5fd; } /* blue-300 */
+        }
+        /* Header gradient animation */
+        .animated-gradient {
+            background-size: 200% 200%;
+            animation: gradient-flow 8s ease infinite;
+        }
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-gray-200">
+
+    <!-- Header Section -->
+    <header class="container mx-auto px-6 py-16 text-center">
+        <div class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 animated-gradient mb-4">
+            <h1 class="text-5xl md:text-6xl font-bold">許彧嘉 (Xu Yu-Chia)</h1>
+        </div>
+        <p class="text-xl md:text-2xl text-blue-200 font-light min-h-[32px]">
+            <span id="subtitle-text"></span>
+        </p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 pb-20 space-y-12">
+
+        <!-- Section: 關於我 & 專業領域 -->
+        <section class="content-section rounded-2xl p-8 shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-1 flex flex-col items-center text-center">
+                    <div class="w-66 h-66 rounded-full bg-slate-800 flex items-center justify-center mb-4 border-2 border-blue-400">
+                        <img src="C:\Users\User\Downloads\face.jpg" alt="大頭貼" class=" w-64 h-64 rounded-full object-cover">
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-white">關於我</h2>
+                    <p class="text-gray-300">國立中央大學 電機工程學系 大二</p>
+                    <p class="text-gray-400 mt-2">前土木工程學系 系排名第一</p>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="text-xl font-semibold text-cyan-300 mb-3">專業領域與成就</h3>
+                    <div class="space-y-6 text-gray-300">
+                    <!-- 學業成就 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-cyan-400 mb-3">🎓 學業成就</h3>
+                        <ul class="list-none space-y-3 pl-6">
+                        <li class="flex items-start leading-relaxed">
+                            <i class="fa-solid fa-check-circle text-cyan-400 h-5 w-5 mr-3 mt-1"></i>
+                            <span><b class="text-white">會考：</b> 數學與自然科滿分。</span>
+                        </li>
+                        <li class="flex items-start leading-relaxed">
+                            <i class="fa-solid fa-star text-cyan-400 h-5 w-5 mr-3 mt-1"></i>
+                            <span><b class="text-white">學測：</b> 數學、自然皆達頂標。</span>
+                        </li>
+                        <li class="flex items-start leading-relaxed">
+                            <i class="fa-solid fa-award text-cyan-400 h-5 w-5 mr-3 mt-1"></i>
+                            <span><b class="text-white">數理資優：</b> 國中通過數理資優班鑑定。</span>
+                        </li>
+                        <li class="flex items-start leading-relaxed">
+                            <i class="fa-solid fa-chart-line text-cyan-400 h-5 w-5 mr-3 mt-1"></i>
+                            <span><b class="text-white">嘉義高中：</b> 數學成績維持全校前 1%。</span>
+                        </li>
+                        </ul>
+                    </div>
+
+                    <!-- 程式能力 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-cyan-400 mb-3">💻 程式能力</h3>
+                        <ul class="list-none space-y-3 pl-6">
+                        <li class="flex items-start leading-relaxed">
+                            <i class="fa-solid fa-code text-cyan-400 h-5 w-5 mr-3 mt-1"></i>
+                            <span><b class="text-white">程式設計：</b> APCS 觀念 4 (88/100)、實作 3 (250/400)。</span>
+                        </li>
+                        </ul>
+                    </div>
+
+                    <!-- 大學表現 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-cyan-400 mb-3">🏅 大學表現</h3>
+                        <ul class="list-none space-y-3 pl-6">
+                        <li class="flex items-start leading-relaxed">
+                            <i class="fa-solid fa-book-open text-cyan-400 h-5 w-5 mr-3 mt-1"></i>
+                            <span><b class="text-white">大學微積分：</b>中央大學會考三度登上「百傑榜」，並於1131學期登上「菁英榜」（全校第 10 名）。</span>
+                        </li>
+                        <li class="flex items-start leading-relaxed">
+                            <i class="fa-solid fa-trophy text-cyan-400 h-5 w-5 mr-3 mt-1"></i>
+                            <span><b class="text-white">大學成績：</b> 1131 中央大學土木系系排第 1，榮獲書卷獎。</span>
+                        </li>
+                        </ul>
+                    </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: 教學經歷 -->
+        <section class="content-section rounded-2xl p-8 shadow-lg">
+            <h2 class="text-2xl font-bold text-white text-center mb-6">教學經歷</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg text-green-300">國中自然與數學</h3>
+                    <p class="text-gray-400 mt-2">曾指導學生釐清理化觀念，並針對數學弱點進行輔導，幫助學生建立信心，成績穩定提升。</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg text-green-300">高中數學</h3>
+                    <p class="text-gray-400 mt-2">專攻高中數學，能從核心觀念出發，破解複雜題型，幫助學生建立完整的知識體系，應對大考。</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg text-green-300">國小伴讀</h3>
+                    <p class="text-gray-400 mt-2">具備耐心與親和力，協助國小學生完成作業、預習與複習，培養良好讀書習慣。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: 教學理念 -->
+        <section class="content-section rounded-2xl p-8 shadow-lg">
+             <h2 class="text-2xl font-bold text-white text-center mb-8">教學理念</h2>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Philosophy 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-purple-500/20 flex items-center justify-center mb-4 border-2 border-purple-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.546-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">引導式提問</h3>
+                    <p class="text-gray-400">取代單向解答，透過提問引導學生自行思考，找出問題的癥結點。</p>
+                </div>
+                <!-- Philosophy 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-purple-500/20 flex items-center justify-center mb-4 border-2 border-purple-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 008 10.172V5L7 4z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">觀念化教學</h3>
+                    <p class="text-gray-400">強調「理解」而非「死背」，與學生一同歸納重點，建立穩固的知識架構。</p>
+                </div>
+                <!-- Philosophy 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-purple-500/20 flex items-center justify-center mb-4 border-2 border-purple-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">培養解題策略</h3>
+                    <p class="text-gray-400">目標是建立學生的思考模式，培養獨立解決問題、舉一反三的長遠能力。</p>
+                </div>
+             </div>
+        </section>
+        
+        <!-- Section: 家教價錢 -->
+        <section class="content-section rounded-2xl p-8 shadow-lg">
+            <h2 class="text-2xl font-bold text-white text-center mb-8">收費標準</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Tier 1: 國小 -->
+                <div class="bg-slate-800 p-5 rounded-lg flex items-center justify-between transition transform hover:scale-105 hover:bg-slate-700">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-9-5.747h18" /></svg>
+                        <span class="text-lg font-medium text-gray-200">國小伴讀</span>
+                    </div>
+                    <span class="font-mono text-xl font-semibold text-yellow-300">NT$ 400 - 500 / hr</span>
+                </div>
+                <!-- Tier 2: 國中 -->
+                <div class="bg-slate-800 p-5 rounded-lg flex items-center justify-between transition transform hover:scale-105 hover:bg-slate-700">
+                    <div class="flex items-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1014.12 11.88a3 3 0 00-4.242 4.242z" /></svg>
+                        <span class="text-lg font-medium text-gray-200">國中數學 / 理化</span>
+                    </div>
+                    <span class="font-mono text-xl font-semibold text-yellow-300">NT$ 600 - 700 / hr</span>
+                </div>
+		<!-- Tier 2: 高中 -->
+                <div class="bg-slate-800 p-5 rounded-lg flex items-center justify-between transition transform hover:scale-105 hover:bg-slate-700">
+                    <div class="flex items-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V3m0 18h12M3 3h12M3 21h12M9 3l9 18M3 3l9 18" /></svg>
+                        <span class="text-lg font-medium text-gray-200">高中數學/物理/化學/生物/地科</span>
+                    </div>
+                    <span class="font-mono text-xl font-semibold text-yellow-300">NT$ 800 - 900 / hr</span>
+                </div>
+
+                <!-- Tier 4: 線上 -->
+                <div class="bg-slate-800 p-5 rounded-lg flex items-center justify-between transition transform hover:scale-105 hover:bg-slate-700">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m-9 9h18" /></svg>
+                        <span class="text-lg font-medium text-gray-200">線上教學</span>
+                    </div>
+                    <span class="font-mono text-xl font-semibold text-yellow-300">費用可議</span>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 mt-6 text-sm">* 實際費用可根據地點、學生程度與需求進行討論。</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8">
+        <p class="text-gray-400">想了解更多詳情或預約試教!</p>
+        <a href="https://www.facebook.com/vm.josh.5/" class="inline-block mt-4 px-8 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transform hover:-translate-y-1 transition-all duration-300">
+            前往 Facebook 聯繫
+        </a>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Typing effect
+            const subtitle = document.getElementById('subtitle-text');
+            const text = "專業家教 | 國立中央大學 電機工程學系";
+            let index = 0;
+
+            function typeWriter() {
+                if (index < text.length) {
+                    subtitle.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 100); // Adjust typing speed here
+                }
+            }
+            
+            // Scroll animation for sections
+            const sections = document.querySelectorAll('.content-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Start typing effect after a short delay
+            setTimeout(typeWriter, 500);
+        });
+    </script>
+
+</body>
+</html>
