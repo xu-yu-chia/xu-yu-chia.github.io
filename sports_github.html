@@ -90,14 +90,17 @@
       });
     }
 
+    
     function detectCategory(text){
-      if (/全馬|馬拉松(?!_半馬)/i.test(text)) return '馬拉松';
+      const s = (text || '').toLowerCase();
+      if (/全馬|馬拉松(?!.*半馬)/i.test(text)) return '馬拉松';
       if (/半馬/i.test(text)) return '半馬';
-      if (/(?:^|\b)(10k|10Ｋ|10ｋ|10公里)/i.test(text)) return '10K';
-      if (/(?:^|\b)(5k|5Ｋ|5ｋ|5公里)/i.test(text)) return '5K';
-      if (/(?:^|\b)(3k|3Ｋ|3ｋ|3公里)/i.test(text)) return '3K';
+      if (/10\s*[kｋＫ]|10公里/i.test(text)) return '10K';
+      if (/5\s*[kｋＫ]|5公里/i.test(text)) return '5K';
+      if (/3\s*[kｋＫ]|3公里/i.test(text)) return '3K';
       return null;
     }
+
 
     function parseTimeToSec(s){
       if (!s) return Infinity;
@@ -164,8 +167,8 @@
         renderHistory(history);
         renderPBFromHistory(history);
         // 若未使用 upcoming.json，可刪掉下列兩行
-        // const upcoming = await fetchJSON('upcoming');
-        // renderUpcoming(upcoming);
+        const upcoming = await fetchJSON('upcoming');
+        renderUpcoming(upcoming);
       }catch(e){
         console.error(e);
       }
