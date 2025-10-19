@@ -40,15 +40,10 @@ document.body.addEventListener('click', (e) => {
     setTimeout(() => ripple.remove(), 400);
 });
 
-
-
 let clickCount = 0;
 
 // 獲取超連結元素
 const link = document.getElementById('customLink');
-
-// 設定密碼（可自行更改）
-const correctPassword = "12345";
 
 // 添加點擊事件監聽器
 link.addEventListener('click', function(event) {
@@ -57,23 +52,41 @@ link.addEventListener('click', function(event) {
 
     // 檢查是否達到5次點擊
     if (clickCount === 5) {
-        // 要求使用者輸入密碼
-        const userInput = prompt("請輸入密碼以繼續：");
+        // 取得目前時間（時 + 分）
+        const now = new Date();
 
-        if (userInput === correctPassword) {
-            // 密碼正確 → 跳轉到指定網址
+        // 小工具：補0
+        const pad2 = (n) => n.toString().padStart(2, '0');
+
+        // 產生可接受的三種密碼（前一分、當前分、下一分）
+        const times = [-1, 0, 1].map(offset => {
+            const t = new Date(now.getTime() + offset * 60000);
+            return pad2(t.getHours()) + pad2(t.getMinutes());
+        });
+
+        console.log("（開發提示）可接受密碼為：", times); // 測試用，可刪除
+
+        // 要求使用者輸入密碼
+        const userInput = prompt("輸入密碼以繼續：");
+
+        if (times.includes(userInput)) {
+            // 密碼正確 → 跳轉
             alert("密碼正確，正在跳轉...");
-            window.location.href = "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing"; 
+            window.location.href = "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing";
         } else {
             // 密碼錯誤 → 顯示提示並重置點擊次數
-            alert("密碼錯誤，請重新嘗試！");
-            clickCount = 0;
+            alert("尼瑪還想猜密碼啊!!");
+            alert("尼瑪還想猜密碼啊!!");
+            alert("尼瑪還想猜密碼啊!!");
+            alert("尼瑪還想猜密碼啊!!");
+            alert("尼瑪還想猜密碼啊!!");
+            clickCount = 100;
         }
     } else {
-        // 顯示當前點擊次數（可選）
         console.log('點擊次數:', clickCount);
     }
 });
+
 
 /*
 
