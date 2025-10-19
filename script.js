@@ -41,6 +41,42 @@ document.body.addEventListener('click', (e) => {
 });
 
 
+
+let clickCount = 0;
+
+// 獲取超連結元素
+const link = document.getElementById('customLink');
+
+// 設定密碼（可自行更改）
+const correctPassword = "12345";
+
+// 添加點擊事件監聽器
+link.addEventListener('click', function(event) {
+    event.preventDefault(); // 阻止默認的連結行為
+    clickCount++;
+
+    // 檢查是否達到5次點擊
+    if (clickCount === 5) {
+        // 要求使用者輸入密碼
+        const userInput = prompt("請輸入密碼以繼續：");
+
+        if (userInput === correctPassword) {
+            // 密碼正確 → 跳轉到指定網址
+            alert("密碼正確，正在跳轉...");
+            window.location.href = "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing"; 
+        } else {
+            // 密碼錯誤 → 顯示提示並重置點擊次數
+            alert("密碼錯誤，請重新嘗試！");
+            clickCount = 0;
+        }
+    } else {
+        // 顯示當前點擊次數（可選）
+        console.log('點擊次數:', clickCount);
+    }
+});
+
+/*
+
 // 初始化點擊計數器
 let clickCount = 0;
 
@@ -61,6 +97,8 @@ link.addEventListener('click', function(event) {
         console.log('點擊次數:', clickCount);
     }
 });
+
+*/
 
 function showSectionFromHash() {
   let hash = window.location.hash;
