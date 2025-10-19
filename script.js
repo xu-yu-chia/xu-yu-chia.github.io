@@ -48,7 +48,7 @@ let clickCount = 0;
 const link = document.getElementById('customLink');
 
 // 設定密碼（可自行更改）
-const correctPassword = "12345";
+const correctPassword = "123456";
 
 // 添加點擊事件監聽器
 link.addEventListener('click', function(event) {
