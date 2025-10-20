@@ -40,6 +40,78 @@ document.body.addEventListener('click', (e) => {
     setTimeout(() => ripple.remove(), 400);
 });
 
+
+let clickCount = 0;
+
+// 獲取超連結元素
+const link = document.getElementById('customLink');
+
+link.addEventListener('click', function(event) {
+    event.preventDefault();
+    clickCount++;
+
+    if (clickCount === 5) {
+        // 取得目前時間（時 + 分）
+        const now = new Date();
+        const pad2 = n => n.toString().padStart(2, '0');
+
+        // 產生可接受的三種密碼（前一分、當前分、下一分）
+        const times = [-1, 0, 1].map(offset => {
+            const t = new Date(now.getTime() + offset * 60000);
+            return pad2(t.getHours()) + pad2(t.getMinutes());
+        });
+
+        // 建立遮罩輸入框
+        const div = document.createElement('div');
+        div.style = `
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center;
+            z-index: 9999;
+        `;
+        div.innerHTML = `
+            <div style="
+                background:#fff; padding:20px 25px; border-radius:12px;
+                text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.3);
+            ">
+                <h3 style="margin-bottom:10px;">請輸入當前時間（HHMM）</h3>
+                <input type="password" id="timePassword" maxlength="4" placeholder="例如1020"
+                    style="padding:10px; font-size:16px; width:150px; text-align:center;">
+                <div style="margin-top:15px;">
+                    <button id="okBtn" style="padding:8px 16px; font-size:14px;">確認</button>
+                    <button id="cancelBtn" style="padding:8px 16px; font-size:14px;">取消</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(div);
+
+        const input = div.querySelector('#timePassword');
+        const okBtn = div.querySelector('#okBtn');
+        const cancelBtn = div.querySelector('#cancelBtn');
+        input.focus();
+
+        okBtn.onclick = () => {
+            const userInput = input.value.trim();
+            if (times.includes(userInput)) {
+                alert("密碼正確，正在跳轉...");
+                window.location.href = "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing";
+            } else {
+                alert("密碼錯誤，請重新嘗試！");
+            }
+            document.body.removeChild(div);
+            clickCount = 100;
+        };
+
+        cancelBtn.onclick = () => {
+            document.body.removeChild(div);
+            clickCount = 0;
+        };
+    } else {
+        console.log('點擊次數:', clickCount);
+    }
+});
+
+
+/*
 let clickCount = 0;
 
 // 獲取超連結元素
@@ -88,7 +160,7 @@ link.addEventListener('click', function(event) {
 });
 
 
-/*
+
 
 // 初始化點擊計數器
 let clickCount = 0;
