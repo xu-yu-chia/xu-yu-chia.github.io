@@ -41,6 +41,9 @@ document.body.addEventListener('click', (e) => {
 });
 
 
+
+/*
+
 let clickCount = 0;
 
 // 獲取超連結元素
@@ -109,9 +112,9 @@ link.addEventListener('click', function(event) {
         console.log('點擊次數:', clickCount);
     }
 });
+*/
 
 
-/*
 let clickCount = 0;
 
 // 獲取超連結元素
@@ -160,7 +163,7 @@ link.addEventListener('click', function(event) {
 });
 
 
-
+/*
 
 // 初始化點擊計數器
 let clickCount = 0;
