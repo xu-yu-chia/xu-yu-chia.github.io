@@ -1,147 +1,32 @@
 <!doctype html>
+<link rel="shortcut icon" href="logo.ico" type="image/x-icon">
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>腳踏車失竊通報</title>
+  <title>Goal Tracker</title>
   <style>
-    :root{
-      --bg:#f7f7fb; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --accent:#2563eb; --chip:#e0e7ff; --danger:#b91c1c; --ok:#16a34a; --border:#e5e7eb;
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #fff;
     }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Hiragino Sans", "Heiti TC", Arial, sans-serif;}
-    .wrap{max-width: 960px; margin: 24px auto; padding: 0 16px;}
-    header{display:flex;gap:16px;align-items:center;}
-    header .badge{background:var(--chip);color:#1d4ed8;font-weight:600;padding:6px 10px;border-radius:999px;font-size:12px;}
-    h1{font-size: 28px; margin: 6px 0 2px}
-    .meta{color:var(--muted); font-size:14px;}
-    .grid{display:grid;grid-template-columns: repeat(12,1fr);gap:16px;margin-top:16px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.04);padding:16px}
-    .card h2{font-size:18px;margin:0 0 10px}
-    .kv{display:grid;grid-template-columns: 120px 1fr; gap:8px; font-size:15px}
-    .kv .k{color:var(--muted)}
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .tag{background:#eef2ff;color:#3730a3;padding:4px 8px;border-radius:999px;font-size:12px;border:1px solid #c7d2fe}
-    table{width:100%; border-collapse: collapse; font-size:14px}
-    th,td{border-bottom:1px solid var(--border); padding:10px; text-align:left; vertical-align:top}
-    th{background:#f8fafc; font-weight:600}
-    tbody tr:hover{background:#fafafc}
-    .hint{font-size:13px;color:var(--muted)}
-    .route{white-space:pre-wrap; line-height:1.6}
-    footer{color:var(--muted); font-size:12px; margin-top:24px}
-    .pill{display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid var(--border); background:#fafafa}
-    @media (max-width: 720px){ .grid{grid-template-columns:1fr} .kv{grid-template-columns: 1fr} }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="badge">失竊通報</div>
-      <div>
-        <h1>腳踏車失竊</h1>
-        <div class="meta">發生日期：2025/09/01（一）上午</div>
-      </div>
-    </header>
-
-    <section class="grid">
-      <div class="card" style="grid-column: span 6;">
-        <h2>腳踏車特徵</h2>
-        <div class="kv">
-          <div class="k">車款</div><div>淑女車</div>
-          <div class="k">車身顏色</div><div>藍色、銀色<a href="picture/bike.jpg" target="_blank" >  圖片</a></div>
-          <div class="k">車身文字</div><div>GOLD PACER</div>
-          <div class="k">置物籃</div><div>籃子底邊以綁束帶固定</div>
-          <div class="k">車證</div><div>中央大學車證（編號：113-00548）<a href="picture/bike_ID.jpg" target="_blank" >  圖片</a></div>
-        </div>
-        <div class="tags">
-          <span class="tag">#淑女車</span>
-          <span class="tag">#藍銀雙色</span>
-          <span class="tag">#GOLD PACER</span>
-          <span class="tag">#置物籃束帶</span>
-          <span class="tag">#車證113-00548</span>
-        </div>
-      </div>
-
-      <div class="card" style="grid-column: span 6;">
-        <h2>事件摘要</h2>
-        <div class="kv">
-          <div class="k">報告日期</div><div>2025/09/09（15：5X）現場查看無果</div>
-          <div class="k">地點</div><div>國鼎館周邊 → 志希 → 綜教 → 機械系館停車場</div>
-          <div class="k">進度</div><div><span class="pill">已調閱部分監視器</span> <span class="pill">最後畫面：10:58:12 騎進機械系館停車場</span></div>
-        </div>
-        <p class="hint">註：「X」表示分鐘個位數未確定。</p>
-      </div>
-
-      <div class="card" style="grid-column: span 12;">
-        <h2>監視器時間軸</h2>
-        <table>
-          <thead>
-            <tr>
-              <th style="width: 140px;">日期時間</th>
-              <th style="width: 140px;">監視器編號 / 地點</th>
-              <th>畫面摘要</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>9/1　09：5X</td>
-              <td>國鼎001</td>
-              <td>車主停車（藍色衣服、黑色褲旁邊白線條、揹書包）</td>
-            </tr>
-            <tr>
-              <td>9/1　10：54</td>
-              <td>國鼎001</td>
-              <td>腳踏車遭竊（橘色衣服、黑色斜背包）</td>
-            </tr>
-            <tr>
-              <td>9/1　10：54</td>
-              <td>志希001</td>
-              <td>嫌疑人騎經，畫面可見明顯正臉</td>
-            </tr>
-            <tr>
-              <td>9/1　10：55</td>
-              <td>綜教002</td>
-              <td>嫌疑人騎經，畫面可見明顯正臉</td>
-            </tr>
-            <tr>
-              <td colspan="3" class="route">途中路徑：體育室 → 志松苑餐廳轉彎 → 機械系館方向</td>
-            </tr>
-            <tr>
-              <td>9/1　10：58：12</td>
-              <td>機械系館停車場</td>
-              <td>騎入停車場</td>
-            </tr>
-            <tr>
-              <td>9/9　15：5X</td>
-              <td>機械系館停車場</td>
-              <td>現場查看無果</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="card" style="grid-column: span 12;">
-        <h2>備註</h2>
-        <p class="hint">可將本頁匯出或列印，隨附報案或校方協助調閱使用。</p>
-      </div>
-    </section>
-
-    <footer>
-      產生時間：<span id="now"></span>
-    </footer>
-  </div>
-  <script>
-    (function(){
-      const d = new Date();
-      const pad = n => String(n).padStart(2,'0');
-      const ts = `${d.getFullYear()}/${pad(d.getMonth()+1)}/${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
-      document.getElementById('now').textContent = ts;
-      // 允許使用者按 Ctrl/Cmd+P 快速列印
-      document.addEventListener('keydown', e => {
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
-          // 預留日後擴充
-        }
-      });
-    })();
-  </script>
+  <iframe
+    src="https://stormy-dogsled-f01.notion.site/ebd//c37bfc33ebb146c5b611a7390339483c?v=8ff3fdf7beb54ff7a36e79bc102fdd51"
+    allowfullscreen
+  ></iframe>
 </body>
 </html>
