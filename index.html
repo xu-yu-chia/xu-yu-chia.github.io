@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
 <html lang="zh-Hant">
     
@@ -6,13 +6,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xu Yu-Chia's(許彧嘉) Blog！">
+    <meta name="description" content="Xu Yu-Chia's personal website and portfolio.">
     <title>Xu Yu-Chia's Blog</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/font-awesome.min.css">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      overflow: hidden;
+      background: linear-gradient(135deg, #020617 0%, #071229 45%, #1a1038 100%);
+    }
+  </style>
 </head>
     
 
@@ -28,20 +40,20 @@
 </script>
 
     
-<body class="bg-gray-950 text-gray-200">
-    <!-- 頂部導航欄 -->
+<body class="text-gray-200 min-h-screen flex flex-col">
+    <!-- ?撠甈?-->
     
-    <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
-        <nav class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold"><a href ="#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
-            <ul class="flex space-x-6">
-                <li><a href="#about" class="hover:text-gray-400"><i class="fa fa-address-card"> About Me</i></a></li>
-                <li><a href="#projects" class="hover:text-gray-400"><i class="fa fa-folder-open"> Projects</i></a></li>
-                <li><a href="https://xu-yu-chia.github.io/blog" class="hover:text-gray-400"><i class="fas fa-pen"> Blogs</i></a></li>
-                <li><a href="sports_github.html" class="hover:text-gray-400"><i class="fa fa-running"> Sports Record</i></a></li>
-                <li><a href="#contact" class="hover:text-gray-400"><i class="fa fa-phone"> Contact Me</i></a></li>
+    <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/85 backdrop-blur">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <div class="text-xl font-bold tracking-wide"><a href ="#home"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
+            <ul class="hidden md:flex space-x-6 text-sm">
+                <li><a href="about.html" class="hover:text-gray-300"><i class="fa fa-address-card"> About Me</i></a></li>
+                <li><a href="projects.html" class="hover:text-gray-300"><i class="fa fa-folder-open"> Projects</i></a></li>
+                <li><a href="https://xu-yu-chia.github.io/blog" class="hover:text-gray-300"><i class="fas fa-pen"> Blogs</i></a></li>
+                <li><a href="sports_github.html" class="hover:text-gray-300"><i class="fa fa-running"> Sports Record</i></a></li>
+                <li><a href="contact.html" class="hover:text-gray-300"><i class="fa fa-phone"> Contact Me</i></a></li>
                 <li>
-                  <a href="https://drive.google.com/drive/folders/1_BK8A8wkxJxGL9JW039_7Fl54rKfsF0T?usp=sharing" class="hover:text-gray-400">
+                  <a href="https://drive.google.com/drive/folders/1_BK8A8wkxJxGL9JW039_7Fl54rKfsF0T?usp=sharing" class="hover:text-gray-300">
                     <i class="fa fa-file"></i>
                   </a>
                 </li>
@@ -51,41 +63,60 @@
         </nav>
     </header>
     
-    <!-- 主內容 -->
-    <main class="max-w-6xl mx-auto p-8">
+    <!-- 銝餃摰?-->
+    <main class="w-full flex-1 flex items-center">
         
         
-        <!-- 主頁（隱藏於主頁外） -->
-        <section id="home" class="relative text-center py-20 bg-gray-950 text-white">
+        <!-- 銝駁?嚗?銝駁?憭? -->
+        <section id="home" class="relative text-center text-white w-full">
           
-          <!-- 標題與副標題 -->
-          <div class="relative z-10">
-            <h1 class="text-5xl font-extrabold mb-4  animate-fadeIn">
+          <!-- 璅??璅? -->
+          <div class="relative z-10 max-w-6xl mx-auto px-8 py-8 w-full">
+            <h1 class="text-5xl font-extrabold mb-4 animate-fadeIn">
               歡迎來到 <span class="text-yellow-300">Xu Yu-Chia's Blog</span>
             </h1>
-            <p class="text-lg text-gray-200 animate-slideUp">探索我的故事、專案和更多內容！</p>
+            <p class="text-lg text-gray-200 animate-slideUp">探索我的專案、運動紀錄與學習歷程。</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-2">
+              <span class="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200">Portfolio</span>
+              <span class="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200">Running Log</span>
+              <span class="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200">Tech Notes</span>
+            </div>
+
+            <div class="mt-6 max-w-3xl mx-auto rounded-2xl bg-white/10 px-5 py-4">
+              <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
+                <div class="text-left">
+                  <p class="text-xs tracking-widest text-slate-300">TAIPEI TIME</p>
+                  <p id="clockDate" class="text-sm text-slate-200 mt-1">--</p>
+                  <p id="clockWeekday" class="text-sm text-slate-200">--</p>
+                </div>
+                <p id="clockTime" class="text-4xl md:text-5xl font-extrabold text-cyan-300 tabular-nums">--:--:--</p>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap justify-center gap-3">
+              <a href="about.html" class="rounded-lg bg-white/10 px-4 py-2 font-semibold hover:bg-white/15 transition">About</a>
+              <a href="projects.html" class="rounded-lg bg-white/10 px-4 py-2 font-semibold hover:bg-white/15 transition">Projects</a>
+              <a href="sports_github.html" class="rounded-lg bg-white/10 px-4 py-2 font-semibold hover:bg-white/15 transition">Sports</a>
+              <a href="contact.html" class="rounded-lg bg-white/10 px-4 py-2 font-semibold hover:bg-white/15 transition">Contact</a>
+            </div>
           </div>
           
-          <!-- 按鈕 -->
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <nav class="menu">
+          <!-- ?? -->
+            <div class="mt-10"></div>
+            <nav class="menu hidden">
                 <input type="checkbox" class="menu-open" id="menu-open">
                 <label class="menu-open-button" for="menu-open">
                     <span class="hamburger hamburger-1"></span>
                     <span class="hamburger hamburger-2"></span>
                     <span class="hamburger hamburger-3"></span>
                 </label>
-                <!--按鈕列表-->
+                <!--???”-->
                 
-                <a href="#about" class="menu-item"><i class="fa fa-address-card"></i></a>
-                <a href="#projects" class="menu-item"><i class="fa fa-folder-open"></i></a>
+                <a href="about.html" class="menu-item"><i class="fa fa-address-card"></i></a>
+                <a href="projects.html" class="menu-item"><i class="fa fa-folder-open"></i></a>
                 <a href="https://xu-yu-chia.github.io/blog" class="menu-item"><i class="fas fa-pen"></i></a>
-                <a href="#sports_record" class="menu-item"><i class="fa fa-running"></i></a>
-                <a href="#contact" class="menu-item"><i class="fa fa-phone"></i></a>
+                <a href="sports_github.html" class="menu-item"><i class="fa fa-running"></i></a>
+                <a href="contact.html" class="menu-item"><i class="fa fa-phone"></i></a>
                 <a href="https://drive.google.com/drive/folders/1H9GcwvpzeMFe6XpJAkb-HH9Dzw7xVomu?usp=sharing" class="menu-item"><i class="fa fa-poo"></i></a>
             </nav>
         
@@ -105,20 +136,35 @@
 
         </section>
         
-        <!-- 自我介紹（隱藏於主頁外） -->
-        <section id="about" class="hidden bg-gradient-to-r from-blue-500 to-purple-600 text-white p-8 rounded-2xl shadow-lg">
-          <h1 class="text-3xl font-extrabold mb-6  hover:underline transition duration-300">
-            About Me
-          </h1>
-          <div class="space-y-4">
-            <p class="text-lg">嗨！</p>
-            <p class="text-lg">我是 <span class="text-yellow-300 font-semibold">許彧嘉</span></p>
-            <p class="text-lg">一位熱愛 <span class="underline decoration-pink-400">程式設計</span> 和 <span class="underline decoration-pink-400">跑步</span> 的開發者</p>
-            <p class="text-lg">目前就讀中央大學電機工程學系<span class="italic text-gray-300">(大二 🐣)</span></p>
-            <!--<p class="text-lg">對 <span class="font-bold">專案開發</span> 和 <span class="font-bold">學習新技術</span> 充滿熱情 🚀</p>-->
+        <!-- ?芣?隞晶嚗?銝駁?憭? -->
+        <section id="about" class="hidden bg-gradient-to-br from-sky-600 via-indigo-600 to-violet-700 text-white p-8 rounded-2xl shadow-xl">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-6">
+            <div>
+              <p class="text-sm uppercase tracking-[0.2em] text-sky-200">Profile</p>
+              <h1 class="text-3xl md:text-4xl font-extrabold mt-2">About Me</h1>
+            </div>
+            <p class="text-sky-100 text-sm md:text-base">蝔?閮剛? x 頝郊 x ???</p>
           </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white/10 border border-white/20 rounded-xl p-5 backdrop-blur-sm">
+              <p class="text-lg leading-relaxed">?剁?? <span class="text-yellow-300 font-bold">閮勗膚??/span>??/p>
+              <p class="text-base text-sky-100 mt-3 leading-relaxed">
+                ?桀?撠梯?銝剖亢憭批飛?餅?撌亦?摮貊頂嚗??撘身閮??瑁?閮毀??              </p>
+            </div>
+            <div class="bg-white/10 border border-white/20 rounded-xl p-5 backdrop-blur-sm">
+              <p class="text-base leading-relaxed">
+                ??甇⊥??銵?蝝敺??銝韏瘀???撠???奎鞈質???嚗?                ??閮毀?芸楛??憿圾瘙箄???瑁???              </p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="px-3 py-1 rounded-full bg-cyan-300/20 text-cyan-100 text-sm">C/C++</span>
+                <span class="px-3 py-1 rounded-full bg-blue-300/20 text-blue-100 text-sm">Web</span>
+                <span class="px-3 py-1 rounded-full bg-purple-300/20 text-purple-100 text-sm">Running</span>
+              </div>
+            </div>
+          </div>
+
           <div class="mt-6">
-            <a href="#about" target="_blank" id="customLink" class="text-lg font-mono bg-black bg-opacity-50 py-2 px-4 rounded-lg inline-block hover:bg-opacity-70 transition no-underline duration-300">
+            <a href="#about" target="_blank" id="customLink" class="text-lg font-mono bg-black/45 py-2 px-4 rounded-lg inline-block hover:bg-black/60 transition no-underline duration-300">
 <pre>
    ______                   __
   /___  /  ____    _____   / /
@@ -131,28 +177,28 @@
         </section>
 
 
-        <!-- 專案（隱藏於主頁外） -->
+        <!-- 撠?嚗?銝駁?憭? -->
         <section id="projects" class="hidden">
             <h1 class="text-2xl font-bold mb-4 interactive">Project</h1>
             <ul class="space-y-4">
-                <!-- 卡片 -->
+                <!-- ?∠? -->
                 <li class="p-4  bg-gradient-to-r from-pink-300 via-orange-200 to-yellow-300 rounded-2xl shadow-lg interactive">
                     <a href="#project1" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-pink-300 font-semibold">工學院程式競賽</h2>
-                        <p class="text-gray-400">中央大學工學院程式競賽擔任組長榮獲第一名的佳績</p>
+                        <h2 class="text-xl text-pink-300 font-semibold">撌亙飛?Ｙ?撘奎鞈?/h2>
+                        <p class="text-gray-400">銝剖亢憭批飛撌亙飛?Ｙ?撘奎鞈賣?隞餌??瑟旨?脩洵銝??雿喟蜀</p>
                     </a>
-                <!-- 高中自主學習卡片 -->
+                <!-- 擃葉?芯蜓摮貊??∠? -->
                 <li class="p-4 bg-gradient-to-r from-yellow-500 via-orange-400 to-red-300 rounded-2xl shadow-lg interactive">
                     <a href="#project2" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-yellow-500 font-semibold">自主學習</h2>
-                        <p class="text-gray-400">嘉義高中全年級自主學習成果發表榮獲佳作</p>
+                        <h2 class="text-xl text-yellow-500 font-semibold">?芯蜓摮貊?</h2>
+                        <p class="text-gray-400">?儔擃葉?典僑蝝銝餃飛蝧??銵冽旨?脖蔔雿?/p>
                     </a>
                 </li>
-                <!-- 高中自主學習卡片 -->
+                <!-- 擃葉?芯蜓摮貊??∠? -->
                 <li class="p-4 bg-gradient-to-r from-red-400 via-pink-500 to-purple-500 rounded-2xl shadow-lg interactive">
                     <a href="#project3" class="block p-4 bg-gray-900 rounded-2xl shadow-lg hover:bg-gray-800 transition">
-                        <h2 class="text-xl text-red-400 font-semibold">阿克曼轉向機構的研究與實作</h2>
-                        <p class="text-gray-400">獲得1130315梯次小論文工程技術類甲等</p>
+                        <h2 class="text-xl text-red-400 font-semibold">?踹??潸???瑽??弦?祕雿?/h2>
+                        <p class="text-gray-400">?脣?1130315璇舀活撠??極蝔?銵??脩?</p>
                     </a>
                 </li>
             </ul>
@@ -164,16 +210,16 @@
             <!-- Title -->
             <header class="mb-8 text-center">
                 <h1 class="text-4xl font-extrabold mb-4 text-cyan-400 hover:text-cyan-300 transition-all">
-                    中央大學工學院程式競賽
+                    銝剖亢憭批飛撌亙飛?Ｙ?撘奎鞈?
                 </h1>
                 <h2 class="text-3xl font-bold text-cyan-300">
-                    <span>C++ 程式設計專題：數據編碼與加密技術</span>
+                    <span>C++ 蝔?閮剛?撠?嚗?楊蝣潸????銵?/span>
                 </h2>
             </header>
 
             <!-- Video Section -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">成果影片</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">??敶梁?</h3>
                 <div class="flex justify-center">
                     <iframe class="rounded-lg shadow-md" width="560" height="315" src="https://www.youtube.com/embed/wvgr3S6WTZQ?si=6dRDctGfHAZ4SO4F" 
                         title="YouTube video player" frameborder="0" 
@@ -185,62 +231,62 @@
 
             <!-- Team Members -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">團隊成員</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">???</h3>
                 <ul class="list-disc list-inside space-y-2 text-gray-300">
-                    <li><span class="font-semibold text-cyan-400">組長：</span>許彧嘉</li>
-                    <li><span class="font-semibold text-cyan-400">組員：</span>林祐豪、林冠廷、陳辰、郭峯升、黃博廷、黃紹威</li>
+                    <li><span class="font-semibold text-cyan-400">蝯嚗?/span>閮勗膚??/li>
+                    <li><span class="font-semibold text-cyan-400">蝯嚗?/span>??鞊芥??遠?颲啜撜臬????遠??蝝孵?</li>
                 </ul>
             </div>
 
             <!-- Project Purpose -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專題主旨</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">撠?銝餅</h3>
                 <p class="text-gray-300 leading-relaxed mb-4">
-                    本專題目的在讓學生學習並掌握數據編碼與加密技術，這些技術在現代資訊安全中扮演著重要角色。
+                    ?砍?憿?霈飛?飛蝧蒂??豢?蝺函Ⅳ??撖?銵????銵?曆誨鞈?摰銝剜瞍???閫??
                 </p>
                 <p class="text-gray-300 leading-relaxed">
-                    專題結合 Base64 編碼解碼和位移加密解密兩種基本技術，並將其應用在多次編碼與解碼流程中，挑戰學生的程式設計思維與問題解決能力。
+                    撠?蝯? Base64 蝺函Ⅳ閫?Ⅳ??蝘餃?撖圾撖蝔桀?祆?銵?銝血??嗆??典憭活蝺函Ⅳ?圾蝣潭?蝔葉嚗??啣飛??蝔?閮剛??雁??憿圾瘙箄??
                 </p>
             </div>
 
             <!-- Goals & Learning Highlights -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專題目標 & 學習重點</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">撠??格? & 摮貊???</h3>
                 <ul class="list-disc list-inside space-y-4 text-gray-300">
                     <li>
-                        <strong class="text-cyan-400">Base64 編碼解碼：</strong>
-                        學習資料轉換為 Base64 編碼以提升系統兼容性與安全性。
+                        <strong class="text-cyan-400">Base64 蝺函Ⅳ閫?Ⅳ嚗?/strong>
+                        摮貊?鞈?頧???Base64 蝺函Ⅳ隞交??頂蝯勗摰寞扯?摰?扼?
                     </li>
                     <li>
-                        <strong class="text-cyan-400">位移加密算法：</strong>
-                        理解簡單加密原理，為學習複雜加密技術奠定基礎。
+                        <strong class="text-cyan-400">雿宏??蝞?嚗?/strong>
+                        ?圾蝪∪????嚗摮貊?銴????銵?摰蝷?
                     </li>
                     <li>
-                        <strong class="text-cyan-400">多次編碼與解碼處理：</strong>
-                        學習多步驟數據處理的管理與應用。
+                        <strong class="text-cyan-400">憭活蝺函Ⅳ?圾蝣潸???</strong>
+                        摮貊?憭郊撽????蝞∠????具?
                     </li>
                 </ul>
             </div>
 
             <!-- Assignment Details -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">題目</h3>
-                <h4 class="text-xl font-semibold mb-4 text-cyan-300">多層 Base64 與位移加密解密系統的設計與實作</h4>
-                <p class="text-gray-300 mb-6">請撰寫一個 C++ 程式，實現以下功能：</p>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">憿</h3>
+                <h4 class="text-xl font-semibold mb-4 text-cyan-300">憭惜 Base64 ??蝘餃?撖圾撖頂蝯梁?閮剛??祕雿?/h4>
+                <p class="text-gray-300 mb-6">隢撖思???C++ 蝔?嚗祕?曆誑銝??踝?</p>
 
-                <h4 class="text-xl font-semibold mb-4 text-cyan-300">功能要求</h4>
+                <h4 class="text-xl font-semibold mb-4 text-cyan-300">?閬?</h4>
                 <ul class="list-disc list-inside space-y-4 text-gray-300">
                     <li>
-                        <strong class="text-cyan-400">多層 Base64 編碼與位移加密：</strong>
+                        <strong class="text-cyan-400">憭惜 Base64 蝺函Ⅳ??蝘餃?撖?</strong>
                         <ul class="list-disc list-inside ml-6 space-y-2">
-                            <li>支援對輸入文字執行多層 Base64 編碼，並多次編碼後進行位移加密。</li>
-                            <li>加密次數由密鑰控制。</li>
+                            <li>?舀撠撓?交?摮銵?撅?Base64 蝺函Ⅳ嚗蒂憭活蝺函Ⅳ敺脰?雿宏????/li>
+                            <li>??甈⊥?勗??唳?嗚?/li>
                         </ul>
                     </li>
                     <li>
-                        <strong class="text-cyan-400">多層 Base64 解碼與位移解密：</strong>
+                        <strong class="text-cyan-400">憭惜 Base64 閫?Ⅳ??蝘餉圾撖?</strong>
                         <ul class="list-disc list-inside ml-6 space-y-2">
-                            <li>解密過程與加密順序相反，層數與位移量由密鑰控制。</li>
+                            <li>閫??????撖?摨??撅斗??蝘駁??勗??唳?嗚?/li>
                         </ul>
                     </li>
                 </ul>
@@ -248,41 +294,41 @@
 
             <!-- Conclusion -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">結論與展望</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">蝯?????/h3>
                 <p class="text-gray-300 leading-relaxed">
-                    多層加密系統雖存在挑戰，但透過結合其他加密演算法與多步驗證，安全性將進一步提升。未來將持續研究更強大的加密技術以確保資料安全。
+                    憭惜??蝟餌絞???冽??堆?雿?蝯??嗡???瞍?瘜?憭郊撽?嚗??冽批??脖?甇交??靘????弦?游撥憭抒????銵誑蝣箔?鞈?摰??
                 </p>
             </div>
 
             <!-- Code Section -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">程式碼：</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">蝔?蝣潘?</h3>
                 <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg shadow-md overflow-auto">
                     <code class="language-cpp">
                     #include <bits/stdc++.h>
                     using namespace std;
                     
-                    // 將索引值轉換為 Base64 字符
+                    // 撠揣撘潸?? Base64 摮泵
                     char indexToBase64Char(int index) {
-                        if (index >= 0 && index <= 25) return 'A' + index; // A–Z
-                        if (index >= 26 && index <= 51) return 'a' + (index - 26); // a–z
-                        if (index >= 52 && index <= 61) return '0' + (index - 52); // 0–9
+                        if (index >= 0 && index <= 25) return 'A' + index; // A?
+                        if (index >= 26 && index <= 51) return 'a' + (index - 26); // a?
+                        if (index >= 52 && index <= 61) return '0' + (index - 52); // 0??
                         if (index == 62) return '+'; // +
                         if (index == 63) return '/'; // /
-                        return '\0'; // 非法值
+                        return '\0'; // ????
                     }
                     
-                    // 將 Base64 字符轉換為索引值
+                    // 撠?Base64 摮泵頧??箇揣撘?
                     int base64CharToIndex(char c) {
-                        if (c >= 'A' && c <= 'Z') return c - 'A'; // A–Z
-                        if (c >= 'a' && c <= 'z') return c - 'a' + 26; // a–z
-                        if (c >= '0' && c <= '9') return c - '0' + 52; // 0–9
+                        if (c >= 'A' && c <= 'Z') return c - 'A'; // A?
+                        if (c >= 'a' && c <= 'z') return c - 'a' + 26; // a?
+                        if (c >= '0' && c <= '9') return c - '0' + 52; // 0??
                         if (c == '+') return 62; // +
                         if (c == '/') return 63; // /
-                        return -1; // 非法字符
+                        return -1; // ??摮泵
                     }
                     
-                    // Base64 編碼
+                    // Base64 蝺函Ⅳ
                     string base64Encode(const string &input) {
                         string binaryData = "", encoded = "";
                         for (int i = 0; i < input.size(); i++) {
@@ -299,21 +345,21 @@
                         return encoded;
                     }
                     
-                    // Base64 解碼
+                    // Base64 閫?Ⅳ
                     string base64Decode(const string &input) {
                         string binaryData = "", decoded = "";
                         size_t padding = 0;
                         string strippedInput = input;
                     
-                        // 使用 for 迴圈移除 '=' 填充字符
+                        // 雿輻 for 餈游?蝘駁 '=' 憛怠?摮泵
                         for (int i = strippedInput.size() - 1; i >= 0 && strippedInput[i] == '='; i--) {
-                            strippedInput.erase(i, 1);  // 用 erase 移除 '=' 填充字符
+                            strippedInput.erase(i, 1);  // ??erase 蝘駁 '=' 憛怠?摮泵
                             padding++;
                         }
                     
                         for (int i = 0; i < strippedInput.size(); i++) {
                             int index = base64CharToIndex(strippedInput[i]);
-                            if (index == -1) return "解碼失敗";
+                            if (index == -1) return "閫?Ⅳ憭望?";
                             bitset<6> bits(index);
                             binaryData += bits.to_string();
                         }
@@ -326,7 +372,7 @@
                         return decoded;
                     }
                     
-                    // 位移加密
+                    // 雿宏??
                     string shiftEncrypt(const string &input, int k) {
                         string encrypted = "";
                         for (int i = 0; i < input.size(); i++) {
@@ -335,13 +381,13 @@
                                 char shifted = (c - 32 + k) % 95 + 32;
                                 encrypted += shifted;
                             } else {
-                                encrypted += c; // 非可見字符保持不變
+                                encrypted += c; // ?閬?蝚虫???霈?
                             }
                         }
                         return encrypted;
                     }
                     
-                    // 位移解密
+                    // 雿宏閫??
                     string shiftDecrypt(const string &input, int k) {
                         string decrypted = "";
                         for (int i = 0; i < input.size(); i++) {
@@ -350,26 +396,26 @@
                                 char shifted = (c - 32 - k + 95) % 95 + 32;
                                 decrypted += shifted;
                             } else {
-                                decrypted += c; // 非可見字符保持不變
+                                decrypted += c; // ?閬?蝚虫???霈?
                             }
                         }
                         return decrypted;
                     }
                     
-                    // 主程式
+                    // 銝餌?撘?
                     int main() {
                         string mode, input;
                         int n, k;
                     
-                        cout << "歡迎使用簡化加密解密系統" << endl << endl;
-                        cout << "請輸入模式 (E 表示編碼, D 表示解碼): ";
+                        cout << "甇∟?雿輻蝪∪???閫??蝟餌絞" << endl << endl;
+                        cout << "隢撓?交芋撘?(E 銵函內蝺函Ⅳ, D 銵函內閫?Ⅳ): ";
                         cin >> mode;
                         cin.ignore();
-                        cout << "請輸入字串: ";
+                        cout << "隢撓?亙?銝? ";
                         getline(cin, input);
-                        cout << "請輸入密鑰1(建議小一點): ";
+                        cout << "隢撓?亙???(撱箄降撠?暺?: ";
                         cin >> n;
-                        cout << "請輸入密鑰2: ";
+                        cout << "隢撓?亙???: ";
                         cin >> k;
                     
                         if (mode == "E") {
@@ -377,19 +423,19 @@
                                 input = base64Encode(input);
                                 input = shiftEncrypt(input, k);
                             }
-                            cout << "加密後結果: " << input << endl;
+                            cout << "??敺??? " << input << endl;
                         } else if (mode == "D") {
                             for (int i = 0; i < n; i++) {
                                 input = shiftDecrypt(input, k);
                                 input = base64Decode(input);
-                                if (input == "解碼失敗") {
-                                    cout << "解碼失敗" << endl;
+                                if (input == "閫?Ⅳ憭望?") {
+                                    cout << "閫?Ⅳ憭望?" << endl;
                                     return 0;
                                 }
                             }
-                            cout << "解碼後結果: " << input << endl;
+                            cout << "閫?Ⅳ敺??? " << input << endl;
                         } else {
-                            cout << "無效的模式！請輸入 'E' 或 'D'。" << endl;
+                            cout << "?⊥??芋撘?隢撓??'E' ??'D'?? << endl;
                         }
                     
                         return 0;
@@ -406,16 +452,16 @@
             <!-- Title -->
             <header class="mb-8 text-center">
                 <h1 class="text-4xl font-extrabold mb-4 text-cyan-400 hover:text-cyan-300 transition-all">
-                    Arduino 電子元件運用與實作
+                    Arduino ?餃??辣??祕雿?
                 </h1>
                 <h2 class="text-3xl font-bold text-cyan-300">
-                    <span>高精度溫濕度計與俄羅斯方塊</span>
+                    <span>擃移摨行澈瞈漲閮?靽??舀憛?/span>
                 </h2>
             </header>
 
             <!-- Video Section -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專案影片</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">撠?敶梁?</h3>
                 <div class="flex justify-center">
                     <iframe class="rounded-lg shadow-md" width="560" height="315" src="https://www.youtube.com/embed/fHl4a61_1b4" 
                         title="YouTube video player" frameborder="0" 
@@ -427,84 +473,84 @@
 
             <!-- Project Overview -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專案簡介</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">撠?蝪∩?</h3>
                 <p class="text-gray-300 leading-relaxed mb-4">
-                    本專案旨在學習並熟悉 Arduino 電子元件的使用，透過設計與實作高精度溫濕度計與俄羅斯方塊，讓我更深入了解電子元件與通訊協定的應用。
+                    ?砍?獢?典飛蝧蒂?? Arduino ?餃??辣?蝙?剁???閮剛??祕雿?蝎曉漲皞急?摨西???蝢?孵?嚗??瘛勗鈭圾?餃??辣???????具?
                 </p>
                 <p class="text-gray-300 leading-relaxed">
-                    專案包括學習 OLED 顯示器、溫濕度感測器（DHT11、AHT10）以及 LED 矩陣等元件，並應用 I2C 與 SPI 通訊協定完成實作。
+                    撠??摮貊? OLED 憿舐內?具澈瞈漲?葫?剁?DHT11?HT10嚗誑??LED ?拚蝑?隞塚?銝行???I2C ??SPI ????摰?撖虫???
                 </p>
             </div>
 
             <!-- Goals & Outcomes -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">專題目標 & 預期成果</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">撠??格? & ????</h3>
                 <ul class="list-disc list-inside space-y-4 text-gray-300">
                     <li>
-                        <strong class="text-cyan-400">高精度溫濕度計：</strong>
-                        結合 AHT10 感測器與 OLED(SPI) 顯示器，實現準確顯示溫濕度數據。
+                        <strong class="text-cyan-400">擃移摨行澈瞈漲閮?</strong>
+                        蝯? AHT10 ?葫?刻? OLED(SPI) 憿舐內?剁?撖衣皞Ⅱ憿舐內皞急?摨行??
                     </li>
                     <li>
-                        <strong class="text-cyan-400">俄羅斯方塊遊戲：</strong>
-                        利用按鈕與 LED 矩陣模組實作經典的俄羅斯方塊，提升遊戲互動體驗。
+                        <strong class="text-cyan-400">靽??舀憛??莎?</strong>
+                        ?拍????LED ?拚璅∠?撖虫?蝬??蝢?孵?嚗????脖???撽?
                     </li>
                 </ul>
             </div>
 
             <!-- Technical Highlights -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">技術亮點</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">?銵漁暺?/h3>
                 <ul class="list-disc list-inside space-y-4 text-gray-300">
                     <li>
-                        <strong class="text-cyan-400">通訊協定學習：</strong>
-                        熟悉 I2C 與 SPI 通訊協定，應用於元件間的資料傳輸。
+                        <strong class="text-cyan-400">????摮貊?嚗?/strong>
+                        ?? I2C ??SPI ????嚗??冽?辣??鞈??唾撓??
                     </li>
                     <li>
-                        <strong class="text-cyan-400">元件整合：</strong>
-                        融合多個電子元件如 DHT11、AHT10、OLED 顯示器和 LED 矩陣。
+                        <strong class="text-cyan-400">?辣?游?嚗?/strong>
+                        ??憭摮?隞嗅? DHT11?HT10?LED 憿舐內?典? LED ?拚??
                     </li>
                     <li>
-                        <strong class="text-cyan-400">程式設計挑戰：</strong>
-                        解決如複雜條件判斷、元件驅動程式撰寫等技術難點。
+                        <strong class="text-cyan-400">蝔?閮剛??嚗?/strong>
+                        閫?捱憒???隞嗅?瑯?隞園???撘撖怎??銵暺?
                     </li>
                 </ul>
             </div>
 
             <!-- Challenges & Reflection -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">挑戰與反思</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">?????/h3>
                 <p class="text-gray-300 leading-relaxed mb-4">
-                    在實作過程中，遇到多次元件接腳錯誤與程式邏輯問題，特別是 LED 矩陣顯示控制的複雜性。但這些挑戰也提升了我的除錯能力與對元件操作的熟練度。
+                    ?典祕雿?蝔葉嚗??啣?甈∪?隞嗆?喲隤方?蝔??摩??嚗?交 LED ?拚憿舐內?批???扼????銋??????日?賢????辣????蝺游漲??
                 </p>
                 <p class="text-gray-300 leading-relaxed">
-                    這次專案讓我更加理解電子元件的運作原理，同時也激發了對電子工程的更大興趣，期待未來能挑戰更複雜的專案設計。
+                    ?活撠?霈??游??圾?餃??辣??雿?????銋??潔?撠摮極蝔??游之?閎嚗?敺靘??渲???撠?閮剛???
                 </p>
             </div>
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">作品圖片</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">雿???</h3>
                 <img src="tetris.png" height="444" width="562" alt="tetris">
             </div>
             
             <!-- Project Code -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-cyan-200">俄羅斯方塊程式碼：</h3>
+                <h3 class="text-2xl font-bold mb-4 text-cyan-200">靽??舀憛?撘Ⅳ嚗?/h3>
                 <pre class="bg-gray-800 text-gray-300 p-4 rounded-lg shadow-md overflow-auto">
                     <code class="language-cpp">
                     #include <LedControl.h>
-                    #define INI_speed 500 //初始速度 單位ms
+                    #define INI_speed 500 //???漲 ?桐?ms
 
-                    //按鈕腳位定義
+                    //???喃?摰儔
                     #define Rotate 2
                     #define Right 3
                     #define Left 4
                     #define Down 5
 
-                    //LED陣列腳未定義
+                    //LED????單摰儔
                     #define CIN 6
                     #define CS 7
                     #define CLK 8
 
-                    //長寬
+                    //?瑕祝
                     #define Width 8
                     #define Height 10
 
@@ -539,7 +585,7 @@
                     };
 
                     /*
-                      方塊種類定義
+                      ?孵?蝔桅?摰儔
                       0  | 1 | 2
                       ___|___|___
                       3  | 4 | 5
@@ -547,10 +593,10 @@
                       6  | 7 | 8
                     */
 
-                    //Blocktype[方塊種類][選轉次數][補正碼] 
+                    //Blocktype[?孵?蝔桅?][?貉?甈⊥][鋆迤蝣奭 
                     /*
-                       補正碼
-                       以4為中心x、y的相對位置
+                       鋆迤蝣?
+                       隞??箔葉敹??撠?蝵?
                     */
 
                     int Blocktype[7][4][4] = {
@@ -568,25 +614,25 @@
                     int x_c[9] = { -1, 0, 1, -1, 0, 1, -1, 0, 1};
                     int y_c[9] = { -1, -1, -1, 0, 0, 0, 1, 1, 1};
 
-                    //狀態定義
-                    int gravity = INI_speed;   //重力(掉落速度)
-                    int state = -1;            //狀態
-                    int T_map[Height][Width];  //地圖矩陣
-                    int C_block = -1;          //目前方塊種類
-                    int C_rotate = 0;          //目前旋轉狀態
-                    int C_pos[2];              //目前方塊4號位置 0->y , 1->x;
-                    int score = 0;             //分數
+                    //???蝢?
+                    int gravity = INI_speed;   //??(??漲)
+                    int state = -1;            //???
+                    int T_map[Height][Width];  //?啣??拚
+                    int C_block = -1;          //?桀??孵?蝔桅?
+                    int C_rotate = 0;          //?桀??????
+                    int C_pos[2];              //?桀??孵?4??蝵?0->y , 1->x;
+                    int score = 0;             //?
 
 
-                    bool legit = true;         //檢測動作是否合法
+                    bool legit = true;         //瑼Ｘ葫???臬??
 
                     Timer Timer1[10];
-                    LedControl LC = LedControl(CIN, CLK, CS, 1); //LED矩陣物件
+                    LedControl LC = LedControl(CIN, CLK, CS, 1); //LED?拚?拐辣
 
                     /*
-                       左上角為原點
-                       向右為+
-                       向下為+
+                       撌虫?閫??
+                       ???
+                       ????
                     */
 
                     void Update(int Map[Height][Width])
@@ -836,7 +882,7 @@
                     {
                       Serial.begin(9600);
 
-                      //定義接角模式
+                      //摰儔?亥?璅∪?
                       pinMode(Rotate, INPUT);
                       pinMode(Right, INPUT);
                       pinMode(Left, INPUT);
@@ -847,21 +893,21 @@
                       pinMode(CLK, OUTPUT);
                       pinMode(A0, INPUT);
 
-                      randomSeed(analogRead(A0));   //產生隨機種子碼，A0空接會取得空氣中電壓，可視為亂碼
+                      randomSeed(analogRead(A0));   //?Ｙ??冽?蝔桀?蝣潘?A0蝛箸??敺征瘞?葉?餃?嚗閬鈭Ⅳ
                       C_block = random(7); 
 
-                      //LED矩陣開啟
+                      //LED?拚??
                       LC.shutdown(0, false);
 
-                      //LED矩陣挑整亮度(0~15)
+                      //LED?拚?鈭桀漲(0~15)
                       LC.setIntensity(0, 5);
 
-                      for (int i = 0 ; i < 10; i++) //重設所有計時器
+                      for (int i = 0 ; i < 10; i++) //?身????
                       {
                         Timer1[i].TimerShutdown();
                       }
 
-                      //清空地圖
+                      //皜征?啣?
                       for (int i = 0; i < Height; i++)
                       {
                         for (int j = 0; j < Width; j++)
@@ -875,10 +921,10 @@
                       Serial.println(state);
                       switch (state)
                       {
-                        case -1://數值初始化
+                        case -1://?詨澆?憪?
                           score = 0;
                           gravity = INI_speed;
-                          for (int i = 0 ; i < 10; i++) //重設所有計時器
+                          for (int i = 0 ; i < 10; i++) //?身????
                           {
                             Timer1[i].TimerShutdown();
                           }
@@ -918,7 +964,7 @@
                           }
                           break;
 
-                        case 15:                //產生隨機方塊
+                        case 15:                //?Ｙ??冽??孵?
                           C_block = random(7);
                           C_pos[0] = 1;         //y
                           C_pos[1] = 4;         //x
@@ -931,7 +977,7 @@
                           state = 25;
                           break;
 
-                        case 25://偵測按鈕
+                        case 25://?菜葫??
                           if (digitalRead(Rotate) == HIGH)
                           {
                             Serial.println("rotate");
@@ -958,7 +1004,7 @@
                           }
                           break;
 
-                        case 30://旋轉
+                        case 30://??
                           if (digitalRead(Rotate) == LOW)
                           {
                             C_Rotate(25);
@@ -983,7 +1029,7 @@
                           break;
 
 
-                        case 35://右移
+                        case 35://?喟宏
                           if (digitalRead(Right) == LOW)
                           {
                             C_Right(25);
@@ -1007,7 +1053,7 @@
                           }
                           break;
 
-                        case 40://左移
+                        case 40://撌衣宏
                           if (digitalRead(Left) == LOW)
                           {
                             C_Left(25);
@@ -1031,7 +1077,7 @@
                           }
                           break;
 
-                        case 45://下移
+                        case 45://銝宏
                           if (digitalRead(Down) == LOW)
                           {
                             C_Down(25);
@@ -1074,62 +1120,62 @@
             <!-- Title -->
             <header class="mb-8 text-center">
                 <h1 class="text-4xl font-extrabold mb-4 text-green-400 hover:text-green-300 transition-all">
-                    阿克曼轉向機構的研究與實作
+                    ?踹??潸???瑽??弦?祕雿?
                 </h1>
                 <h2 class="text-3xl font-bold text-green-300">
-                    <span>自走車實作與轉向系統應用</span>
+                    <span>?芾粥頠祕雿?頧?蝟餌絞?</span>
                 </h2>
             </header>
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-green-200">小論文</h3>
+                <h3 class="text-2xl font-bold mb-4 text-green-200">撠???/h3>
                 <iframe src="ackermann.pdf" width="50%" height="600px"></iframe>
             </div>
             
             <!-- Project Overview -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-green-200">專案簡介</h3>
+                <h3 class="text-2xl font-bold mb-4 text-green-200">撠?蝪∩?</h3>
                 <p class="text-gray-300 leading-relaxed mb-4">
-                    本專案研究阿克曼轉向機構在自走車上的應用，實作一套靈活可靠的轉向系統，解決傳統轉向裝置的不足，並透過 Arduino 實現遙控及精準控制。
+                    ?砍?獢?蝛園?頧?璈??刻韏啗?銝??嚗祕雿?憟?瘣餃??頧?蝟餌絞嚗圾瘙箏蝯梯???蝵桃?銝雲嚗蒂?? Arduino 撖衣??移皞?嗚?
                 </p>
                 <p class="text-gray-300 leading-relaxed">
-                    專案結合伺服馬達、紅外線遙控器與多種電子元件，探討轉向結構、車體設計與程式控制的最佳實踐。
+                    撠?蝯?隡箸?擐祇???憭???刻?憭車?餃??辣嚗閮???瑽?擃身閮?蝔??批??雿喳祕頦?
                 </p>
             </div>
         
             <!-- Goals & Outcomes -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-green-200">專題目標 & 預期成果</h3>
+                <h3 class="text-2xl font-bold mb-4 text-green-200">撠??格? & ????</h3>
                 <ul class="list-disc list-inside space-y-4 text-gray-300">
                     <li>
-                        <strong class="text-green-400">阿克曼轉向系統：</strong>
-                        實現符合阿克曼幾何理論的轉向結構，增強轉彎靈活性與穩定性。
+                        <strong class="text-green-400">?踹??潸??頂蝯梧?</strong>
+                        撖衣蝚血??踹??澆嗾雿?隢?頧?蝯?嚗?撘瑁?敶?瘣餅扯?蝛拙??扼?
                     </li>
                     <li>
-                        <strong class="text-green-400">自主移動平台：</strong>
-                        利用 Arduino 控制伺服馬達與 TT 馬達，搭建穩定的自走車底盤。
+                        <strong class="text-green-400">?芯蜓蝘餃?撟喳嚗?/strong>
+                        ?拍 Arduino ?批隡箸?擐祇???TT 擐祇?嚗撱箇帘摰??芾粥頠??扎?
                     </li>
                     <li>
-                        <strong class="text-green-400">多場景應用：</strong>
-                        測試自走車在不同轉向半徑與環境中的應用價值。
+                        <strong class="text-green-400">憭?舀??剁?</strong>
+                        皜祈岫?芾粥頠銝?頧????憓葉???典?潦?
                     </li>
                 </ul>
             </div>
         
             <!-- Technical Highlights -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-green-200">技術亮點</h3>
+                <h3 class="text-2xl font-bold mb-4 text-green-200">?銵漁暺?/h3>
                 <ul class="list-disc list-inside space-y-4 text-gray-300">
                     <li>
-                        <strong class="text-green-400">阿克曼理論應用：</strong>
-                        理解並實現阿克曼比例計算，確保轉向時車輪角度精確。
+                        <strong class="text-green-400">?踹??潛?隢??剁?</strong>
+                        ?圾銝血祕?暸?瘥?閮?嚗Ⅱ靽???頠憚閫漲蝎曄Ⅱ??
                     </li>
                     <li>
-                        <strong class="text-green-400">硬體整合：</strong>
-                        包括 3D 列印車體、伺服馬達控制轉向、L298N 驅動動力輪。
+                        <strong class="text-green-400">蝖祇??游?嚗?/strong>
+                        ? 3D ?頠??撩?收??嗉??298N 撽???頛芥?
                     </li>
                     <li>
-                        <strong class="text-green-400">紅外線遙控：</strong>
-                        使用紅外線遙控器進行多功能控制，如前進、後退、轉向與速度調整。
+                        <strong class="text-green-400">蝝?蝺??改?</strong>
+                        雿輻蝝?蝺??批?脰?憭??賣?塚?憒??脯???????漲隤踵??
                     </li>
                 </ul>
             </div>
@@ -1137,106 +1183,106 @@
 
             <!-- Challenges & Reflection -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-green-200">挑戰與反思</h3>
+                <h3 class="text-2xl font-bold mb-4 text-green-200">?????/h3>
                 <p class="text-gray-300 leading-relaxed mb-4">
-                    在實作過程中，遇到車體結構設計、電源分配與紅外線干擾等挑戰，透過持續調整與測試，成功優化了自走車性能並解決問題。
+                    ?典祕雿?蝔葉嚗??啗?擃?瑽身閮皞???蝝?蝺僕?曄??嚗???隤踵?葫閰佗????芸?鈭韏啗??扯銝西圾瘙箏?憿?
                 </p>
                 <p class="text-gray-300 leading-relaxed">
-                    這次研究讓我們更深入理解轉向機構的應用價值，同時也為未來機器人設計提供了寶貴經驗。
+                    ?活?弦霈??瘛勗?圾頧?璈????典?潘???銋?芯?璈鈭箄身閮?靘?撖嗉眼蝬???
                 </p>
             </div>
         
             <!-- Project Code -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-4 text-green-200">參考資料</h3>
+                <h3 class="text-2xl font-bold mb-4 text-green-200">????/h3>
                 <p class="text-gray-300 leading-relaxed">
-                    專案程參考以下資源：
+                    撠?蝔??誑銝?皞?
                 </p>
                 <ul class="list-disc list-inside space-y-2 text-gray-300">
-                    <li><a href="https://reurl.cc/edr3Db" class="text-green-400 underline" target="_blank">阿克曼轉向相關程式碼</a></li>
-                    <li><a href="https://www.maserati.com/tw/zh/models" class="text-green-400 underline" target="_blank">瑪莎拉蒂車型</a></li>
+                    <li><a href="https://reurl.cc/edr3Db" class="text-green-400 underline" target="_blank">?踹??潸????撘Ⅳ</a></li>
+                    <li><a href="https://www.maserati.com/tw/zh/models" class="text-green-400 underline" target="_blank">?芾???頠?</a></li>
                 </ul>
             </div>
         </section>
 
-        <!-- 運動紀事 -->
+        <!-- ??蝝鈭?-->
         <section id="sports_record" class="hidden">
-            <h1 class="text-3xl font-bold mb-6 text-center text-gradient">運動紀事</h1>
+            <h1 class="text-3xl font-bold mb-6 text-center text-gradient">??蝝鈭?/h1>
         
-            <!-- 個人最佳紀錄 (PB) -->
+            <!-- ?犖?雿喟???(PB) -->
             <div class="mb-8 bg-gradient-to-r from-indigo-600 via-blue-500 to-purple-600 p-6 rounded-lg shadow-xl">
-                <h2 class="text-2xl font-semibold text-white mb-4">個人最佳紀錄 (PB)</h2>
+                <h2 class="text-2xl font-semibold text-white mb-4">?犖?雿喟???(PB)</h2>
                 <ul class="space-y-4">
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-blue-300">馬拉松：待完成</p>
-                        <p class="text-gray-400">地點：待完成</p>
+                        <p class="text-lg font-semibold text-blue-300">擐祆??橘?敺???/p>
+                        <p class="text-gray-400">?圈?嚗?摰?</p>
                     </li>
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-blue-300">半馬： 1：49：56</p>
-                        <p class="text-gray-400">地點：華航馬拉松，2024.10.12</p>
+                        <p class="text-lg font-semibold text-blue-300">?收嚗?1嚗?9嚗?6</p>
+                        <p class="text-gray-400">?圈?嚗?芷收?嚗?024.10.12</p>
                     </li>
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-blue-300">10K： 48：33</p>
-                        <p class="text-gray-400">地點：北回10K測驗，2024.04.28</p>
+                        <p class="text-lg font-semibold text-blue-300">10K嚗?48嚗?3</p>
+                        <p class="text-gray-400">?圈?嚗???0K皜祇?嚗?024.04.28</p>
                     </li>
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-blue-300">5K： 20：57</p>
-                        <p class="text-gray-400">地點：舒跑杯，2025.05.04</p>
+                        <p class="text-lg font-semibold text-blue-300">5K嚗?20嚗?7</p>
+                        <p class="text-gray-400">?圈?嚗?頝嚗?025.05.04</p>
                     </li>
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-blue-300">3K： 11：20</p>
-                        <p class="text-gray-400">地點：中央大學操場，2025.08.11</p>
+                        <p class="text-lg font-semibold text-blue-300">3K嚗?11嚗?0</p>
+                        <p class="text-gray-400">?圈?嚗葉憭桀之摮豢??湛?2025.08.11</p>
                     </li>
                 </ul>
             </div>
         
-            <!-- 預計參加的賽事 -->
+            <!-- ?????魚鈭?-->
             <div class="mb-8 p-6 bg-gradient-to-r from-green-500 via-teal-400 to-cyan-300 rounded-lg shadow-xl">
-                <h2 class="text-2xl font-semibold text-white mb-4">預計參加的賽事</h2>
+                <h2 class="text-2xl font-semibold text-white mb-4">?????魚鈭?/h2>
                 <ul class="space-y-4">
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-teal-200">台北馬拉松_半馬</p>
-                        <p class="text-gray-400">目標破百</p>
+                        <p class="text-lg font-semibold text-teal-200">?啣?擐祆??震?收</p>
+                        <p class="text-gray-400">?格??渡</p>
                     </li>
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-teal-200">從缺</p>
-                        <p class="text-gray-400">從缺</p>
+                        <p class="text-lg font-semibold text-teal-200">敺撩</p>
+                        <p class="text-gray-400">敺撩</p>
                     </li>
                 </ul>
             </div>
         
-            <!-- 參加過的賽事 -->
+            <!-- ????鞈賭? -->
             <div class="mb-8 p-6 bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 rounded-lg shadow-xl">
-                <h2 class="text-2xl font-semibold text-white mb-4">參加過的賽事</h2>
+                <h2 class="text-2xl font-semibold text-white mb-4">????鞈賭?</h2>
                 <ul class="space-y-4">
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-pink-300">2024華航馬拉松_半馬</p>
-                        <p class="text-gray-400">2024.10.12，完賽時間： 1：49：56</p>
+                        <p class="text-lg font-semibold text-pink-300">2024?航擐祆??震?收</p>
+                        <p class="text-gray-400">2024.10.12嚗?鞈賣??? 1嚗?9嚗?6</p>
                     </li>
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-pink-300">2024嘉義高中百年校慶路跑_半馬</p>
-                        <p class="text-gray-400">2024.04.14，完賽時間： 1：57：32</p>
+                        <p class="text-lg font-semibold text-pink-300">2024?儔擃葉?曉僑?⊥頝航?_?收</p>
+                        <p class="text-gray-400">2024.04.14嚗?鞈賣??? 1嚗?7嚗?2</p>
                     </li>
                     <li class="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transform transition duration-300">
-                        <p class="text-lg font-semibold text-pink-300">2024台南古都國際半程馬拉松_半馬</p>
-                        <p class="text-gray-400">2024.04.14，完賽時間： 1：56：36</p>
+                        <p class="text-lg font-semibold text-pink-300">2024?啣??日????擐祆??震?收</p>
+                        <p class="text-gray-400">2024.04.14嚗?鞈賣??? 1嚗?6嚗?6</p>
                     </li>
                 </ul>
             </div>
         </section>
 
 
-        <!-- 聯絡我（隱藏於主頁外） -->
+        <!-- ?舐窗???梯??潔蜓??嚗?-->
         <!-- Contact Section -->
         <section id="contact" class="hidden p-6 bg-gradient-to-l from-pink-500 via-orange-400 to-yellow-300 rounded-2xl shadow-lg">
-            <h1 class="text-3xl font-extrabold mb-6 text-gray-900">📬 Contact Me</h1>
-            <p class="mb-4 text-gray-900">如果有任何問題或合作機會，歡迎透過以下方式聯絡我：</p>
+            <h1 class="text-3xl font-extrabold mb-6 text-gray-900">? Contact Me</h1>
+            <p class="mb-4 text-gray-900">憒??遙雿?憿???璈?嚗迭餈?隞乩??孵??舐窗??</p>
             <div class="space-y-4">
                 <!-- Email -->
                 <div class="flex items-center gap-4">
                     <i class="fas fa-envelope text-blue-500 text-2xl"></i>
                     <p>
-                        <p class="text-gray-900">Email：</p>
+                        <p class="text-gray-900">Email嚗?/p>
                         <a href="mailto:joshyymmdd@gmail.com" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">
                             joshyymmdd@gmail.com
                         </a>
@@ -1246,9 +1292,9 @@
                 <div class="flex items-center gap-4">
                     <i class="fab fa-facebook text-blue-600 text-2xl"></i>
                     <p>
-                        <p class="text-gray-900">FB：</p>
+                        <p class="text-gray-900">FB嚗?/p>
                         <a href="https://www.facebook.com/vm.josh.5/" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">
-                            許彧嘉
+                            閮勗膚??
                         </a>
                     </p>
                 </div>
@@ -1256,7 +1302,7 @@
                 <div class="flex items-center gap-4">
                     <i class="fab fa-instagram text-pink-500 text-2xl"></i>
                     <p>
-                        <p class="text-gray-900">IG：</p>
+                        <p class="text-gray-900">IG嚗?/p>
                         <a href="https://www.instagram.com/yu.chia_hsu/" class="text-pink-500 underline hover:text-pink-600" target="_blank" rel="noopener noreferrer">
                             yu.chia_hsu
                         </a>
@@ -1264,7 +1310,7 @@
                 </div>
             </div>	
         </section>
-        <!-- 聯絡我（隱藏於主頁外） -->
+        <!-- ?舐窗???梯??潔蜓??嚗?-->
         <!-- rickroll -->
         <section id="rickroll" class="hidden bg-gray-950" >
             <div class="flex justify-center">
@@ -1278,192 +1324,264 @@
         </section>
     </main>
 
-    <!-- 頁腳 -->
-    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
-        <p>© 2025 Xu Yu-Chia's Blog. 保留所有權利.</p>
+    <!-- ? -->
+    <footer class="bg-transparent text-gray-400 text-center py-4 mt-2">
+        <p><span id="secretCloudTrigger" class="cursor-default select-none">©</span> 2025 Xu Yu-Chia's Blog. All rights reserved.</p>
         <p>瀏覽次數：<span id="viewCount">0</span></p>
     </footer>
-                              
+
+    <script>
+      (function () {
+        const trigger = document.getElementById("secretCloudTrigger");
+        if (!trigger) return;
+
+        const SECRET_URL = "https://drive.google.com/drive/folders/1H9GcwvpzeMFe6XpJAkb-HH9Dzw7xVomu?usp=sharing";
+        let clickCount = 0;
+        let firstClickAt = 0;
+
+        function validCodes() {
+          const now = new Date();
+          const pad2 = (n) => String(n).padStart(2, "0");
+          return [-1, 0, 1].map((offset) => {
+            const t = new Date(now.getTime() + offset * 60000);
+            return `${pad2(t.getHours())}${pad2(t.getMinutes())}`;
+          });
+        }
+
+        trigger.addEventListener("click", function () {
+          const now = Date.now();
+          if (!firstClickAt || now - firstClickAt > 9000) {
+            firstClickAt = now;
+            clickCount = 0;
+          }
+
+          clickCount += 1;
+          if (clickCount < 7) return;
+
+          clickCount = 0;
+          firstClickAt = 0;
+
+          const input = prompt("請輸入 4 碼驗證碼");
+          if (!input) return;
+          if (validCodes().includes(input.trim())) {
+            window.location.href = SECRET_URL;
+          }
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        const clockTime = document.getElementById("clockTime");
+        const clockDate = document.getElementById("clockDate");
+        const clockWeekday = document.getElementById("clockWeekday");
+        if (!clockTime || !clockDate || !clockWeekday) return;
+
+        const weekdays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        function updateClock() {
+          const now = new Date();
+          const timeText = now.toLocaleTimeString("zh-TW", {
+            hour12: false,
+            timeZone: "Asia/Taipei"
+          });
+          const dateText = now.toLocaleDateString("zh-TW", {
+            timeZone: "Asia/Taipei",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+          });
+          const weekdayText = weekdays[now.getDay()];
+
+          clockTime.textContent = timeText;
+          clockDate.textContent = dateText;
+          clockWeekday.textContent = weekdayText;
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+      })();
+    </script>
+                               
     
 </body>
 </html>
 <!--
-好的，我會以設計和配色原則為基礎，手動挑選和諧且美觀的漸層組合，避免隨機產生的可能不和諧配色。以下是基於顏色理論的 **50 組精心設計漸層**，從相鄰色到對比色，涵蓋多樣化的視覺效果。
+憟賜?嚗??誑閮剛????脣???箇?嚗????詨?隢找?蝢??撓撅斤????踹??冽??Ｙ???賭??咩??誑銝?箸憿????**50 蝯移敹身閮撓撅?*嚗??賊?脣撠??莎?瘨菔?憭見??閬死????
 
 ---
 
-### 漸層配色設計
-1. **粉彩暖色系**  
+### 瞍詨惜?閮剛?
+1. **蝎蔗?蝟?*  
    `from-pink-300 via-orange-200 to-yellow-300`
 
-2. **大地色系**  
+2. **憭批?脩頂**  
    `from-yellow-500 via-orange-400 to-red-300`
 
-3. **夕陽色系**  
+3. **憭?脩頂**  
    `from-red-400 via-pink-500 to-purple-500`
 
-4. **夏日海灘色系**  
+4. **憭瘚瑞??脩頂**  
    `from-teal-400 via-blue-300 to-sky-200`
 
-5. **森林清新色系**  
+5. **璉格?皜?脩頂**  
    `from-green-500 via-lime-400 to-teal-300`
 
-6. **柔和冷色系**  
+6. **???瑁蝟?*  
    `from-cyan-200 via-sky-300 to-indigo-200`
 
-7. **神秘星空色系**  
+7. **蟡??征?脩頂**  
    `from-indigo-600 via-purple-500 to-fuchsia-400`
 
-8. **薰衣草田野色系**  
+8. **?啗﹝??蝟?*  
    `from-purple-300 via-pink-200 to-rose-300`
 
-9. **深海夢幻色系**  
+9. **瘛望絲憭Ｗ劂?脩頂**  
    `from-teal-600 via-blue-500 to-indigo-400`
 
-10. **霓虹光芒色系**  
+10. **????脩頂**  
     `from-fuchsia-500 via-purple-500 to-indigo-400`
 
 ---
 
-### 對比鮮明漸層
-11. **陽光明媚**  
+### 撠?擙格?瞍詨惜
+11. **?賢???**  
     `from-yellow-400 via-lime-300 to-teal-400`
 
-12. **熱情活力**  
+12. **?望?瘣餃?**  
     `from-red-500 via-orange-400 to-pink-400`
 
-13. **復古霓虹**  
+13. **敺拙?**  
     `from-pink-400 via-purple-600 to-teal-400`
 
-14. **熱帶島嶼**  
+14. **?勗葆撜嗅飲**  
     `from-cyan-400 via-lime-400 to-yellow-300`
 
-15. **宇宙未來**  
+15. **摰??芯?**  
     `from-purple-700 via-blue-600 to-cyan-400`
 
-16. **冷暖混合**  
+16. **?瑟?瘛瑕?**  
     `from-red-400 via-blue-300 to-purple-500`
 
-17. **深邃星河**  
+17. **瘛梢??眾**  
     `from-indigo-700 via-cyan-600 to-teal-500`
 
-18. **初冬霧色**  
+18. **??扯**  
     `from-slate-200 via-blue-300 to-indigo-400`
 
-19. **春日田野**  
+19. **?交?圈?**  
     `from-green-300 via-lime-400 to-yellow-300`
 
-20. **沙漠日落**  
+20. **瘝??亥**  
     `from-orange-500 via-amber-400 to-red-300`
 
 ---
 
-### 高級柔和色系
-21. **奶油暖調**  
+### 擃????脩頂
+21. **憟嗆硃?矽**  
     `from-rose-200 via-pink-300 to-orange-200`
 
-22. **藍白冷調**  
+22. **??瑁矽**  
     `from-sky-200 via-cyan-200 to-blue-100`
 
-23. **霧紫薄荷**  
+23. **?抒換?**  
     `from-purple-200 via-teal-200 to-lime-100`
 
-24. **溫柔大地**  
+24. **皞急?憭批**  
     `from-yellow-200 via-orange-300 to-rose-300`
 
-25. **煙霧藍調**  
+25. **??矽**  
     `from-gray-300 via-slate-400 to-blue-300`
 
-26. **淺綠日光**  
+26. **瘛箇??亙?**  
     `from-green-200 via-yellow-300 to-amber-200`
 
-27. **冷色優雅**  
+27. **?瑁?芷?**  
     `from-cyan-300 via-blue-400 to-indigo-300`
 
-28. **暖色溫馨**  
+28. **?皞恍成**  
     `from-orange-300 via-pink-200 to-rose-300`
 
-29. **柔和夢幻**  
+29. **??憭Ｗ劂**  
     `from-pink-200 via-purple-300 to-indigo-200`
 
-30. **淺海清晨**  
+30. **瘛箸絲皜**  
     `from-sky-200 via-teal-200 to-lime-200`
 
 ---
 
-### 突出對比組合
-31. **烈日與深海**  
+### 蝒撠?蝯?
+31. **??楛瘚?*  
     `from-yellow-400 via-cyan-500 to-indigo-600`
 
-32. **玫瑰與綠意**  
+32. **?怎????*  
     `from-pink-400 via-lime-400 to-teal-500`
 
-33. **熱帶雨林**  
+33. **?勗葆?冽?**  
     `from-green-500 via-teal-600 to-blue-700`
 
-34. **黃昏夜幕**  
+34. **暺?憭?**  
     `from-amber-400 via-orange-500 to-purple-600`
 
-35. **星辰大海**  
+35. **?劓憭扳絲**  
     `from-blue-600 via-indigo-700 to-purple-800`
 
-36. **冰與火**  
+36. **?啗???*  
     `from-red-500 via-blue-500 to-purple-600`
 
-37. **極光色系**  
+37. **璆萄??脩頂**  
     `from-cyan-400 via-teal-500 to-indigo-600`
 
-38. **曙光乍現**  
+38. **??銋**  
     `from-purple-400 via-fuchsia-500 to-red-400`
 
-39. **深淵探險**  
+39. **瘛望殿?ａ**  
     `from-blue-800 via-teal-700 to-green-600`
 
-40. **燃燒黃昏**  
+40. **??暺?**  
     `from-orange-600 via-pink-500 to-purple-400`
 
 ---
 
-### 其他和諧設計
-41. **粉綠優雅**  
+### ?嗡??咩閮剛?
+41. **蝎??芷?**  
     `from-rose-300 via-lime-300 to-teal-200`
 
-42. **晨光微芒**  
+42. **?典?敺株?**  
     `from-yellow-300 via-pink-200 to-rose-300`
 
-43. **極地清寒**  
+43. **璆萄皜?**  
     `from-cyan-200 via-blue-300 to-indigo-400`
 
-44. **初夏微風**  
+44. **??敺桅◢**  
     `from-green-300 via-teal-300 to-blue-200`
 
-45. **木質暖調**  
+45. **?刻釭?矽**  
     `from-amber-300 via-orange-400 to-red-500`
 
-46. **柔霧春色**  
+46. **??亥**  
     `from-purple-200 via-pink-200 to-lime-200`
 
-47. **清晨薄霧**  
+47. **皜?**  
     `from-gray-200 via-slate-300 to-blue-300`
 
-48. **沙灘夕陽**  
+48. **瘝?憭**  
     `from-yellow-400 via-orange-400 to-red-400`
 
-49. **夜晚極光**  
+49. **憭?璆萄?**  
     `from-blue-500 via-green-400 to-teal-300`
 
-50. **浪漫紫調**  
+50. **瘚芣憤蝝怨矽**  
     `from-pink-300 via-purple-500 to-indigo-600`
 
 ---
 
-### 使用方式
-這些漸層可直接套用到 Tailwind CSS 的 `class` 中，例如：
+### 雿輻?孵?
+??瞍詨惜?舐?亙??典 Tailwind CSS ??`class` 銝哨?靘?嚗?
 ```html
 <div class="bg-gradient-to-r from-pink-300 via-orange-200 to-yellow-300 p-6 rounded-lg shadow-lg">
-    <p>這是一個精心設計的漸層。</p>
+    <p>?銝?移敹身閮?瞍詨惜??/p>
 </div>
 ```
 
-這些配色根據視覺和諧性與不同場景的使用需求進行設計，讓你的網站更具吸引力！
+????寞?閬死?咩?扯?銝??湔?蝙?券?瘙脰?閮剛?嚗?雿?蝬脩??游?詨???
 -->
+
