@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 3 | Xu Yu-Chia</title>
+  <link rel="shortcut icon" href="../../assets/img/logo.ico" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html { overflow-y: scroll; scrollbar-gutter: stable; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+  <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/85 backdrop-blur">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <div class="text-xl font-bold tracking-wide"><a href="../../index.html"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
+      <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="../../about/index.html" class="hover:text-gray-300"><i class="fa fa-address-card"> About Me</i></a></li>
+        <li><a href="../index.html" class="hover:text-gray-300"><i class="fa fa-folder-open"> Projects</i></a></li>
+        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"> Blogs</i></a></li>
+        <li><a href="../../sports/index.html" class="hover:text-gray-300"><i class="fa fa-running"> Sports Record</i></a></li>
+        <li><a href="../../contact/index.html" class="hover:text-gray-300"><i class="fa fa-phone"> Contact Me</i></a></li>
+        <li>
+          <a href="https://docs.google.com/presentation/d/1PIOmGUC-IwMWeeA96dt9h67mbW_WYWk7KJJUqrlnt80/edit?usp=sharing" class="hover:text-gray-300">
+            <i class="fa fa-file"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-5xl mx-auto p-8">
+    <a href="../index.html" class="text-green-300">← Back to Projects</a>
+
+    <section class="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 shadow-xl">
+      <p class="text-xs uppercase tracking-[0.25em] text-green-200">Research & Prototype</p>
+      <h1 class="text-4xl font-extrabold my-4 text-green-400">阿克曼轉向研究與實作</h1>
+      <p class="text-gray-300 leading-relaxed">小論文題目：阿克曼轉向機構研究。</p>
+      <p class="mt-2 text-gray-300 leading-relaxed">內含機構設計、Arduino 控制與實車測試紀錄。</p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="rounded-full bg-green-300/15 px-3 py-1 text-sm text-green-100">Ackermann Steering</span>
+        <span class="rounded-full bg-cyan-300/15 px-3 py-1 text-sm text-cyan-100">Arduino</span>
+        <span class="rounded-full bg-blue-300/15 px-3 py-1 text-sm text-blue-100">Prototype</span>
+        <span class="rounded-full bg-amber-300/15 px-3 py-1 text-sm text-amber-100">Research Report</span>
+      </div>
+    </section>
+
+    <section class="mt-6 grid gap-4 md:grid-cols-3">
+      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+        <p class="text-sm text-gray-400">Research</p>
+        <p class="mt-2 text-lg font-semibold text-white">轉向幾何分析</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+        <p class="text-sm text-gray-400">Build</p>
+        <p class="mt-2 text-lg font-semibold text-white">實作車體與控制</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+        <p class="text-sm text-gray-400">Test</p>
+        <p class="mt-2 text-lg font-semibold text-white">轉向效果測試</p>
+      </div>
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-white/10 bg-slate-900 p-6">
+      <h2 class="text-2xl font-bold text-white">專題重點</h2>
+      <ul class="mt-4 list-disc space-y-2 pl-6 text-gray-300">
+        <li>研究阿克曼轉向幾何，說明內外輪轉向角差異。</li>
+        <li>以 Arduino 控制作為實作車的核心控制方式。</li>
+        <li>透過機構設計與實車測試驗證轉向概念。</li>
+        <li>將研究動機、方法、結果整理成小論文報告。</li>
+      </ul>
+    </section>
+
+    <section class="mt-6">
+      <div class="mb-3 flex items-center justify-between gap-3">
+        <h2 class="text-2xl font-bold text-white">研究報告</h2>
+        <a href="assets/ackermann.pdf" class="rounded-lg border border-white/10 bg-white/10 px-3 py-2 text-sm font-semibold hover:bg-white/15">
+          Open PDF
+        </a>
+      </div>
+      <iframe src="assets/ackermann.pdf" class="w-full h-[70vh] rounded-lg border border-gray-700"></iframe>
+    </section>
+  </main>
+</body>
+</html>
+

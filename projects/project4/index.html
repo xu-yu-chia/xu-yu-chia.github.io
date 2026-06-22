@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RISC-V CNN Accelerator | Xu Yu-Chia</title>
+  <link rel="shortcut icon" href="../../assets/img/logo.ico" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { overflow-y: scroll; scrollbar-gutter: stable; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+  <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/85 backdrop-blur">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <div class="text-xl font-bold tracking-wide"><a href="../../index.html"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
+      <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="../../about/index.html" class="hover:text-gray-300"><i class="fa fa-address-card"> About Me</i></a></li>
+        <li><a href="../index.html" class="hover:text-gray-300"><i class="fa fa-folder-open"> Projects</i></a></li>
+        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"> Blogs</i></a></li>
+        <li><a href="../../sports/index.html" class="hover:text-gray-300"><i class="fa fa-running"> Sports Record</i></a></li>
+        <li><a href="../../contact/index.html" class="hover:text-gray-300"><i class="fa fa-phone"> Contact Me</i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-5xl mx-auto p-8">
+    <a href="../index.html" class="text-cyan-300">← Back to Projects</a>
+
+    <section class="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 shadow-xl">
+      <p class="text-xs uppercase tracking-[0.25em] text-cyan-200">Digital System Design Final Project</p>
+      <h1 class="text-4xl font-extrabold my-4 text-cyan-300">RISC-V CNN 加速器</h1>
+      <p class="text-gray-300 leading-relaxed">
+        以 Verilog 在 Vivado 中整合簡化 RISC-V CPU、CNN 運算核心、Instruction/Data Memory 與測試電路，
+        完成可合成的 FPGA 數位系統設計。
+      </p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="rounded-full bg-cyan-300/15 px-3 py-1 text-sm text-cyan-100">Verilog</span>
+        <span class="rounded-full bg-blue-300/15 px-3 py-1 text-sm text-blue-100">Vivado 2022.1</span>
+        <span class="rounded-full bg-emerald-300/15 px-3 py-1 text-sm text-emerald-100">FPGA</span>
+        <span class="rounded-full bg-purple-300/15 px-3 py-1 text-sm text-purple-100">RISC-V</span>
+        <span class="rounded-full bg-amber-300/15 px-3 py-1 text-sm text-amber-100">CNN</span>
+      </div>
+    </section>
+
+    <section class="mt-6 grid gap-4 md:grid-cols-4">
+      <div class="rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-5">
+        <p class="text-sm text-cyan-100">AT Ranking</p>
+        <p class="mt-2 text-3xl font-extrabold text-white">1st Place</p>
+        <p class="mt-1 text-sm text-cyan-100">Team 3</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+        <p class="text-sm text-gray-400">AT Score</p>
+        <p class="mt-2 text-lg font-semibold text-white">549,638.184</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+        <p class="text-sm text-gray-400">Processing Time</p>
+        <p class="mt-2 text-lg font-semibold text-white">450,186 ns</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+        <p class="text-sm text-gray-400">Area</p>
+        <p class="mt-2 text-lg font-semibold text-white">3,844</p>
+      </div>
+    </section>
+
+    <section class="mt-6 grid gap-4 md:grid-cols-3">
+      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+        <p class="text-sm text-gray-400">Top Module</p>
+        <p class="mt-2 text-lg font-semibold text-white">RISCV_CNN</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+        <p class="text-sm text-gray-400">Target Device</p>
+        <p class="mt-2 text-lg font-semibold text-white">xc7a35tcsg324-1</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+        <p class="text-sm text-gray-400">Synthesis Usage</p>
+        <p class="mt-2 text-lg font-semibold text-white">2036 LUT / 1528 FF / 1 DSP</p>
+      </div>
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-white/10 bg-slate-900 p-6">
+      <h2 class="text-2xl font-bold text-white">專題重點</h2>
+      <ul class="mt-4 list-disc space-y-2 pl-6 text-gray-300">
+        <li>RISC-V 控制流程負責啟動 CNN 運算與資料記憶體存取。</li>
+        <li>CNN datapath 包含 unpacker、line buffer、MAC engine 與 quantizer。</li>
+        <li>整合 TA test circuit、ROM/Memory IP 與七段顯示輸出。</li>
+        <li>Final AT Ranking 取得第 1 名。</li>
+      </ul>
+    </section>
+
+    <section class="mt-6 grid gap-4 md:grid-cols-2">
+      <a href="assets/final-project-at-ranking.pdf" class="rounded-2xl border border-white/10 bg-slate-900 p-5 hover:bg-slate-800">
+        <p class="text-sm text-gray-400">Ranking PDF</p>
+        <p class="mt-2 font-semibold text-cyan-200">Open AT Ranking PDF</p>
+      </a>
+      <a href="assets/final-project-at-ranking.xlsx" class="rounded-2xl border border-white/10 bg-slate-900 p-5 hover:bg-slate-800">
+        <p class="text-sm text-gray-400">Ranking Source</p>
+        <p class="mt-2 font-semibold text-cyan-200">Download Ranking XLSX</p>
+      </a>
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-white/10 bg-slate-900 p-6">
+      <h2 class="text-2xl font-bold text-white">AT Ranking Top 5</h2>
+      <div class="mt-4 overflow-x-auto">
+        <table class="w-full min-w-[640px] text-left text-sm">
+          <thead class="border-b border-white/10 text-gray-400">
+            <tr>
+              <th class="py-3 pr-4">Rank</th>
+              <th class="py-3 pr-4">Team</th>
+              <th class="py-3 pr-4">Area</th>
+              <th class="py-3 pr-4">Processing Time</th>
+              <th class="py-3 pr-4">AT</th>
+              <th class="py-3 pr-4">Gap vs 1st</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10">
+            <tr class="text-cyan-100">
+              <td class="py-3 pr-4 font-bold">1</td>
+              <td class="py-3 pr-4">3</td>
+              <td class="py-3 pr-4">3,844</td>
+              <td class="py-3 pr-4">450,186 ns</td>
+              <td class="py-3 pr-4 font-semibold">549,638.184</td>
+              <td class="py-3 pr-4">0%</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-bold">2</td>
+              <td class="py-3 pr-4">4</td>
+              <td class="py-3 pr-4">4,057</td>
+              <td class="py-3 pr-4">570,058.602 ns</td>
+              <td class="py-3 pr-4 font-semibold">1,274,135.748</td>
+              <td class="py-3 pr-4 text-emerald-300">+131.8%</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-bold">3</td>
+              <td class="py-3 pr-4">6</td>
+              <td class="py-3 pr-4">9,291</td>
+              <td class="py-3 pr-4">454,341.909 ns</td>
+              <td class="py-3 pr-4 font-semibold">1,367,095.477</td>
+              <td class="py-3 pr-4 text-emerald-300">+148.7%</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-bold">4</td>
+              <td class="py-3 pr-4">19</td>
+              <td class="py-3 pr-4">7,361</td>
+              <td class="py-3 pr-4">506,358 ns</td>
+              <td class="py-3 pr-4 font-semibold">1,466,002.038</td>
+              <td class="py-3 pr-4 text-emerald-300">+166.7%</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-bold">5</td>
+              <td class="py-3 pr-4">10</td>
+              <td class="py-3 pr-4">3,490</td>
+              <td class="py-3 pr-4">725,861 ns</td>
+              <td class="py-3 pr-4 font-semibold">1,624,671.839</td>
+              <td class="py-3 pr-4 text-emerald-300">+195.6%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 text-sm text-gray-400">Lower AT is better. The second place AT is 131.8% higher than ours; fifth place is 195.6% higher.</p>
+    </section>
+
+    <section class="mt-6">
+      <div class="mb-3 flex items-center justify-between gap-3">
+        <h2 class="text-2xl font-bold text-white">Final Report</h2>
+        <a href="assets/dsd-riscv-cnn-report.pdf" class="rounded-lg border border-white/10 bg-white/10 px-3 py-2 text-sm font-semibold hover:bg-white/15">
+          Open PDF
+        </a>
+      </div>
+      <iframe src="assets/dsd-riscv-cnn-report.pdf" class="h-[72vh] w-full rounded-lg border border-gray-700"></iframe>
+    </section>
+  </main>
+</body>
+</html>

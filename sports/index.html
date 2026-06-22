@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Record | Xu Yu-Chia</title>
+  <link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --panel-bg: rgba(18, 24, 38, 0.7);
+      --card-bg: rgba(30, 41, 59, 0.88);
+      --card-border: rgba(148, 163, 184, 0.18);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 20% -10%, rgba(56, 189, 248, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.15), transparent 35%),
+        #030712;
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg, #22d3ee 0%, #6366f1 50%, #a855f7 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .panel {
+      border-radius: 20px;
+      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+    }
+
+    .panel-inner {
+      background: var(--panel-bg);
+      backdrop-filter: blur(6px);
+    }
+
+    .data-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .data-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(125, 211, 252, 0.35);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      font-size: 12px;
+      line-height: 1;
+      border-radius: 999px;
+      padding: 7px 10px;
+      border: 1px solid transparent;
+      letter-spacing: 0.2px;
+    }
+
+    .pill-time {
+      color: #bfdbfe;
+      background: rgba(30, 64, 175, 0.28);
+      border-color: rgba(147, 197, 253, 0.35);
+    }
+
+    .pill-pace {
+      color: #bbf7d0;
+      background: rgba(21, 128, 61, 0.24);
+      border-color: rgba(134, 239, 172, 0.35);
+    }
+
+    .pill-cat {
+      color: #f5d0fe;
+      background: rgba(126, 34, 206, 0.24);
+      border-color: rgba(216, 180, 254, 0.35);
+    }
+
+    .pb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .pb-card {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+      border: 1px solid rgba(129, 140, 248, 0.4);
+      border-radius: 14px;
+      padding: 14px;
+      min-height: 116px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      cursor: default;
+    }
+
+    .pb-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(147, 197, 253, 0.65);
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(125, 211, 252, 0.16) inset;
+    }
+
+    .pb-label {
+      color: #c4b5fd;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.3px;
+      margin-bottom: 8px;
+    }
+
+    .pb-time {
+      color: #93c5fd;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pb-sub {
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      .pb-time {
+        font-size: 26px;
+      }
+    }
+  </style>
+
+  <style>
+    html { overflow-y: scroll; scrollbar-gutter: stable; }
+  </style>
+</head>
+<body class="text-gray-200">
+  <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/85 backdrop-blur">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <div class="text-xl font-bold tracking-wide">
+        <a href="../index.html"><i class="fa fa-home"></i></a>
+        Xu Yu-Chia's Blog
+      </div>
+      <ul class="hidden md:flex space-x-6 text-sm">
+        <li><a href="../about/index.html" class="hover:text-gray-300"><i class="fa fa-address-card"> About Me</i></a></li>
+        <li><a href="../projects/index.html" class="hover:text-gray-300"><i class="fa fa-folder-open"> Projects</i></a></li>
+        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"> Blogs</i></a></li>
+        <li><a href="../sports/index.html" class="hover:text-gray-300"><i class="fa fa-running"> Sports Record</i></a></li>
+        <li><a href="../contact/index.html" class="hover:text-gray-300"><i class="fa fa-phone"> Contact Me</i></a></li>
+        <li>
+          <a href="https://docs.google.com/presentation/d/1PIOmGUC-IwMWeeA96dt9h67mbW_WYWk7KJJUqrlnt80/edit?usp=sharing" class="hover:text-gray-300">
+            <i class="fa fa-file"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-6 md:p-8">
+    <h1 class="text-4xl font-extrabold mb-3 text-center text-gradient">運動紀錄</h1>
+    <p id="mode-hint" class="hidden text-center text-sm text-yellow-300 mb-6"></p>
+
+    <section class="panel mb-7 bg-gradient-to-r from-indigo-600 via-blue-500 to-purple-600">
+      <div class="panel-inner p-5 md:p-6">
+        <h2 class="text-2xl font-semibold text-white mb-4">個人最佳紀錄 (PB)</h2>
+        <div id="pb-list" class="pb-grid"></div>
+      </div>
+    </section>
+
+    <section class="panel mb-7 bg-gradient-to-r from-green-500 via-teal-400 to-cyan-300">
+      <div class="panel-inner p-5 md:p-6">
+        <h2 class="text-2xl font-semibold text-white mb-4">近期目標賽事</h2>
+        <ul class="space-y-3" id="upcoming-list"></ul>
+      </div>
+    </section>
+
+    <section class="panel mb-7 bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300">
+      <div class="panel-inner p-5 md:p-6">
+        <h2 class="text-2xl font-semibold text-white mb-4">歷史賽事</h2>
+        <ul class="space-y-3" id="history-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10 border-t border-slate-700/50">
+    <p>© 2026 Xu Yu-Chia. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const DATA_BASE = "data";
+    const RAW_BASE = "https://raw.githubusercontent.com/xu-yu-chia/xu-yu-chia.github.io/main/sports/data";
+
+    const FALLBACK_HISTORY = [
+      { race: "北回 10K 測驗", info: "2024.04.28，完賽時間：48:33", category: "10K" },
+      { race: "2024 華航馬拉松_半馬", info: "2024.10.12，完賽時間：1:49:56", category: "HM" },
+      { race: "舒跑杯 5K", info: "2025.05.04，完賽時間：20:57", category: "5K" },
+      { race: "中央大學操場_3K", info: "2025.08.11，完賽時間：11:20", category: "3K" },
+      { race: "2025 台北馬拉松_半馬", info: "2025.12.21，完賽時間：1:38:51", category: "HM" },
+      { race: "2025 台北馬拉松_半馬前10K分段", info: "2025.12.21，分段時間：45:07（非官方10K組）", category: "10K" }
+    ];
+
+    const FALLBACK_UPCOMING = [
+      { name: "田中馬 5000m", note: "目標 19:00" },
+      { name: "台北馬拉松_半馬", note: "目標破百" }
+    ];
+
+    const CATEGORY_LABEL = {
+      FM: "全馬",
+      HM: "半馬",
+      "10K": "10K",
+      "5K": "5K",
+      "3K": "3K"
+    };
+
+    const CATEGORY_DISTANCE_KM = {
+      FM: 42.195,
+      HM: 21.0975,
+      "10K": 10,
+      "5K": 5,
+      "3K": 3
+    };
+
+    const PB_ORDER = ["FM", "HM", "10K", "5K", "3K"];
+
+    function extractTimeToken(text) {
+      const normalized = String(text || "").replace(/[：﹕]/g, ":");
+      const afterLabel = normalized.match(/(?:完賽時間|分段時間)\s*[:：]?\s*(\d{1,2}:\d{1,2}(?::\d{1,2})?)/);
+      if (afterLabel) return afterLabel[1];
+      const all = [...normalized.matchAll(/\d{1,2}:\d{1,2}(?::\d{1,2})?/g)];
+      return all.length ? all[all.length - 1][0] : null;
+    }
+
+    function extractDateToken(text) {
+      const normalized = String(text || "").replace(/[\/\-]/g, ".");
+      const m = normalized.match(/\b(\d{4}\.\d{1,2}\.\d{1,2})\b/);
+      return m ? m[1] : "";
+    }
+
+    function toSeconds(text) {
+      const token = extractTimeToken(text);
+      if (!token) return Infinity;
+      const parts = token.split(":").map(Number);
+      if (parts.some(Number.isNaN)) return Infinity;
+      if (parts.length === 2) return parts[0] * 60 + parts[1];
+      if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+      return Infinity;
+    }
+
+    function formatSeconds(sec) {
+      if (!Number.isFinite(sec)) return "--:--";
+      const h = Math.floor(sec / 3600);
+      const m = Math.floor((sec % 3600) / 60);
+      const s = sec % 60;
+      if (h > 0) return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+      return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+    }
+
+    function formatPace(secPerKm) {
+      if (!Number.isFinite(secPerKm)) return "--:--/km";
+      const rounded = Math.round(secPerKm);
+      const m = Math.floor(rounded / 60);
+      const s = rounded % 60;
+      return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}/km`;
+    }
+
+    function calculatePace(seconds, category) {
+      const distance = CATEGORY_DISTANCE_KM[category];
+      if (!Number.isFinite(seconds) || !distance) return Infinity;
+      return seconds / distance;
+    }
+
+    function createListCard(title, subtitle, meta = []) {
+      const li = document.createElement("li");
+      li.className = "data-card";
+
+      const titleEl = document.createElement("p");
+      titleEl.className = "text-lg font-semibold text-slate-100";
+      titleEl.textContent = title;
+      li.appendChild(titleEl);
+
+      if (subtitle) {
+        const subtitleEl = document.createElement("p");
+        subtitleEl.className = "text-sm text-slate-300 mt-1";
+        subtitleEl.textContent = subtitle;
+        li.appendChild(subtitleEl);
+      }
+
+      if (meta.length) {
+        const row = document.createElement("div");
+        row.className = "meta-row";
+        meta.forEach((item) => {
+          const span = document.createElement("span");
+          span.className = `pill ${item.kind}`;
+          span.textContent = item.label;
+          row.appendChild(span);
+        });
+        li.appendChild(row);
+      }
+
+      return li;
+    }
+
+    function createPBCard(category, sec, pace, race, date) {
+      const card = document.createElement("div");
+      card.className = "pb-card";
+      card.innerHTML = `
+        <p class="pb-label">${CATEGORY_LABEL[category]}</p>
+        <p class="pb-time">${formatSeconds(sec)}</p>
+        <p class="pb-sub">配速 ${formatPace(pace)}</p>
+        <p class="pb-sub" style="margin-top: 4px; opacity: 0.92;">日期 ${date || "--"}</p>
+        <p class="pb-sub" style="margin-top: 4px; opacity: 0.92;">${race}</p>
+      `;
+      return card;
+    }
+
+    function renderHistory(rows) {
+      const ul = document.getElementById("history-list");
+      ul.innerHTML = "";
+
+      rows.forEach((row) => {
+        const sec = toSeconds(row.info || "");
+        const pace = calculatePace(sec, row.category);
+        const meta = [];
+        if (row.category) meta.push({ kind: "pill-cat", label: row.category });
+        if (Number.isFinite(sec)) meta.push({ kind: "pill-time", label: `成績 ${formatSeconds(sec)}` });
+        if (Number.isFinite(pace)) meta.push({ kind: "pill-pace", label: `配速 ${formatPace(pace)}` });
+
+        ul.appendChild(createListCard(row.race || "未命名賽事", row.info || "", meta));
+      });
+    }
+
+    function renderUpcoming(rows) {
+      const ul = document.getElementById("upcoming-list");
+      ul.innerHTML = "";
+      rows.forEach(({ name = "", note = "" }) => {
+        ul.appendChild(createListCard(name, note));
+      });
+    }
+
+    function renderPBFromHistory(rows) {
+      const best = {};
+
+      rows.forEach((row) => {
+        const category = row.category;
+        if (!CATEGORY_LABEL[category]) return;
+
+        const sec = toSeconds(row.info || "");
+        if (!Number.isFinite(sec)) return;
+
+        const pace = calculatePace(sec, category);
+        const date = extractDateToken(row.info || "");
+        if (!best[category] || sec < best[category].sec) {
+          best[category] = { sec, pace, race: row.race || "", date };
+        }
+      });
+
+      const container = document.getElementById("pb-list");
+      container.innerHTML = "";
+
+      PB_ORDER.forEach((category) => {
+        if (!best[category]) return;
+        container.appendChild(
+          createPBCard(
+            category,
+            best[category].sec,
+            best[category].pace,
+            best[category].race,
+            best[category].date
+          )
+        );
+      });
+
+      if (!container.children.length) {
+        container.appendChild(createListCard("暫無可計算的 PB", "請確認 history.json 的 category 與時間格式"));
+      }
+    }
+
+    async function tryFetch(url) {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    }
+
+    async function fetchJSON(name) {
+      const ts = Date.now();
+      const candidates = [
+        `${DATA_BASE}/${name}.json?ts=${ts}`,
+        `./data/${name}.json?ts=${ts}`,
+      ];
+
+      if (location.protocol !== "file:") {
+        candidates.push(`/sports/data/${name}.json?ts=${ts}`);
+      }
+      candidates.push(`${RAW_BASE}/${name}.json?ts=${ts}`);
+
+      let lastError = null;
+      for (const url of candidates) {
+        try {
+          return await tryFetch(url);
+        } catch (err) {
+          lastError = err;
+        }
+      }
+      throw new Error(`fetch ${name}.json failed: ${lastError?.message || "unknown error"}`);
+    }
+
+    function renderErrorToAll(message) {
+      ["pb-list", "upcoming-list", "history-list"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = "";
+        if (id === "pb-list") {
+          el.appendChild(createListCard("載入失敗", message));
+        } else {
+          const ulItem = createListCard("載入失敗", message);
+          el.appendChild(ulItem);
+        }
+      });
+    }
+
+    async function init() {
+      try {
+        const [history, upcoming] = await Promise.all([
+          fetchJSON("history"),
+          fetchJSON("upcoming"),
+        ]);
+        renderHistory(history);
+        renderPBFromHistory(history);
+        renderUpcoming(upcoming);
+      } catch (e) {
+        console.error(e);
+        if (location.protocol === "file:") {
+          const hint = document.getElementById("mode-hint");
+          if (hint) {
+            hint.classList.remove("hidden");
+            hint.textContent = "目前為本機檔案模式（file://），已使用內建資料顯示。";
+          }
+          renderHistory(FALLBACK_HISTORY);
+          renderPBFromHistory(FALLBACK_HISTORY);
+          renderUpcoming(FALLBACK_UPCOMING);
+          return;
+        }
+        renderErrorToAll(`請稍後再試，或檢查 JSON 格式。(${e.message})`);
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
+
