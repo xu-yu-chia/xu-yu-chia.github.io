@@ -1,1 +1,120 @@
+# Xu Yu-Chia Personal Website
 
+This repository contains the static personal website for `xu-yu-chia.github.io`.
+
+The site is organized as a folder-based static website. The root keeps only the main entry page, and each subpage owns its own folder and page-specific assets.
+
+## Site Map
+
+```text
+/
+|-- index.html
+|-- about/
+|   |-- index.html
+|   `-- assets/
+|-- contact/
+|   |-- index.html
+|   `-- assets/
+|-- projects/
+|   |-- index.html
+|   |-- project1/
+|   |   |-- index.html
+|   |   `-- assets/
+|   |-- project2/
+|   |   |-- index.html
+|   |   `-- assets/
+|   |-- project3/
+|   |   |-- index.html
+|   |   `-- assets/
+|   `-- project4/
+|       |-- index.html
+|       `-- assets/
+|-- sports/
+|   |-- index.html
+|   |-- data/
+|   |-- assets/
+|   `-- legacy/
+|-- teacher/
+|   |-- index.html
+|   |-- assets/
+|   `-- docs/
+|-- bike/
+|   |-- index.html
+|   `-- assets/
+|-- home/
+|   `-- assets/
+`-- assets/
+    |-- css/
+    |-- js/
+    `-- img/
+```
+
+## Pages
+
+| Page | File |
+| --- | --- |
+| Home | `index.html` |
+| About | `about/index.html` |
+| Projects list | `projects/index.html` |
+| Project 1 - Engineering programming competition | `projects/project1/index.html` |
+| Project 2 - Independent study | `projects/project2/index.html` |
+| Project 3 - Ackermann steering research and prototype | `projects/project3/index.html` |
+| Project 4 - RISC-V CNN accelerator | `projects/project4/index.html` |
+| Sports Record | `sports/index.html` |
+| Sports Legacy | `sports/legacy/index.html` |
+| Teacher | `teacher/index.html` |
+| Bike | `bike/index.html` |
+| Contact | `contact/index.html` |
+
+The blog link points to the separate `/blog/` site.
+
+## Asset Rules
+
+- Shared styles, scripts, and icons go under `assets/`.
+- Page-specific files go inside that page's own `assets/` or `docs/` folder.
+- Project files stay inside `projects/projectX/assets/`.
+- Sports JSON data stays inside `sports/data/`.
+- Teacher certificates and downloaded documents stay inside `teacher/docs/`.
+- Do not add old root-level page files such as `about.html`, `project1.html`, or `sports.html`; use folder `index.html` pages instead.
+
+## Project 4 Notes
+
+`projects/project4/` includes the DSD final project:
+
+- Final report: `projects/project4/assets/dsd-riscv-cnn-report.pdf`
+- AT ranking PDF: `projects/project4/assets/final-project-at-ranking.pdf`
+- AT ranking XLSX: `projects/project4/assets/final-project-at-ranking.xlsx`
+
+The page records the Final Project AT Ranking result: Team 3, Rank 1.
+
+## Local Preview
+
+Open with a local static server from this directory:
+
+```powershell
+python -m http.server 8000
+```
+
+Then visit:
+
+```text
+http://localhost:8000/
+```
+
+If Python is unavailable, VS Code Live Server or any static file server also works.
+
+## Deployment
+
+This repository is intended for GitHub Pages. Push changes to the main branch, then GitHub Pages serves:
+
+```text
+https://xu-yu-chia.github.io/
+```
+
+## Maintenance Checklist
+
+- Keep root HTML limited to `index.html`.
+- Add new pages as `new-page/index.html`.
+- Put each page's files in that page's own folder.
+- Use relative links ending in explicit `index.html` when linking between local pages.
+- Run a local link check after moving files.
