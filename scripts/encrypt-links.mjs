@@ -155,6 +155,9 @@ if (!Number.isInteger(iterations) || iterations < 100000) {
 }
 
 const payload = normalizePayload(JSON.parse(plainJson));
+if (!Array.isArray(payload.links) || payload.links.length === 0) {
+  throw new Error("HIDE_LINK must contain at least one link.");
+}
 const normalized = JSON.stringify(payload);
 const encoder = new TextEncoder();
 const salt = randomBytes(16);
