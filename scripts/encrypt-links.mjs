@@ -15,7 +15,7 @@ if (bundledSecret) {
 }
 
 function parseBundledSecret(value) {
-  const trimmed = value.trim();
+  const trimmed = stripCodeFence(value).trim();
   if (!trimmed) throw new Error("HIDE_LINK is empty.");
 
   if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
@@ -33,25 +33,76 @@ function parseBundledSecret(value) {
 }
 
 function parseJsonSecret(value) {
-  try {
-    return JSON.parse(value);
-  } catch (_error) {
-    const repaired = value
-      .replace(/;\s*(?="[^"]+"\s*:)/g, ",")
-      .replace(/;\s*(?=[}\]])/g, "");
+  const candidates = [value, repairLooseJson(value)];
 
-    if (repaired !== value) {
-      try {
-        return JSON.parse(repaired);
-      } catch (_repairError) {
-        // Fall through to the sanitized error below.
-      }
+  for (const candidate of candidates) {
+    try {
+      return JSON.parse(candidate);
+    } catch (_error) {
+      // Try the next representation and report a sanitized message at the end.
     }
-
-    throw new Error(
-      "HIDE_LINK is not valid JSON. Use commas between JSON fields, or use text format: password=...; Title=https://..."
-    );
   }
+
+  const loosePayload = parseLooseSecret(value);
+  if (loosePayload) return loosePayload;
+
+  throw new Error(
+    "HIDE_LINK is not valid JSON. Use commas between JSON fields, or use text format: password=...; Title=https://..."
+  );
+}
+
+function stripCodeFence(value) {
+  return value
+    .trim()
+    .replace(/^```(?:json|text)?\s*/i, "")
+    .replace(/\s*```$/i, "");
+}
+
+function repairLooseJson(value) {
+  return stripCodeFence(value)
+    .replace(/[“”]/g, "\"")
+    .replace(/[‘’]/g, "'")
+    .replace(/;\s*(?="[^"]+"\s*:)/g, ",")
+    .replace(/;\s*(?=\{)/g, ",")
+    .replace(/;\s*(?=[}\]])/g, "")
+    .replace(/;\s*$/g, "")
+    .trim();
+}
+
+function parseLooseSecret(value) {
+  const text = stripCodeFence(value).replace(/[{}[\]]/g, "\n");
+  const passwordMatch = text.match(/["']?(password|passphrase|unlockPassword)["']?\s*[:=]\s*["']?([^"';,\n}]+)/i);
+  const secretPassword = passwordMatch ? passwordMatch[2].trim() : undefined;
+  const links = [];
+  const seenUrls = new Set();
+
+  const pushLink = (title, url) => {
+    const normalizedUrl = String(url || "").trim();
+    if (!isUrl(normalizedUrl) || seenUrls.has(normalizedUrl)) return;
+    seenUrls.add(normalizedUrl);
+    links.push({
+      title: String(title || new URL(normalizedUrl).hostname).trim(),
+      url: normalizedUrl,
+      group: "Links",
+      note: "",
+      icon: "fa-link"
+    });
+  };
+
+  const objectLinkPattern = /["']?(?:title|name)["']?\s*[:=]\s*["']?([^"';,\n}]+)["']?[\s\S]{0,300}?["']?(?:url|href)["']?\s*[:=]\s*["']?(https?:\/\/[^"'\s;,}\]]+)/gi;
+  for (const match of text.matchAll(objectLinkPattern)) {
+    pushLink(match[1], match[2]);
+  }
+
+  const pairPattern = /([^:=;\n,[\]"']+?)\s*[:=]\s*(https?:\/\/[^"'\s;,}\]]+)/gi;
+  for (const match of text.matchAll(pairPattern)) {
+    const title = match[1].trim();
+    if (/^(url|href)$/i.test(title)) continue;
+    pushLink(title, match[2]);
+  }
+
+  if (!links.length) return null;
+  return secretPassword ? { password: secretPassword, links } : { links };
 }
 
 function parseTextSecret(value) {
