@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "algorithm": "AES-256-GCM",
+  "kdf": "PBKDF2-SHA256",
+  "iterations": 250000,
+  "salt": "mzBysYkrz9lWIm8HFJFMOg==",
+  "iv": "ThXfMl3K3EPiEJ9Z",
+  "tag_length": 128,
+  "ciphertext": "62d9OsbFd8tR2vrVAewp1qZ5P9Lf8Y+HFZKlsA==",
+  "updatedAt": "2026-07-03T13:10:53.110Z"
+}
