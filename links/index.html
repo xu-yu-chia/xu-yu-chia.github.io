@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Encrypted quick links for Xu Yu-Chia." />
+  <title>Quick Links | Xu Yu-Chia</title>
+  <link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { overflow-y: scroll; scrollbar-gutter: stable; }
+    .link-card { transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease; }
+    .link-card:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+    <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between p-4">
+      <a href="../index.html" class="flex items-center gap-3 font-bold tracking-wide hover:text-cyan-200">
+        <img src="../assets/img/logo.ico" alt="" class="h-8 w-8 rounded" />
+        <span>Xu Yu-Chia's Blog</span>
+      </a>
+      <ul class="hidden items-center gap-6 text-sm md:flex">
+        <li><a href="../about/index.html" class="hover:text-gray-300"><i class="fa fa-address-card"></i> About Me</a></li>
+        <li><a href="../projects/index.html" class="hover:text-gray-300"><i class="fa fa-folder-open"></i> Projects</a></li>
+        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"></i> Blogs</a></li>
+        <li><a href="../sports/index.html" class="hover:text-gray-300"><i class="fa fa-running"></i> Sports Record</a></li>
+        <li><a href="../contact/index.html" class="hover:text-gray-300"><i class="fa fa-phone"></i> Contact Me</a></li>
+        <li><a href="../links/index.html" class="text-cyan-200 hover:text-cyan-100"><i class="fa fa-lock"></i> Links</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 py-8 md:py-12">
+    <section id="lockedView" class="min-h-[70vh] grid place-items-center">
+      <div class="w-full max-w-md rounded-lg border border-white/10 bg-white/[0.04] p-6 shadow-2xl">
+        <div class="mb-6 flex items-center gap-3">
+          <span class="grid h-11 w-11 place-items-center rounded-lg bg-cyan-400/15 text-cyan-200">
+            <i class="fa fa-lock"></i>
+          </span>
+          <div>
+            <p class="text-xs uppercase tracking-[0.28em] text-cyan-200">Private</p>
+            <h1 class="text-2xl font-bold">Quick Links</h1>
+          </div>
+        </div>
+
+        <form id="unlockForm" class="space-y-4">
+          <label class="block">
+            <span class="mb-2 block text-sm text-slate-300">密碼</span>
+            <input
+              id="passwordInput"
+              type="password"
+              autocomplete="current-password"
+              class="w-full rounded-lg border border-white/10 bg-slate-900 px-4 py-3 text-slate-100 outline-none focus:border-cyan-300"
+              required
+            />
+          </label>
+          <button
+            type="submit"
+            class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cyan-300 px-4 py-3 font-semibold text-slate-950 hover:bg-cyan-200"
+          >
+            <i class="fa fa-unlock"></i>
+            解鎖
+          </button>
+        </form>
+
+        <p id="statusText" class="mt-4 min-h-6 text-sm text-slate-400" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="unlockedView" class="hidden">
+      <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="text-xs uppercase tracking-[0.28em] text-cyan-200">Unlocked</p>
+          <h1 class="mt-2 text-3xl font-extrabold">Quick Links</h1>
+          <p id="updatedText" class="mt-2 text-sm text-slate-400"></p>
+        </div>
+        <div class="flex gap-2">
+          <label class="relative block">
+            <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="搜尋"
+              class="w-full rounded-lg border border-white/10 bg-slate-900 py-2.5 pl-9 pr-3 text-sm outline-none focus:border-cyan-300 md:w-64"
+            />
+          </label>
+          <button id="lockButton" type="button" class="grid h-10 w-10 place-items-center rounded-lg border border-white/10 bg-white/[0.04] text-slate-200 hover:bg-white/10" aria-label="Lock">
+            <i class="fa fa-lock"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="groupList" class="space-y-8"></div>
+      <p id="emptyText" class="hidden rounded-lg border border-white/10 bg-white/[0.04] p-5 text-slate-400">沒有符合的連結。</p>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const lockedView = document.getElementById("lockedView");
+      const unlockedView = document.getElementById("unlockedView");
+      const unlockForm = document.getElementById("unlockForm");
+      const passwordInput = document.getElementById("passwordInput");
+      const statusText = document.getElementById("statusText");
+      const groupList = document.getElementById("groupList");
+      const searchInput = document.getElementById("searchInput");
+      const emptyText = document.getElementById("emptyText");
+      const lockButton = document.getElementById("lockButton");
+      const updatedText = document.getElementById("updatedText");
+
+      let vault = null;
+      let links = [];
+
+      function setStatus(message, tone) {
+        statusText.textContent = message;
+        statusText.className = "mt-4 min-h-6 text-sm " + (tone === "error" ? "text-rose-300" : "text-slate-400");
+      }
+
+      function fromBase64(value) {
+        const binary = atob(value);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+        return bytes;
+      }
+
+      async function decryptVault(password) {
+        if (!window.crypto || !window.crypto.subtle) {
+          throw new Error("這個瀏覽器不支援 Web Crypto。");
+        }
+
+        const encoder = new TextEncoder();
+        if (vault.version !== 1 || vault.algorithm !== "AES-256-GCM" || vault.kdf !== "PBKDF2-SHA256") {
+          throw new Error("Unsupported encrypted payload");
+        }
+
+        const keyMaterial = await crypto.subtle.importKey(
+          "raw",
+          encoder.encode(password),
+          "PBKDF2",
+          false,
+          ["deriveKey"]
+        );
+        const key = await crypto.subtle.deriveKey(
+          {
+            name: "PBKDF2",
+            salt: fromBase64(vault.salt),
+            iterations: vault.iterations,
+            hash: "SHA-256"
+          },
+          keyMaterial,
+          { name: "AES-GCM", length: 256 },
+          false,
+          ["decrypt"]
+        );
+        const plain = await crypto.subtle.decrypt(
+          { name: "AES-GCM", iv: fromBase64(vault.iv), tagLength: Number(vault.tag_length || 128) },
+          key,
+          fromBase64(vault.ciphertext)
+        );
+        return JSON.parse(new TextDecoder().decode(plain));
+      }
+
+      function normalizePayload(payload) {
+        const rawLinks = Array.isArray(payload) ? payload : payload.links;
+        if (!Array.isArray(rawLinks)) return [];
+
+        return rawLinks
+          .filter((item) => item && item.title && item.url)
+          .map((item) => ({
+            title: String(item.title),
+            url: String(item.url),
+            note: item.note || item.description || "",
+            group: item.group || item.category || "其他",
+            icon: item.icon || "fa-link"
+          }));
+      }
+
+      function iconClass(icon) {
+        const safe = String(icon).replace(/[^a-zA-Z0-9 -]/g, "").trim();
+        if (!safe) return "fa fa-link";
+        if (safe.includes("fa-") && safe.includes(" ")) return safe;
+        if (safe.startsWith("fa-")) return "fa " + safe;
+        return "fa fa-link";
+      }
+
+      function render() {
+        const keyword = searchInput.value.trim().toLowerCase();
+        const filtered = links.filter((item) => {
+          const haystack = [item.title, item.note, item.group, item.url].join(" ").toLowerCase();
+          return haystack.includes(keyword);
+        });
+        const groups = filtered.reduce((acc, item) => {
+          if (!acc.has(item.group)) acc.set(item.group, []);
+          acc.get(item.group).push(item);
+          return acc;
+        }, new Map());
+
+        groupList.innerHTML = "";
+        emptyText.classList.toggle("hidden", filtered.length !== 0);
+
+        groups.forEach((items, group) => {
+          const section = document.createElement("section");
+          section.innerHTML = `
+            <div class="mb-3 flex items-center gap-2">
+              <span class="h-px flex-1 bg-white/10"></span>
+              <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400"></h2>
+              <span class="h-px flex-1 bg-white/10"></span>
+            </div>
+            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"></div>
+          `;
+          section.querySelector("h2").textContent = group;
+          const grid = section.querySelector("div.grid");
+
+          items.forEach((item) => {
+            const card = document.createElement("a");
+            card.href = item.url;
+            card.target = "_blank";
+            card.rel = "noopener noreferrer";
+            card.className = "link-card block rounded-lg border border-white/10 bg-white/[0.04] p-4 hover:border-cyan-300/60 hover:bg-white/[0.07]";
+
+            const icon = document.createElement("i");
+            icon.className = iconClass(item.icon) + " text-cyan-200";
+
+            const title = document.createElement("h3");
+            title.className = "font-semibold text-slate-50";
+            title.textContent = item.title;
+
+            const note = document.createElement("p");
+            note.className = "mt-2 min-h-10 text-sm leading-5 text-slate-400";
+            note.textContent = item.note || item.url;
+
+            const open = document.createElement("p");
+            open.className = "mt-4 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200";
+            open.innerHTML = '<span>開啟</span><i class="fa fa-external-link-alt"></i>';
+
+            const row = document.createElement("div");
+            row.className = "flex items-start gap-3";
+            const iconBox = document.createElement("span");
+            iconBox.className = "grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-cyan-400/10";
+            iconBox.appendChild(icon);
+            const textBox = document.createElement("div");
+            textBox.append(title, note, open);
+            row.append(iconBox, textBox);
+            card.appendChild(row);
+            grid.appendChild(card);
+          });
+
+          groupList.appendChild(section);
+        });
+      }
+
+      async function loadVault() {
+        try {
+          const response = await fetch("vault.json", { cache: "no-store" });
+          if (!response.ok) throw new Error("missing");
+          vault = await response.json();
+          setStatus("加密資料已就緒。");
+        } catch (error) {
+          setStatus("尚未產生 vault.json。請先設定 GitHub Secrets 並執行 workflow。", "error");
+        }
+      }
+
+      unlockForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!vault) return;
+        setStatus("解鎖中...");
+
+        try {
+          const payload = await decryptVault(passwordInput.value);
+          links = normalizePayload(payload);
+          if (!links.length) throw new Error("empty");
+          lockedView.classList.add("hidden");
+          unlockedView.classList.remove("hidden");
+          updatedText.textContent = vault.updatedAt ? "Updated " + new Date(vault.updatedAt).toLocaleString("zh-TW") : "";
+          passwordInput.value = "";
+          render();
+          searchInput.focus();
+        } catch (error) {
+          setStatus("密碼錯誤或加密資料格式不正確。", "error");
+        }
+      });
+
+      searchInput.addEventListener("input", render);
+      lockButton.addEventListener("click", () => {
+        links = [];
+        groupList.innerHTML = "";
+        searchInput.value = "";
+        unlockedView.classList.add("hidden");
+        lockedView.classList.remove("hidden");
+        passwordInput.focus();
+      });
+
+      loadVault();
+    })();
+  </script>
+</body>
+</html>

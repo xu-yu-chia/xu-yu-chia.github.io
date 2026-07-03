@@ -1,0 +1,53 @@
+name: Encrypt quick links
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "links/index.html"
+      - "links/links.example.json"
+      - "scripts/encrypt-links.mjs"
+      - ".github/workflows/encrypt-links.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  encrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - id: encrypt
+        name: Encrypt vault
+        env:
+          HIDE_LINK: ${{ secrets.HIDE_LINK }}
+          QUICK_LINKS_JSON: ${{ secrets.QUICK_LINKS_JSON }}
+          QUICK_LINKS_PASSWORD: ${{ secrets.QUICK_LINKS_PASSWORD }}
+        run: |
+          if [ -z "$HIDE_LINK" ] && { [ -z "$QUICK_LINKS_JSON" ] || [ -z "$QUICK_LINKS_PASSWORD" ]; }; then
+            echo "GitHub Secret HIDE_LINK is required."
+            exit 0
+          fi
+          node scripts/encrypt-links.mjs links/vault.json
+          echo "vault_ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit encrypted vault
+        if: steps.encrypt.outputs.vault_ready == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add links/vault.json
+          if git diff --cached --quiet; then
+            echo "No encrypted vault changes."
+            exit 0
+          fi
+          git commit -m "Update encrypted quick links"
+          git push

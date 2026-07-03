@@ -1,0 +1,19 @@
+{
+  "password": "CHANGE_THIS_UNLOCK_PASSWORD",
+  "links": [
+    {
+      "title": "Google Drive",
+      "url": "https://drive.google.com/drive/folders/REPLACE_ME",
+      "note": "Common folder",
+      "group": "Cloud",
+      "icon": "fa-cloud"
+    },
+    {
+      "title": "Report",
+      "url": "https://docs.google.com/document/d/REPLACE_ME/edit",
+      "note": "Class or project report",
+      "group": "Reports",
+      "icon": "fa-file-alt"
+    }
+  ]
+}
