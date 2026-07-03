@@ -10,8 +10,8 @@ const iterations = Number(process.env.QUICK_LINKS_ITERATIONS || 250000);
 
 if (bundledSecret) {
   const parsedSecret = parseBundledSecret(bundledSecret);
-  password = parsedSecret.password || password;
-  plainJson = JSON.stringify(parsedSecret.payload);
+  password = parsedSecret.password ? String(parsedSecret.password).trim() : password;
+  plainJson = JSON.stringify(normalizePayload(parsedSecret.payload));
 }
 
 function parseBundledSecret(value) {
@@ -115,6 +115,30 @@ function parseTextSecret(value) {
   return { password: secretPassword, payload: { links } };
 }
 
+function normalizePayload(payload) {
+  if (Array.isArray(payload)) return { links: payload };
+  if (!payload || typeof payload !== "object") return { links: [] };
+  if (Array.isArray(payload.links)) return payload;
+  if (payload.links && typeof payload.links === "object") {
+    return { ...payload, links: linksFromMap(payload.links) };
+  }
+
+  const links = linksFromMap(payload);
+  if (links.length) return { links };
+  return payload;
+}
+
+function linksFromMap(map) {
+  return Object.entries(map)
+    .filter(([key]) => !["password", "passphrase", "unlockPassword"].includes(key))
+    .map(([title, value]) => {
+      if (typeof value === "string") return { title, url: value };
+      if (value && typeof value === "object") return { title, ...value };
+      return null;
+    })
+    .filter((item) => item && item.title && item.url);
+}
+
 function isUrl(value) {
   try {
     const url = new URL(value);
@@ -130,7 +154,7 @@ if (!Number.isInteger(iterations) || iterations < 100000) {
   throw new Error("QUICK_LINKS_ITERATIONS must be an integer >= 100000.");
 }
 
-const payload = JSON.parse(plainJson);
+const payload = normalizePayload(JSON.parse(plainJson));
 const normalized = JSON.stringify(payload);
 const encoder = new TextEncoder();
 const salt = randomBytes(16);

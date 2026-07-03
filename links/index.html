@@ -15,7 +15,7 @@
   </style>
 </head>
 <body class="min-h-screen bg-slate-950 text-slate-100">
-    <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/90 backdrop-blur">
+  <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/90 backdrop-blur">
     <nav class="mx-auto flex max-w-6xl items-center justify-between p-4">
       <a href="../index.html" class="flex items-center gap-3 font-bold tracking-wide hover:text-cyan-200">
         <img src="../assets/img/logo.ico" alt="" class="h-8 w-8 rounded" />
@@ -32,8 +32,8 @@
     </nav>
   </header>
 
-  <main class="max-w-6xl mx-auto px-5 py-8 md:py-12">
-    <section id="lockedView" class="min-h-[70vh] grid place-items-center">
+  <main class="mx-auto max-w-6xl px-5 py-8 md:py-12">
+    <section id="lockedView" class="grid min-h-[70vh] place-items-center">
       <div class="w-full max-w-md rounded-lg border border-white/10 bg-white/[0.04] p-6 shadow-2xl">
         <div class="mb-6 flex items-center gap-3">
           <span class="grid h-11 w-11 place-items-center rounded-lg bg-cyan-400/15 text-cyan-200">
@@ -127,17 +127,16 @@
 
       async function decryptVault(password) {
         if (!window.crypto || !window.crypto.subtle) {
-          throw new Error("這個瀏覽器不支援 Web Crypto。");
+          throw new Error("Web Crypto is not available.");
+        }
+        if (vault.version !== 1 || vault.algorithm !== "AES-256-GCM" || vault.kdf !== "PBKDF2-SHA256") {
+          throw new Error("Unsupported encrypted payload.");
         }
 
         const encoder = new TextEncoder();
-        if (vault.version !== 1 || vault.algorithm !== "AES-256-GCM" || vault.kdf !== "PBKDF2-SHA256") {
-          throw new Error("Unsupported encrypted payload");
-        }
-
         const keyMaterial = await crypto.subtle.importKey(
           "raw",
-          encoder.encode(password),
+          encoder.encode(password.trim()),
           "PBKDF2",
           false,
           ["deriveKey"]
@@ -146,7 +145,7 @@
           {
             name: "PBKDF2",
             salt: fromBase64(vault.salt),
-            iterations: vault.iterations,
+            iterations: Number(vault.iterations),
             hash: "SHA-256"
           },
           keyMaterial,
@@ -163,8 +162,7 @@
       }
 
       function normalizePayload(payload) {
-        const rawLinks = Array.isArray(payload) ? payload : payload.links;
-        if (!Array.isArray(rawLinks)) return [];
+        const rawLinks = normalizeRawLinks(payload);
 
         return rawLinks
           .filter((item) => item && item.title && item.url)
@@ -172,9 +170,28 @@
             title: String(item.title),
             url: String(item.url),
             note: item.note || item.description || "",
-            group: item.group || item.category || "其他",
+            group: item.group || item.category || "Links",
             icon: item.icon || "fa-link"
           }));
+      }
+
+      function normalizeRawLinks(payload) {
+        if (Array.isArray(payload)) return payload;
+        if (!payload || typeof payload !== "object") return [];
+        if (Array.isArray(payload.links)) return payload.links;
+        if (payload.links && typeof payload.links === "object") return linksFromMap(payload.links);
+        return linksFromMap(payload);
+      }
+
+      function linksFromMap(map) {
+        return Object.entries(map)
+          .filter((entry) => entry[0] !== "password" && entry[0] !== "passphrase" && entry[0] !== "unlockPassword")
+          .map(([title, value]) => {
+            if (typeof value === "string") return { title, url: value };
+            if (value && typeof value === "object") return { title, ...value };
+            return null;
+          })
+          .filter(Boolean);
       }
 
       function iconClass(icon) {
@@ -258,7 +275,7 @@
           vault = await response.json();
           setStatus("加密資料已就緒。");
         } catch (error) {
-          setStatus("尚未產生 vault.json。請先設定 GitHub Secrets 並執行 workflow。", "error");
+          setStatus("尚未產生 vault.json。請先設定 GitHub Secret 並執行 workflow。", "error");
         }
       }
 
@@ -278,7 +295,7 @@
           render();
           searchInput.focus();
         } catch (error) {
-          setStatus("密碼錯誤或加密資料格式不正確。", "error");
+          setStatus("解鎖失敗：密碼錯誤或連結資料格式不正確。", "error");
         }
       });
 
