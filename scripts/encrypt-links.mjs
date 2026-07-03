@@ -9,12 +9,118 @@ let plainJson = process.env.QUICK_LINKS_JSON;
 const iterations = Number(process.env.QUICK_LINKS_ITERATIONS || 250000);
 
 if (bundledSecret) {
-  const bundledPayload = JSON.parse(bundledSecret);
-  password = bundledPayload.password || bundledPayload.passphrase || password;
+  const parsedSecret = parseBundledSecret(bundledSecret);
+  password = parsedSecret.password || password;
+  plainJson = JSON.stringify(parsedSecret.payload);
+}
 
-  if (!Array.isArray(bundledPayload)) {
-    const { password: _password, passphrase: _passphrase, ...payloadWithoutPassword } = bundledPayload;
-    plainJson = JSON.stringify(payloadWithoutPassword);
+function parseBundledSecret(value) {
+  const trimmed = value.trim();
+  if (!trimmed) throw new Error("HIDE_LINK is empty.");
+
+  if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
+    const payload = parseJsonSecret(trimmed);
+    if (Array.isArray(payload)) return { password, payload: { links: payload } };
+
+    const { password: secretPassword, passphrase, unlockPassword, ...payloadWithoutPassword } = payload;
+    return {
+      password: secretPassword || passphrase || unlockPassword,
+      payload: payloadWithoutPassword
+    };
+  }
+
+  return parseTextSecret(trimmed);
+}
+
+function parseJsonSecret(value) {
+  try {
+    return JSON.parse(value);
+  } catch (_error) {
+    const repaired = value
+      .replace(/;\s*(?="[^"]+"\s*:)/g, ",")
+      .replace(/;\s*(?=[}\]])/g, "");
+
+    if (repaired !== value) {
+      try {
+        return JSON.parse(repaired);
+      } catch (_repairError) {
+        // Fall through to the sanitized error below.
+      }
+    }
+
+    throw new Error(
+      "HIDE_LINK is not valid JSON. Use commas between JSON fields, or use text format: password=...; Title=https://..."
+    );
+  }
+}
+
+function parseTextSecret(value) {
+  const links = [];
+  let secretPassword = password;
+  const lines = value
+    .split(/[\r\n;]+/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#"));
+
+  for (const line of lines) {
+    const passwordMatch = line.match(/^(password|passphrase|unlockPassword)\s*[:=]\s*(.+)$/i);
+    if (passwordMatch) {
+      secretPassword = passwordMatch[2].trim();
+      continue;
+    }
+
+    const pipeParts = line.split("|").map((part) => part.trim());
+    if (pipeParts.length >= 2 && isUrl(pipeParts[1])) {
+      links.push({
+        title: pipeParts[0],
+        url: pipeParts[1],
+        group: pipeParts[2] || "Links",
+        note: pipeParts[3] || "",
+        icon: pipeParts[4] || "fa-link"
+      });
+      continue;
+    }
+
+    const keyValueMatch = line.match(/^([^:=]+)\s*[:=]\s*(https?:\/\/.+)$/i);
+    if (keyValueMatch) {
+      links.push({
+        title: keyValueMatch[1].trim(),
+        url: keyValueMatch[2].trim(),
+        group: "Links",
+        note: "",
+        icon: "fa-link"
+      });
+      continue;
+    }
+
+    if (isUrl(line)) {
+      links.push({
+        title: new URL(line).hostname,
+        url: line,
+        group: "Links",
+        note: "",
+        icon: "fa-link"
+      });
+      continue;
+    }
+
+    if (!secretPassword && links.length === 0) {
+      secretPassword = line;
+      continue;
+    }
+
+    throw new Error("HIDE_LINK text format has an invalid line. Use: password=...; Title=https://...");
+  }
+
+  return { password: secretPassword, payload: { links } };
+}
+
+function isUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch (_error) {
+    return false;
   }
 }
 

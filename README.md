@@ -90,6 +90,20 @@ Use this JSON format for `HIDE_LINK`:
 }
 ```
 
+Or use this text format:
+
+```text
+password=your unlock password
+Google Drive=https://drive.google.com/drive/folders/...
+Report=https://docs.google.com/document/d/.../edit
+```
+
+Semicolons also work in text format, for example:
+
+```text
+password=your unlock password; Google Drive=https://drive.google.com/drive/folders/...
+```
+
 After changing `HIDE_LINK`, run the `Encrypt quick links` workflow manually. It commits only encrypted `links/vault.json`.
 
 ## Asset Rules
