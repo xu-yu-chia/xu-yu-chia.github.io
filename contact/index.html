@@ -3,71 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Xu Yu-Chia." />
   <title>Contact | Xu Yu-Chia</title>
   <link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    html { overflow-y: scroll; scrollbar-gutter: stable; }
-  </style>
+  <link rel="stylesheet" href="../assets/css/site.css" />
 </head>
-<body class="bg-slate-950 text-gray-200">
-    <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/90 backdrop-blur">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between p-4">
-      <a href="../index.html" class="flex items-center gap-3 font-bold tracking-wide hover:text-cyan-200">
-        <img src="../assets/img/logo.ico" alt="" class="h-8 w-8 rounded" />
-        <span>Xu Yu-Chia's Blog</span>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">
+        <img class="brand-mark" src="../assets/img/logo.ico" alt="" />
+        <span>Xu Yu-Chia</span>
       </a>
-      <ul class="hidden items-center gap-6 text-sm md:flex">
-        <li><a href="../about/index.html" class="hover:text-gray-300"><i class="fa fa-address-card"></i> About Me</a></li>
-        <li><a href="../projects/index.html" class="hover:text-gray-300"><i class="fa fa-folder-open"></i> Projects</a></li>
-        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"></i> Blogs</a></li>
-        <li><a href="../sports/index.html" class="hover:text-gray-300"><i class="fa fa-running"></i> Sports Record</a></li>
-        <li><a href="../contact/index.html" class="text-cyan-200 hover:text-cyan-100"><i class="fa fa-phone"></i> Contact Me</a></li>
-        <li><a href="../links/index.html" class="hover:text-gray-300"><i class="fa fa-lock"></i> Links</a></li>
+      <ul class="nav-links">
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../projects/index.html">Projects</a></li>
+        <li><a href="https://xu-yu-chia.github.io/blog/">Notes</a></li>
+        <li><a href="../sports/index.html">Sports</a></li>
+        <li><a href="../contact/index.html" aria-current="page">Contact</a></li>
+        <li><a href="../links/index.html">Private</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="max-w-5xl mx-auto p-8">
-    <section class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-fuchsia-600 via-rose-600 to-amber-500 p-8 shadow-2xl">
-      <div class="pointer-events-none absolute -top-20 -left-16 h-56 w-56 rounded-full bg-white/20 blur-3xl"></div>
-      <div class="pointer-events-none absolute -bottom-20 -right-12 h-60 w-60 rounded-full bg-yellow-200/20 blur-3xl"></div>
-
-      <div class="relative z-10">
-        <p class="text-xs uppercase tracking-[0.25em] text-rose-100/90 mb-2">Get In Touch</p>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white">Contact Me</h1>
-        <p class="mt-3 text-rose-50/90">合作邀約、技術交流或跑步話題，歡迎直接聯絡我。</p>
-
-        <div class="mt-8 grid gap-4 md:grid-cols-3">
-          <a href="mailto:joshyymmdd@gmail.com" class="group rounded-2xl border border-white/25 bg-slate-900/65 p-5 transition hover:-translate-y-1 hover:bg-slate-900/80">
-            <div class="flex items-center gap-3 text-blue-300">
-              <i class="fas fa-envelope text-2xl"></i>
-              <p class="font-semibold text-white">Email</p>
-            </div>
-            <p class="mt-3 text-sm text-slate-300 group-hover:text-white">joshyymmdd@gmail.com</p>
+  <main class="page">
+    <section class="contact-grid">
+      <div>
+        <p class="kicker">Contact</p>
+        <h1 class="page-title">For projects, notes, or a direct conversation.</h1>
+      </div>
+      <div>
+        <p class="lead">如果你想了解我的作品、課程合作或一般聯絡，可以直接從下面幾個管道找到我。</p>
+        <div class="contact-list section">
+          <a class="contact-item" href="mailto:joshyymmdd@gmail.com">
+            <span class="meta">Email</span>
+            <strong>joshyymmdd@gmail.com</strong>
           </a>
-
-          <a href="https://www.facebook.com/yuchiaxu/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-white/25 bg-slate-900/65 p-5 transition hover:-translate-y-1 hover:bg-slate-900/80">
-            <div class="flex items-center gap-3 text-sky-300">
-              <i class="fab fa-facebook text-2xl"></i>
-              <p class="font-semibold text-white">Facebook</p>
-            </div>
-            <p class="mt-3 text-sm text-slate-300 group-hover:text-white">許彧嘉</p>
+          <a class="contact-item" href="https://www.facebook.com/yuchiaxu/" target="_blank" rel="noopener noreferrer">
+            <span class="meta">Facebook</span>
+            <strong>Xu Yu-Chia</strong>
           </a>
-
-          <a href="https://www.instagram.com/yu.chia_hsu/" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-white/25 bg-slate-900/65 p-5 transition hover:-translate-y-1 hover:bg-slate-900/80">
-            <div class="flex items-center gap-3 text-pink-300">
-              <i class="fab fa-instagram text-2xl"></i>
-              <p class="font-semibold text-white">Instagram</p>
-            </div>
-            <p class="mt-3 text-sm text-slate-300 group-hover:text-white">@yu.chia_hsu</p>
+          <a class="contact-item" href="https://www.instagram.com/yu.chia_hsu/" target="_blank" rel="noopener noreferrer">
+            <span class="meta">Instagram</span>
+            <strong>@yu.chia_hsu</strong>
           </a>
         </div>
       </div>
     </section>
   </main>
+
+  <footer class="footer">Contact information is kept short so the page stays useful.</footer>
 </body>
 </html>
-

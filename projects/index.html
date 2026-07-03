@@ -3,62 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Xu Yu-Chia 的工程與程式作品集。" />
   <title>Projects | Xu Yu-Chia</title>
   <link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    html { overflow-y: scroll; scrollbar-gutter: stable; }
-  </style>
+  <link rel="stylesheet" href="../assets/css/site.css" />
 </head>
-<body class="bg-gray-950 text-gray-200">
-    <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/90 backdrop-blur">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between p-4">
-      <a href="../index.html" class="flex items-center gap-3 font-bold tracking-wide hover:text-cyan-200">
-        <img src="../assets/img/logo.ico" alt="" class="h-8 w-8 rounded" />
-        <span>Xu Yu-Chia's Blog</span>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">
+        <img class="brand-mark" src="../assets/img/logo.ico" alt="" />
+        <span>Xu Yu-Chia</span>
       </a>
-      <ul class="hidden items-center gap-6 text-sm md:flex">
-        <li><a href="../about/index.html" class="hover:text-gray-300"><i class="fa fa-address-card"></i> About Me</a></li>
-        <li><a href="../projects/index.html" class="text-cyan-200 hover:text-cyan-100"><i class="fa fa-folder-open"></i> Projects</a></li>
-        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"></i> Blogs</a></li>
-        <li><a href="../sports/index.html" class="hover:text-gray-300"><i class="fa fa-running"></i> Sports Record</a></li>
-        <li><a href="../contact/index.html" class="hover:text-gray-300"><i class="fa fa-phone"></i> Contact Me</a></li>
-        <li><a href="../links/index.html" class="hover:text-gray-300"><i class="fa fa-lock"></i> Links</a></li>
+      <ul class="nav-links">
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../projects/index.html" aria-current="page">Projects</a></li>
+        <li><a href="https://xu-yu-chia.github.io/blog/">Notes</a></li>
+        <li><a href="../sports/index.html">Sports</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+        <li><a href="../links/index.html">Private</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="max-w-5xl mx-auto p-8">
-    <h1 class="text-4xl font-extrabold mb-6">Projects</h1>
-    <ul class="space-y-4">
-      <li class="p-4 bg-gradient-to-r from-pink-300 via-orange-200 to-yellow-300 rounded-2xl shadow-lg">
-        <a href="project1/index.html" class="block p-4 bg-gray-900 rounded-2xl hover:bg-gray-800 transition">
-          <h2 class="text-xl text-pink-300 font-semibold">工學院程式競賽</h2>
-          <p class="text-gray-400">C++ 編碼與加密專題，團隊競賽專案。</p>
-        </a>
-      </li>
-      <li class="p-4 bg-gradient-to-r from-yellow-500 via-orange-400 to-red-300 rounded-2xl shadow-lg">
-        <a href="project2/index.html" class="block p-4 bg-gray-900 rounded-2xl hover:bg-gray-800 transition">
-          <h2 class="text-xl text-yellow-500 font-semibold">自主學習</h2>
-          <p class="text-gray-400">高中自主學習成果與程式練習紀錄。</p>
-        </a>
-      </li>
-      <li class="p-4 bg-gradient-to-r from-red-400 via-pink-500 to-purple-500 rounded-2xl shadow-lg">
-        <a href="project3/index.html" class="block p-4 bg-gray-900 rounded-2xl hover:bg-gray-800 transition">
-          <h2 class="text-xl text-red-400 font-semibold">阿克曼轉向研究</h2>
-          <p class="text-gray-400">小論文與實作車專案。</p>
-        </a>
-      </li>
-      <li class="p-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 rounded-2xl shadow-lg">
-        <a href="project4/index.html" class="block p-4 bg-gray-900 rounded-2xl hover:bg-gray-800 transition">
-          <h2 class="text-xl text-cyan-300 font-semibold">RISC-V CNN 加速器</h2>
-          <p class="text-gray-400">DSD 期末專題，使用 Verilog/Vivado 實作 RISC-V 控制與 CNN 運算資料路徑。</p>
-        </a>
-      </li>
-    </ul>
+  <main class="page">
+    <p class="kicker">Project archive</p>
+    <h1 class="page-title">Work that shows how I think.</h1>
+    <p class="lead">這裡不是完整履歷，而是幾個能看出我如何拆問題、做實作、整理結果的專案。</p>
+
+    <section class="section archive" aria-label="Project list">
+      <a class="archive-row" href="project4/index.html">
+        <span class="meta">2026</span>
+        <div>
+          <h3>RISC-V CNN Accelerator</h3>
+          <p>用 Verilog / Vivado 實作 RISC-V 控制與 CNN 運算資料路徑，期末專題 AT Ranking 第一名。</p>
+          <div class="tags"><span class="tag">Verilog</span><span class="tag">RISC-V</span><span class="tag">CNN</span></div>
+        </div>
+        <span class="meta">Digital Systems</span>
+      </a>
+
+      <a class="archive-row" href="project3/index.html">
+        <span class="meta">2025</span>
+        <div>
+          <h3>Ackermann Steering Prototype</h3>
+          <p>從轉向幾何開始，整理研究報告並完成 Arduino 控制的實作車原型。</p>
+          <div class="tags"><span class="tag">Research</span><span class="tag">Arduino</span><span class="tag">Prototype</span></div>
+        </div>
+        <span class="meta">Mechanism</span>
+      </a>
+
+      <a class="archive-row" href="project2/index.html">
+        <span class="meta">2024</span>
+        <div>
+          <h3>Independent Study: Tetris</h3>
+          <p>以小型遊戲練習狀態管理、碰撞判定與畫面更新，建立自學紀錄。</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Game Logic</span><span class="tag">Practice</span></div>
+        </div>
+        <span class="meta">Learning</span>
+      </a>
+
+      <a class="archive-row" href="project1/index.html">
+        <span class="meta">2024</span>
+        <div>
+          <h3>Engineering Programming Competition</h3>
+          <p>以 C++ 做 Base64 與位移加密流程，整理編碼、解碼與展示方式。</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Base64</span><span class="tag">Encryption</span></div>
+        </div>
+        <span class="meta">Competition</span>
+      </a>
+    </section>
   </main>
+
+  <footer class="footer">Projects are listed like an archive so the results stay easy to scan.</footer>
 </body>
 </html>
-

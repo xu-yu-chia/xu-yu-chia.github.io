@@ -62,12 +62,13 @@ The site is organized as a folder-based static website. The root keeps only the 
 | Project 4 - RISC-V CNN accelerator | `projects/project4/index.html` |
 | Sports Record | `sports/index.html` |
 | Sports Legacy | `sports/legacy/index.html` |
-| Teacher | `teacher/index.html` |
+| Teacher direct page | `teacher/index.html` |
 | Bike | `bike/index.html` |
 | Quick Links | `links/index.html` |
 | Contact | `contact/index.html` |
 
 The blog link points to the separate `/blog/` site.
+The teacher page is intentionally unlisted from public navigation and is only meant to be shared by direct URL.
 
 ## Encrypted Quick Links
 

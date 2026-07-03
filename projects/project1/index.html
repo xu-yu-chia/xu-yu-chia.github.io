@@ -1,89 +1,62 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project 1 | Xu Yu-Chia</title>
+  <meta name="description" content="C++ Base64 與位移加密競賽專案。" />
+  <title>Programming Competition | Xu Yu-Chia</title>
   <link rel="shortcut icon" href="../../assets/img/logo.ico" type="image/x-icon" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    html { overflow-y: scroll; scrollbar-gutter: stable; }
-  </style>
+  <link rel="stylesheet" href="../../assets/css/site.css" />
 </head>
-<body class="bg-gray-950 text-gray-200">
-  <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/85 backdrop-blur">
-    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
-      <div class="text-xl font-bold tracking-wide"><a href="../../index.html"><i class="fa fa-home"></i></a> Xu Yu-Chia's Blog</div>
-      <ul class="hidden md:flex space-x-6 text-sm">
-        <li><a href="../../about/index.html" class="hover:text-gray-300"><i class="fa fa-address-card"> About Me</i></a></li>
-        <li><a href="../index.html" class="hover:text-gray-300"><i class="fa fa-folder-open"> Projects</i></a></li>
-        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"> Blogs</i></a></li>
-        <li><a href="../../sports/index.html" class="hover:text-gray-300"><i class="fa fa-running"> Sports Record</i></a></li>
-        <li><a href="../../contact/index.html" class="hover:text-gray-300"><i class="fa fa-phone"> Contact Me</i></a></li>
-        <li>
-          <a href="https://docs.google.com/presentation/d/1PIOmGUC-IwMWeeA96dt9h67mbW_WYWk7KJJUqrlnt80/edit?usp=sharing" class="hover:text-gray-300">
-            <i class="fa fa-file"></i>
-          </a>
-        </li>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../../index.html">
+        <img class="brand-mark" src="../../assets/img/logo.ico" alt="" />
+        <span>Xu Yu-Chia</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../about/index.html">About</a></li>
+        <li><a href="../../projects/index.html" aria-current="page">Projects</a></li>
+        <li><a href="https://xu-yu-chia.github.io/blog/">Notes</a></li>
+        <li><a href="../../sports/index.html">Sports</a></li>
+        <li><a href="../../contact/index.html">Contact</a></li>
+        <li><a href="../../links/index.html">Private</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="max-w-5xl mx-auto p-8">
-    <a href="../index.html" class="text-cyan-300">← Back to Projects</a>
+  <main class="page">
+    <a class="text-link" href="../index.html">← Back to projects</a>
+    <section class="project-detail section">
+      <div>
+        <p class="kicker">Competition / C++</p>
+        <h1 class="page-title">Engineering Programming Competition</h1>
+        <p class="lead">以 C++ 實作 Base64 編碼、解碼與位移加密。這個專案的重點不是演算法多複雜，而是把資料轉換流程拆清楚，讓輸入、處理與輸出都能被追蹤。</p>
 
-    <section class="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 shadow-xl">
-      <p class="text-xs uppercase tracking-[0.25em] text-cyan-200">Programming Competition</p>
-      <h1 class="text-4xl font-extrabold my-4 text-cyan-300">工學院程式競賽</h1>
-      <p class="text-gray-300 leading-relaxed">主題：C++ 編碼與加密技術。</p>
-      <p class="mt-2 text-gray-300 leading-relaxed">內容包含 Base64 與位移加密、流程設計與實作展示。</p>
-      <div class="mt-5 flex flex-wrap gap-2">
-        <span class="rounded-full bg-cyan-300/15 px-3 py-1 text-sm text-cyan-100">C++</span>
-        <span class="rounded-full bg-blue-300/15 px-3 py-1 text-sm text-blue-100">Base64</span>
-        <span class="rounded-full bg-emerald-300/15 px-3 py-1 text-sm text-emerald-100">Encryption</span>
-        <span class="rounded-full bg-purple-300/15 px-3 py-1 text-sm text-purple-100">Team Project</span>
-      </div>
-    </section>
-
-    <section class="mt-6 grid gap-4 md:grid-cols-3">
-      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
-        <p class="text-sm text-gray-400">Core</p>
-        <p class="mt-2 text-lg font-semibold text-white">文字編碼與轉換</p>
-      </div>
-      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
-        <p class="text-sm text-gray-400">Method</p>
-        <p class="mt-2 text-lg font-semibold text-white">Base64 / 位移加密</p>
-      </div>
-      <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
-        <p class="text-sm text-gray-400">Output</p>
-        <p class="mt-2 text-lg font-semibold text-white">流程展示與簡報說明</p>
-      </div>
-    </section>
-
-    <section class="mt-6 rounded-2xl border border-white/10 bg-slate-900 p-6">
-      <h2 class="text-2xl font-bold text-white">專題重點</h2>
-      <ul class="mt-4 list-disc space-y-2 pl-6 text-gray-300">
-        <li>以 C++ 實作文字輸入、編碼、解碼與輸出流程。</li>
-        <li>整理 Base64 編碼規則，將字元資料轉換為可傳輸格式。</li>
-        <li>加入位移加密概念，展示不同加密流程的差異。</li>
-        <li>透過影片呈現系統操作與團隊成果。</li>
-      </ul>
-    </section>
-
-    <section class="mt-6">
-      <h2 class="mb-3 text-2xl font-bold text-white">Demo Video</h2>
-      <a href="https://www.youtube.com/watch?v=wvgr3S6WTZQ" target="_blank" rel="noopener noreferrer" class="group block overflow-hidden rounded-lg border border-white/10 bg-slate-900 shadow-md">
-        <div class="flex aspect-video items-center justify-center bg-slate-800">
-          <div class="text-center">
-            <i class="fab fa-youtube text-6xl text-red-500"></i>
-            <p class="mt-4 text-lg font-semibold text-white group-hover:text-cyan-200">Open Demo Video on YouTube</p>
+        <section class="section">
+          <div class="section-head">
+            <h2>What I built</h2>
+            <p>將文字轉成可傳輸格式，加入位移加密概念，再整理成可以展示的競賽作品。</p>
           </div>
-        </div>
-      </a>
+          <ul class="detail-list">
+            <li>實作 Base64 index 與字元映射。</li>
+            <li>整理編碼、補位、解碼與驗證流程。</li>
+            <li>把位移加密拆成可測試的步驟。</li>
+            <li>以影片展示系統操作與團隊成果。</li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="detail-card">
+        <span class="meta">Stack</span>
+        <div class="tags"><span class="tag">C++</span><span class="tag">Base64</span><span class="tag">Encryption</span></div>
+        <hr>
+        <span class="meta">Output</span>
+        <p>競賽展示、流程說明、Demo video</p>
+        <a class="button-link" href="https://www.youtube.com/watch?v=wvgr3S6WTZQ" target="_blank" rel="noopener noreferrer">Open demo video</a>
+      </aside>
     </section>
   </main>
 </body>
 </html>
-
