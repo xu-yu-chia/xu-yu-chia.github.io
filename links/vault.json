@@ -3,9 +3,9 @@
   "algorithm": "AES-256-GCM",
   "kdf": "PBKDF2-SHA256",
   "iterations": 250000,
-  "salt": "437qbml2IBnYPl2GyecLkg==",
-  "iv": "voTx2jsGe8sqaXDI",
+  "salt": "Rk4TRPxPGin32E5cHIysAQ==",
+  "iv": "Upr2zqw/2fU8y0Qq",
   "tag_length": 128,
-  "ciphertext": "6tTQcKu3qsjXRdrZBLixnx6EyU1EhwoN3+Sapg==",
-  "updatedAt": "2026-07-03T13:14:57.514Z"
+  "ciphertext": "73Z9Ru2kDqurjPYCXBUzausGufGlY+xo+NW7tA==",
+  "updatedAt": "2026-07-03T13:22:37.461Z"
 }
