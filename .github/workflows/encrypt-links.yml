@@ -26,10 +26,9 @@ jobs:
         env:
           HIDE_LINK: ${{ secrets.HIDE_LINK }}
           QUICK_LINKS_JSON: ${{ secrets.QUICK_LINKS_JSON }}
-          QUICK_LINKS_PASSWORD: ${{ secrets.QUICK_LINKS_PASSWORD }}
         run: |
-          if [ -z "$HIDE_LINK" ] && { [ -z "$QUICK_LINKS_JSON" ] || [ -z "$QUICK_LINKS_PASSWORD" ]; }; then
-            echo "GitHub Secret HIDE_LINK is required."
+          if [ -z "$HIDE_LINK" ]; then
+            echo "GitHub Secret HIDE_LINK is required as the unlock key."
             exit 0
           fi
           node scripts/encrypt-links.mjs links/vault.json
