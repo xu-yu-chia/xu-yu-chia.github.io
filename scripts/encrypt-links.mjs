@@ -19,7 +19,11 @@ try {
 if (bundledSecret) {
   const parsedSecret = parseBundledSecret(bundledSecret);
   password = parsedSecret.password ? String(parsedSecret.password).trim() : password;
-  plainJson = JSON.stringify(normalizePayload(parsedSecret.payload));
+  const bundledPayload = normalizePayload(parsedSecret.payload);
+  const hasBundledLinks = Array.isArray(bundledPayload.links) && bundledPayload.links.length > 0;
+  if (hasBundledLinks || !plainJson) {
+    plainJson = JSON.stringify(bundledPayload);
+  }
 }
 
 function parseBundledSecret(value) {
