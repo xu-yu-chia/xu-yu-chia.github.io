@@ -77,9 +77,9 @@ The teacher page is intentionally unlisted from public navigation and is only me
 Secret usage:
 
 - `HIDE_LINK`: the unlock key/password only.
-- `QUICK_LINKS_JSON`: the JSON payload that should be encrypted.
 
-Use this JSON format for `QUICK_LINKS_JSON`:
+GitHub Actions encrypts `links/links.example.json` into `links/vault.json`.
+Use this JSON format in `links/links.example.json`:
 
 ```json
 {
@@ -104,7 +104,7 @@ $env:HIDE_LINK = "your unlock password"
 node scripts/encrypt-links.mjs links/vault.json links/links.json
 ```
 
-After changing `HIDE_LINK` or `QUICK_LINKS_JSON`, run the `Encrypt quick links` workflow manually. It commits only encrypted `links/vault.json`.
+After changing `HIDE_LINK` or `links/links.example.json`, run the `Encrypt quick links` workflow manually. It commits only encrypted `links/vault.json`.
 
 ## Asset Rules
 

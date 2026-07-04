@@ -25,13 +25,12 @@ jobs:
         name: Encrypt vault
         env:
           HIDE_LINK: ${{ secrets.HIDE_LINK }}
-          QUICK_LINKS_JSON: ${{ secrets.QUICK_LINKS_JSON }}
         run: |
           if [ -z "$HIDE_LINK" ]; then
             echo "GitHub Secret HIDE_LINK is required as the unlock key."
             exit 0
           fi
-          node scripts/encrypt-links.mjs links/vault.json
+          node scripts/encrypt-links.mjs links/vault.json links/links.example.json
           echo "vault_ready=true" >> "$GITHUB_OUTPUT"
 
       - name: Commit encrypted vault
