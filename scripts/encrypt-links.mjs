@@ -188,11 +188,17 @@ function parseTextSecret(value) {
 }
 
 function normalizePayload(payload) {
-  if (Array.isArray(payload)) return { links: payload };
+  if (Array.isArray(payload)) return { links: normalizeLinks(payload) };
   if (!payload || typeof payload !== "object") return { links: [] };
-  if (Array.isArray(payload.links)) return payload;
-  if (payload.links && typeof payload.links === "object") {
-    return { ...payload, links: linksFromMap(payload.links) };
+
+  const directLinks = linksFromKnownKeys(payload);
+  if (directLinks.length) {
+    return { ...payload, links: directLinks };
+  }
+
+  const groupedLinks = linksFromGroups(payload.groups || payload.group || payload.categories);
+  if (groupedLinks.length) {
+    return { ...payload, links: groupedLinks };
   }
 
   const links = linksFromMap(payload);
@@ -200,15 +206,66 @@ function normalizePayload(payload) {
   return payload;
 }
 
+function linksFromKnownKeys(payload) {
+  const keys = ["links", "link", "items", "bookmarks", "quickLinks", "quick_links", "urls"];
+  for (const key of keys) {
+    if (!payload[key]) continue;
+    if (Array.isArray(payload[key])) return normalizeLinks(payload[key]);
+    if (typeof payload[key] === "object") return linksFromMap(payload[key]);
+  }
+  return [];
+}
+
+function linksFromGroups(groups) {
+  if (!Array.isArray(groups)) return [];
+  return groups.flatMap((group) => {
+    if (!group || typeof group !== "object") return [];
+    const groupName = group.group || group.category || group.title || group.name || "Links";
+    return linksFromKnownKeys(group).map((link) => ({ ...link, group: link.group || groupName }));
+  });
+}
+
+function normalizeLinks(items, group) {
+  return items
+    .map((item) => normalizeLink(item, group))
+    .filter((item) => item && item.title && item.url);
+}
+
+function normalizeLink(item, group) {
+  if (typeof item === "string") {
+    return {
+      title: safeHostname(item),
+      url: item,
+      group: group || "Links"
+    };
+  }
+  if (!item || typeof item !== "object") return null;
+  const url = item.url || item.href || item.link;
+  const title = item.title || item.name || item.label || safeHostname(url);
+  return { ...item, title, url, group: item.group || item.category || group || "Links" };
+}
+
 function linksFromMap(map) {
   return Object.entries(map)
     .filter(([key]) => !["password", "passphrase", "unlockPassword"].includes(key))
-    .map(([title, value]) => {
-      if (typeof value === "string") return { title, url: value };
-      if (value && typeof value === "object") return { title, ...value };
+    .flatMap(([title, value]) => {
+      if (Array.isArray(value)) return normalizeLinks(value, title);
+      if (typeof value === "string") return [{ title, url: value, group: "Links" }];
+      if (value && typeof value === "object") {
+        const normalized = normalizeLink({ title, ...value }, value.group || value.category || "Links");
+        return normalized ? [normalized] : [];
+      }
       return null;
     })
     .filter((item) => item && item.title && item.url);
+}
+
+function safeHostname(value) {
+  try {
+    return new URL(value).hostname;
+  } catch (_error) {
+    return "Link";
+  }
 }
 
 function isUrl(value) {
