@@ -19,17 +19,26 @@ function parseBundledSecret(value) {
   if (!trimmed) throw new Error("HIDE_LINK is empty.");
 
   if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
-    const payload = parseJsonSecret(trimmed);
-    if (Array.isArray(payload)) return { password, payload: { links: payload } };
-
-    const { password: secretPassword, passphrase, unlockPassword, ...payloadWithoutPassword } = payload;
-    return {
-      password: secretPassword || passphrase || unlockPassword,
-      payload: payloadWithoutPassword
-    };
+    return secretConfigFromPayload(parseJsonSecret(trimmed));
   }
 
-  return parseTextSecret(trimmed);
+  try {
+    return parseTextSecret(trimmed);
+  } catch (error) {
+    const loosePayload = parseLooseSecret(trimmed);
+    if (loosePayload) return secretConfigFromPayload(loosePayload);
+    throw error;
+  }
+}
+
+function secretConfigFromPayload(payload) {
+  if (Array.isArray(payload)) return { password, payload: { links: payload } };
+
+  const { password: secretPassword, passphrase, unlockPassword, ...payloadWithoutPassword } = payload;
+  return {
+    password: stripOptionalQuotes(secretPassword || passphrase || unlockPassword || ""),
+    payload: payloadWithoutPassword
+  };
 }
 
 function parseJsonSecret(value) {
@@ -52,7 +61,7 @@ function parseJsonSecret(value) {
 }
 
 function stripCodeFence(value) {
-  return value
+  return String(value || "")
     .trim()
     .replace(/^```(?:json|text)?\s*/i, "")
     .replace(/\s*```$/i, "");
@@ -60,8 +69,8 @@ function stripCodeFence(value) {
 
 function repairLooseJson(value) {
   return stripCodeFence(value)
-    .replace(/[“”]/g, "\"")
-    .replace(/[‘’]/g, "'")
+    .replace(/[\u201c\u201d]/g, "\"")
+    .replace(/[\u2018\u2019]/g, "'")
     .replace(/;\s*(?="[^"]+"\s*:)/g, ",")
     .replace(/;\s*(?=\{)/g, ",")
     .replace(/;\s*(?=[}\]])/g, "")
@@ -69,10 +78,14 @@ function repairLooseJson(value) {
     .trim();
 }
 
+function stripOptionalQuotes(value) {
+  return String(value || "").replace(/^["']|["']$/g, "").trim();
+}
+
 function parseLooseSecret(value) {
   const text = stripCodeFence(value).replace(/[{}[\]]/g, "\n");
   const passwordMatch = text.match(/["']?(password|passphrase|unlockPassword)["']?\s*[:=]\s*["']?([^"';,\n}]+)/i);
-  const secretPassword = passwordMatch ? passwordMatch[2].trim() : undefined;
+  const secretPassword = passwordMatch ? stripOptionalQuotes(passwordMatch[2].trim()) : undefined;
   const links = [];
   const seenUrls = new Set();
 
@@ -116,7 +129,7 @@ function parseTextSecret(value) {
   for (const line of lines) {
     const passwordMatch = line.match(/^(password|passphrase|unlockPassword)\s*[:=]\s*(.+)$/i);
     if (passwordMatch) {
-      secretPassword = passwordMatch[2].trim();
+      secretPassword = stripOptionalQuotes(passwordMatch[2].trim());
       continue;
     }
 
@@ -156,7 +169,7 @@ function parseTextSecret(value) {
     }
 
     if (!secretPassword && links.length === 0) {
-      secretPassword = line;
+      secretPassword = stripOptionalQuotes(line);
       continue;
     }
 
