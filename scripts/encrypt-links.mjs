@@ -8,6 +8,14 @@ let password = process.env.QUICK_LINKS_PASSWORD;
 let plainJson = process.env.QUICK_LINKS_JSON;
 const iterations = Number(process.env.QUICK_LINKS_ITERATIONS || 250000);
 
+function sanitizeAnnotation(error) {
+  return String(error?.message || error || "Unknown error")
+    .replace(/%/g, "%25")
+    .replace(/\r/g, "%0D")
+    .replace(/\n/g, "%0A");
+}
+
+try {
 if (bundledSecret) {
   const parsedSecret = parseBundledSecret(bundledSecret);
   password = parsedSecret.password ? String(parsedSecret.password).trim() : password;
@@ -259,3 +267,9 @@ const vault = {
 await mkdir(dirname(outputPath), { recursive: true });
 await writeFile(outputPath, JSON.stringify(vault, null, 2) + "\n", "utf8");
 console.log(`Encrypted quick links written to ${outputPath}`);
+} catch (error) {
+  const message = sanitizeAnnotation(error);
+  console.error(message);
+  console.error(`::error file=scripts/encrypt-links.mjs,line=1::${message}`);
+  process.exit(1);
+}
