@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Xu Yu-Chia 的個人部落格與作品索引。" />
-  <title>Xu Yu-Chia | Personal Blog</title>
+  <meta name="description" content="許彧嘉的個人網站。" />
+  <title>許彧嘉 | Xu Yu-Chia</title>
   <link rel="shortcut icon" href="assets/img/logo.ico" type="image/x-icon" />
   <link rel="stylesheet" href="assets/css/site.css" />
 </head>
@@ -34,65 +34,23 @@
     </nav>
   </header>
 
-  <main class="page home-grid">
-    <section>
-      <p class="kicker">Personal index / 2026</p>
-      <h1 class="headline">Xu Yu-Chia builds small systems carefully.</h1>
-      <p class="lead">
-        我是許彧嘉，中央大學電機工程學系學生。這裡整理我的工程專案、學習紀錄、長跑訓練與一些可公開的筆記。
-      </p>
-      <div class="actions">
-        <a class="button-link" href="about/index.html">認識我</a>
-        <a class="text-link" href="projects/index.html">看作品集</a>
+  <main class="page">
+    <section class="section" style="max-width:760px;padding-top:72px">
+      <p class="kicker">Personal site</p>
+      <h1 class="headline">許彧嘉<br><span style="color:var(--muted)">Xu Yu-Chia</span></h1>
+      <p class="lead">中央大學電機工程學系。這裡放工程專案、學習紀錄、跑步成績與聯絡方式。</p>
+      <div class="actions" aria-label="Main links">
+        <a class="button-link" href="about/index.html">About</a>
+        <a class="text-link" href="projects/index.html">Projects</a>
+        <a class="text-link" href="https://xu-yu-chia.github.io/blog/">Notes</a>
+        <a class="text-link" href="sports/index.html">Sports</a>
+        <a class="text-link" href="contact/index.html">Contact</a>
       </div>
     </section>
-
-    <aside class="side-panel" aria-label="Current highlights">
-      <ul class="note-list">
-        <li>
-          <small>Now</small>
-          <strong>NCU EE student working across digital systems, web, and practical tools.</strong>
-        </li>
-        <li>
-          <small>Recent project</small>
-          <strong>RISC-V CNN accelerator with Verilog / Vivado implementation notes.</strong>
-        </li>
-        <li>
-          <small>Taipei time</small>
-          <strong><span id="clockDate">--</span><br><span id="clockTime">--:--:--</span></strong>
-        </li>
-      </ul>
-    </aside>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Xu Yu-Chia. Built as a personal archive, not a landing page.</span>
+    <span>© 2026 Xu Yu-Chia</span>
   </footer>
-
-  <script>
-    function updateClock() {
-      const now = new Date();
-      const dateFormatter = new Intl.DateTimeFormat("zh-TW", {
-        timeZone: "Asia/Taipei",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        weekday: "short"
-      });
-      const timeFormatter = new Intl.DateTimeFormat("zh-TW", {
-        timeZone: "Asia/Taipei",
-        hour12: false,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit"
-      });
-
-      document.getElementById("clockDate").textContent = dateFormatter.format(now);
-      document.getElementById("clockTime").textContent = timeFormatter.format(now);
-    }
-
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
 </body>
 </html>
