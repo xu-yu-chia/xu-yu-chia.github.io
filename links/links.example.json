@@ -1,8 +1,15 @@
 {
   "links": [
     {
-      "title": "Google Drive",
-      "url": "https://drive.google.com/drive/folders/REPLACE_ME",
+      "title": "Google Drive(網頁站存)",
+      "url": "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing",
+      "note": "Common folder",
+      "group": "Cloud",
+      "icon": "fa-cloud"
+    },
+    {
+      "title": "Google Drive(電工實驗)",
+      "url": "https://drive.google.com/drive/folders/1H9GcwvpzeMFe6XpJAkb-HH9Dzw7xVomu?usp=sharing",
       "note": "Common folder",
       "group": "Cloud",
       "icon": "fa-cloud"
