@@ -1,0 +1,30 @@
+- generic [active] [ref=f16e1]:
+  - banner [ref=f16e2]:
+    - navigation "Primary navigation" [ref=f16e3]:
+      - link "Xu Yu-Chia" [ref=f16e4] [cursor=pointer]:
+        - /url: index.html
+      - list [ref=f16e6]:
+        - listitem [ref=f16e7]:
+          - link "About" [ref=f16e8] [cursor=pointer]:
+            - /url: about/index.html
+        - listitem [ref=f16e9]:
+          - link "Projects" [ref=f16e10] [cursor=pointer]:
+            - /url: projects/index.html
+        - listitem [ref=f16e11]:
+          - link "Notes" [ref=f16e12] [cursor=pointer]:
+            - /url: https://xu-yu-chia.github.io/blog/
+        - listitem [ref=f16e13]:
+          - link "Sports" [ref=f16e14] [cursor=pointer]:
+            - /url: sports/index.html
+        - listitem [ref=f16e15]:
+          - link "Contact" [ref=f16e16] [cursor=pointer]:
+            - /url: contact/index.html
+        - listitem [ref=f16e17]:
+          - link "Private" [ref=f16e18] [cursor=pointer]:
+            - /url: links/index.html
+  - main [ref=f16e19]:
+    - generic [ref=f16e20]:
+      - heading "許彧嘉 Xu Yu-Chia" [level=1] [ref=f16e21]:
+        - generic [ref=f16e22]: 許彧嘉
+        - generic [ref=f16e23]: Xu Yu-Chia
+      - paragraph [ref=f16e24]: 國立中央大學 電機工程學系

@@ -177,12 +177,28 @@ img {
 }
 
 .home-intro {
+  --home-marker-x: 48px;
+  --home-shift-x: 0px;
+  --home-shift-y: 0px;
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
   gap: 64px;
   align-items: end;
   border-top: 1px solid var(--ink);
   padding-top: 28px;
+}
+
+.home-intro::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: var(--home-marker-x);
+  width: 56px;
+  height: 1px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  transition: left 90ms linear;
 }
 
 .home-name {
@@ -198,6 +214,12 @@ img {
 
 .home-name span {
   display: block;
+}
+
+.home-name > span:first-child {
+  transform: translate3d(var(--home-shift-x), var(--home-shift-y), 0);
+  transition: transform 180ms ease-out;
+  will-change: transform;
 }
 
 .home-name [lang="en"] {
@@ -843,5 +865,17 @@ button.button-link:hover {
   .archive-row {
     padding-right: 4px;
     padding-left: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-intro::before {
+    left: 28px;
+    transition: none;
+  }
+
+  .home-name > span:first-child {
+    transform: none;
+    transition: none;
   }
 }
