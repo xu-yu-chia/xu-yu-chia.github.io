@@ -15,8 +15,8 @@
   --accent-emerald: #82b895;
   --accent-amber: #d3a05e;
 
-  --radius: 14px;
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --radius: 4px;
+  --shadow-soft: none;
 }
 
 *,
@@ -69,7 +69,7 @@ a {
 .brand {
   font-size: 1.65rem;
   font-weight: 800;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 
 .brand-mark {
@@ -84,20 +84,23 @@ a {
 
 .nav-links a {
   padding: 8px 10px;
-  border-radius: 10px;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
   color: var(--text-sub);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  background: var(--surface-1);
+  border-bottom-color: var(--brand);
+  background: transparent;
   color: var(--text-main);
 }
 
 .hero {
-  padding: 54px 0 26px;
-  text-align: center;
+  padding: 72px 0 30px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
 }
 
 .hero h1 {
@@ -112,7 +115,7 @@ a {
 }
 
 .hero p {
-  margin: 14px auto 0;
+  margin: 14px 0 0;
   max-width: 760px;
   color: var(--text-sub);
   font-size: 1.05rem;
@@ -122,41 +125,47 @@ a {
   margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 14px;
 }
 
 .chip {
   font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: var(--surface-1);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
   color: #cbd0ca;
 }
 
 .post-grid {
   padding: 20px 0 40px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
 }
 
 .post-card {
   display: block;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-1);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
   box-shadow: var(--shadow-soft);
-  padding: 16px;
+  padding: 24px 0;
   transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .post-card:hover {
-  background: var(--surface-2);
-  border-color: rgba(255, 255, 255, 0.28);
-  transform: translateY(-2px);
+  background: transparent;
+  border-color: var(--line);
+  transform: none;
+}
+
+.post-card:hover .post-title {
+  color: var(--brand);
 }
 
 .post-meta {
@@ -170,12 +179,12 @@ a {
 }
 
 .post-tag {
-  color: #0f1110;
+  color: var(--brand);
   font-weight: 700;
   font-size: 0.74rem;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: var(--accent-cyan);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .post-title {
@@ -204,11 +213,11 @@ a {
 .article {
   max-width: 820px;
   margin: 0 auto;
-  border: 1px solid var(--line);
-  border-radius: calc(var(--radius) + 2px);
-  background: var(--bg-2);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   box-shadow: var(--shadow-soft);
-  padding: clamp(18px, 4vw, 34px);
+  padding: clamp(18px, 4vw, 34px) 0;
 }
 
 .article h1 {
@@ -246,7 +255,7 @@ a {
 .site-footer {
   border-top: 1px solid var(--line);
   color: var(--text-sub);
-  text-align: center;
+  text-align: left;
   padding: 18px 0 22px;
   margin-top: 20px;
 }

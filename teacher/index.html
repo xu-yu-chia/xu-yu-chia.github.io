@@ -21,10 +21,20 @@
             padding-top: 48px;
         }
         .content-section {
-            background-color: var(--paper-2);
-            border: 1px solid var(--line);
-            border-radius: 8px !important;
+            background-color: transparent;
+            border: 0;
+            border-top: 1px solid var(--line-dark);
+            border-radius: 0 !important;
             box-shadow: none !important;
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }
+        .teacher-page [class*="text-cyan-"],
+        .teacher-page [class*="text-blue-"] {
+            color: var(--accent) !important;
+        }
+        .teacher-page [class*="bg-slate-"] {
+            background-color: var(--paper-2) !important;
         }
         .teacher-page footer a {
             border-radius: 6px !important;
