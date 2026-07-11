@@ -1,70 +1,55 @@
 <!DOCTYPE html>
-<link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon">
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>許彧嘉 (Xu Yu-Chia) - 專業家教</title>
+    <link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/site.css">
 
     <style>
-        body {
+        body.teacher-page {
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background: var(--paper) !important;
+            color: var(--ink-2) !important;
+        }
+        .teacher-page main {
+            padding-top: 48px;
         }
         .content-section {
-            background-color: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            /* Initial state for scroll animation */
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            background-color: var(--paper-2);
+            border: 1px solid var(--line);
+            border-radius: 8px !important;
+            box-shadow: none !important;
         }
-        /* State when section is visible */
-        .content-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Typing cursor effect */
-        #subtitle-text::after {
-            content: '|';
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            from, to { color: transparent }
-            50% { color: #93c5fd; } /* blue-300 */
-        }
-        /* Header gradient animation */
-        .animated-gradient {
-            background-size: 200% 200%;
-            animation: gradient-flow 8s ease infinite;
-        }
-        @keyframes gradient-flow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .teacher-page footer a {
+            border-radius: 6px !important;
+            background: var(--accent) !important;
+            box-shadow: none !important;
+            color: var(--paper) !important;
+            transform: none !important;
         }
     </style>
 </head>
-<body class="bg-slate-900 text-gray-200">
+<body class="teacher-page">
 
-    <!-- Header Section -->
-      <header class="sticky top-0 z-20 border-b border-white/10 bg-slate-950/90 backdrop-blur">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between p-4">
-      <a href="../index.html" class="flex items-center gap-3 font-bold tracking-wide hover:text-cyan-200">
-        <img src="../assets/img/logo.ico" alt="" class="h-8 w-8 rounded" />
-        <span>Xu Yu-Chia's Blog</span>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">
+        <img class="brand-mark" src="../assets/img/logo.ico" alt="" />
+        <span>Xu Yu-Chia</span>
       </a>
-      <ul class="hidden items-center gap-6 text-sm md:flex">
-        <li><a href="../about/index.html" class="hover:text-gray-300"><i class="fa fa-address-card"></i> About Me</a></li>
-        <li><a href="../projects/index.html" class="hover:text-gray-300"><i class="fa fa-folder-open"></i> Projects</a></li>
-        <li><a href="https://xu-yu-chia.github.io/blog/" class="hover:text-gray-300"><i class="fas fa-pen"></i> Blogs</a></li>
-        <li><a href="../sports/index.html" class="hover:text-gray-300"><i class="fa fa-running"></i> Sports Record</a></li>
-        <li><a href="../contact/index.html" class="hover:text-gray-300"><i class="fa fa-phone"></i> Contact Me</a></li>
-        <li><a href="../links/index.html" class="hover:text-gray-300"><i class="fa fa-lock"></i> Links</a></li>
+      <ul class="nav-links">
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../projects/index.html">Projects</a></li>
+        <li><a href="https://xu-yu-chia.github.io/blog/">Notes</a></li>
+        <li><a href="../sports/index.html">Sports</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+        <li><a href="../links/index.html">Private</a></li>
       </ul>
     </nav>
   </header>
@@ -290,7 +275,7 @@
             });
 
             // Start typing effect after a short delay
-            setTimeout(typeWriter, 500);
+            if (subtitle) setTimeout(typeWriter, 500);
         });
     </script>
     

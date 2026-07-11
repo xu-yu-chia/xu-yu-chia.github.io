@@ -1,15 +1,16 @@
 :root {
-  --ink: #111412;
-  --ink-2: #1b211d;
-  --paper: #f4f1ea;
-  --paper-2: #e7e1d5;
-  --muted: #74796f;
-  --line: #d5cec0;
-  --line-dark: #30362f;
-  --accent: #2f6f55;
-  --accent-2: #b86f2e;
-  --danger: #9c3d35;
-  --shadow: 0 16px 40px rgba(17, 20, 18, 0.08);
+  color-scheme: dark;
+  --ink: #eef1ec;
+  --ink-2: #d5dad3;
+  --paper: #0f1110;
+  --paper-2: #171a18;
+  --muted: #969d96;
+  --line: #2a2f2b;
+  --line-dark: #3a423b;
+  --accent: #82b895;
+  --accent-2: #d3a05e;
+  --danger: #dc7c74;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
   --max: 1120px;
   --radius: 8px;
 }
@@ -28,19 +29,15 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    linear-gradient(90deg, rgba(17, 20, 18, 0.035) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(17, 20, 18, 0.026) 1px, transparent 1px),
-    var(--paper);
-  background-size: 48px 48px;
+  background: var(--paper);
   font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.65;
   letter-spacing: 0;
 }
 
 body.private {
-  background: #10130f;
-  color: #f1eee6;
+  background: var(--paper);
+  color: var(--ink);
 }
 
 a {
@@ -64,14 +61,14 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
-  border-bottom: 1px solid rgba(17, 20, 18, 0.12);
-  background: rgba(244, 241, 234, 0.92);
+  border-bottom: 1px solid var(--line);
+  background: rgba(15, 17, 16, 0.94);
   backdrop-filter: blur(10px);
 }
 
 .private .site-header {
-  border-bottom-color: rgba(244, 241, 234, 0.14);
-  background: rgba(16, 19, 15, 0.92);
+  border-bottom-color: var(--line);
+  background: rgba(15, 17, 16, 0.94);
 }
 
 .nav {
@@ -96,12 +93,12 @@ img {
   width: 30px;
   height: 30px;
   object-fit: cover;
-  border: 1px solid rgba(17, 20, 18, 0.14);
+  border: 1px solid var(--line-dark);
   border-radius: 4px;
 }
 
 .private .brand-mark {
-  border-color: rgba(244, 241, 234, 0.2);
+  border-color: var(--line-dark);
 }
 
 .nav-links {
@@ -127,23 +124,63 @@ img {
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
   color: var(--ink);
-  background: rgba(47, 111, 85, 0.08);
+  background: rgba(130, 184, 149, 0.11);
 }
 
 .private .nav-links a {
-  color: #b8b4aa;
+  color: var(--muted);
 }
 
 .private .nav-links a:hover,
 .private .nav-links a[aria-current="page"] {
-  color: #f4f1ea;
-  background: rgba(244, 241, 234, 0.08);
+  color: var(--ink);
+  background: rgba(130, 184, 149, 0.11);
 }
 
 .page {
   width: min(var(--max), calc(100% - 32px));
   margin: 0 auto;
   padding: 64px 0 80px;
+}
+
+.home-simple {
+  min-height: calc(100svh - 65px);
+  display: grid;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 96px;
+}
+
+.home-intro {
+  max-width: 720px;
+}
+
+.home-name {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(56px, 10vw, 112px);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.home-name span {
+  display: block;
+}
+
+.home-name [lang="en"] {
+  margin-top: 20px;
+  color: var(--muted);
+  font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.home-role {
+  margin: 28px 0 0;
+  color: var(--ink-2);
+  font-size: 16px;
 }
 
 .home-grid {
@@ -191,13 +228,13 @@ img {
 .lead {
   margin: 24px 0 0;
   max-width: 640px;
-  color: #42483f;
+  color: #b9c0b9;
   font-size: clamp(18px, 2.2vw, 24px);
   line-height: 1.75;
 }
 
 .private .lead {
-  color: #c8c4ba;
+  color: #b9c0b9;
 }
 
 .actions {
@@ -242,13 +279,13 @@ button.button-link:hover {
 }
 
 .private .button-link {
-  border-color: rgba(244, 241, 234, 0.58);
-  color: #f4f1ea;
+  border-color: var(--line-dark);
+  color: var(--ink);
 }
 
 .private .button-link:hover {
-  background: #f4f1ea;
-  color: #10130f;
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .side-panel {
@@ -312,7 +349,7 @@ button.button-link:hover {
 .section-head p {
   margin: 0;
   max-width: 680px;
-  color: #4c524b;
+  color: #b3bab3;
   font-size: 20px;
   line-height: 1.75;
 }
@@ -343,7 +380,7 @@ button.button-link:hover {
 
 .archive-row p {
   margin: 8px 0 0;
-  color: #555b52;
+  color: #aeb5ae;
 }
 
 .tags {
@@ -357,7 +394,7 @@ button.button-link:hover {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 3px 9px;
-  color: #4d554e;
+  color: #b7beb7;
   font-size: 12px;
 }
 
@@ -391,7 +428,7 @@ button.button-link:hover {
 }
 
 .fact {
-  background: rgba(244, 241, 234, 0.84);
+  background: var(--paper-2);
   padding: 18px;
 }
 
@@ -436,7 +473,7 @@ button.button-link:hover {
 
 .timeline-item p {
   margin: 8px 0 0;
-  color: #4f554d;
+  color: #aeb5ae;
 }
 
 .project-detail {
@@ -450,13 +487,13 @@ button.button-link:hover {
 .private-panel {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(244, 241, 234, 0.74);
+  background: var(--paper-2);
   padding: 22px;
 }
 
 .private-panel {
-  border-color: rgba(244, 241, 234, 0.16);
-  background: rgba(244, 241, 234, 0.055);
+  border-color: var(--line);
+  background: var(--paper-2);
 }
 
 .detail-list {
@@ -549,16 +586,16 @@ button.button-link:hover {
 .input {
   width: 100%;
   min-height: 44px;
-  border: 1px solid rgba(244, 241, 234, 0.22);
+  border: 1px solid var(--line-dark);
   border-radius: 6px;
-  background: rgba(0, 0, 0, 0.22);
-  color: #f4f1ea;
+  background: #0a0c0b;
+  color: var(--ink);
   padding: 0 12px;
   font: inherit;
 }
 
 .input::placeholder {
-  color: #7f7b72;
+  color: #777f78;
 }
 
 .private-shell {
@@ -592,16 +629,16 @@ button.button-link:hover {
 
 .link-card {
   display: block;
-  border: 1px solid rgba(244, 241, 234, 0.16);
+  border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(244, 241, 234, 0.055);
+  background: var(--paper-2);
   padding: 18px;
   transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
 }
 
 .link-card:hover {
-  border-color: rgba(143, 199, 171, 0.5);
-  background: rgba(244, 241, 234, 0.08);
+  border-color: rgba(130, 184, 149, 0.62);
+  background: #1b201c;
   transform: translateY(-1px);
 }
 
@@ -612,7 +649,7 @@ button.button-link:hover {
 
 .link-card p {
   margin: 8px 0 0;
-  color: #b8b4aa;
+  color: #aeb5ae;
   font-size: 14px;
 }
 
@@ -675,5 +712,11 @@ button.button-link:hover {
 
   .page {
     padding-top: 44px;
+  }
+
+  .home-simple {
+    min-height: calc(100svh - 112px);
+    padding-top: 56px;
+    padding-bottom: 72px;
   }
 }

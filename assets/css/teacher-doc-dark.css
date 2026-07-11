@@ -1,0 +1,73 @@
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+html body #intro,
+html body main,
+html body section,
+html body footer,
+html body .bg-white,
+html body .bg-light,
+html body .card,
+html body .list-group-item,
+html body .modal-content,
+html body .dropdown-menu {
+  background-color: #0f1110 !important;
+  color: #e8ebe6 !important;
+}
+
+html body .navbar,
+html body .navbar-light {
+  background-color: #121512 !important;
+  border-color: #2a2f2b !important;
+}
+
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6,
+html body p,
+html body li,
+html body td,
+html body th,
+html body .text-dark,
+html body .text-black,
+html body .navbar-light .navbar-nav .nav-link,
+html body [data-darkreader-inline-color] {
+  color: #e8ebe6 !important;
+}
+
+html body .text-muted,
+html body small {
+  color: #9ba29b !important;
+}
+
+html body a,
+html body footer a {
+  color: #8fc4a1 !important;
+}
+
+html body table,
+html body td,
+html body th,
+html body hr,
+html body .border,
+html body [data-darkreader-inline-border] {
+  border-color: #313732 !important;
+}
+
+html body input,
+html body textarea,
+html body select {
+  border-color: #3a423b !important;
+  background: #171a18 !important;
+  color: #e8ebe6 !important;
+}
+
+html body img {
+  background-color: transparent !important;
+}

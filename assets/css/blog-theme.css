@@ -1,19 +1,19 @@
 :root {
-  --bg-1: #020617;
-  --bg-2: #071229;
-  --bg-3: #1a1038;
+  --bg-1: #0f1110;
+  --bg-2: #171a18;
+  --bg-3: #202521;
 
   --surface-1: rgba(255, 255, 255, 0.08);
   --surface-2: rgba(255, 255, 255, 0.12);
   --line: rgba(255, 255, 255, 0.18);
 
-  --text-main: #e5e7eb;
-  --text-sub: #94a3b8;
+  --text-main: #eef1ec;
+  --text-sub: #969d96;
 
-  --brand: #fde047;
-  --accent-cyan: #22d3ee;
-  --accent-emerald: #34d399;
-  --accent-amber: #fbbf24;
+  --brand: #82b895;
+  --accent-cyan: #82b895;
+  --accent-emerald: #82b895;
+  --accent-amber: #d3a05e;
 
   --radius: 14px;
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
@@ -36,7 +36,7 @@ body {
   color: var(--text-main);
   font-family: "Noto Sans TC", "Segoe UI", sans-serif;
   line-height: 1.6;
-  background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+  background: var(--bg-1);
 }
 
 a {
@@ -54,7 +54,7 @@ a {
   top: 0;
   z-index: 40;
   backdrop-filter: blur(8px);
-  background: rgba(2, 6, 23, 0.86);
+  background: rgba(15, 17, 16, 0.94);
   border-bottom: 1px solid var(--line);
 }
 
@@ -133,7 +133,7 @@ a {
   padding: 6px 10px;
   border-radius: 999px;
   background: var(--surface-1);
-  color: #cbd5e1;
+  color: #cbd0ca;
 }
 
 .post-grid {
@@ -170,7 +170,7 @@ a {
 }
 
 .post-tag {
-  color: #0f172a;
+  color: #0f1110;
   font-weight: 700;
   font-size: 0.74rem;
   padding: 4px 8px;
@@ -206,7 +206,7 @@ a {
   margin: 0 auto;
   border: 1px solid var(--line);
   border-radius: calc(var(--radius) + 2px);
-  background: rgba(15, 23, 42, 0.78);
+  background: var(--bg-2);
   box-shadow: var(--shadow-soft);
   padding: clamp(18px, 4vw, 34px);
 }
@@ -225,13 +225,13 @@ a {
 
 .article p,
 .article li {
-  color: #dbe4ef;
+  color: #d8ddd7;
 }
 
 .article code {
   padding: 0.15em 0.4em;
   border-radius: 6px;
-  background: rgba(15, 23, 42, 0.92);
+  background: #0a0c0b;
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -239,7 +239,7 @@ a {
   overflow-x: auto;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: #0b1220;
+  background: #0a0c0b;
   padding: 12px;
 }
 
