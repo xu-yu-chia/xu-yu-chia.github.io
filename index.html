@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="許彧嘉的個人網站。" />
+  <meta name="description" content="許彧嘉的個人網站：數位系統、程式實作、研究原型與技術筆記。" />
   <title>許彧嘉 | Xu Yu-Chia</title>
+  <link rel="canonical" href="https://xu-yu-chia.github.io/" />
   <link rel="shortcut icon" href="assets/img/logo.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="assets/css/site.css" />
-  <script src="assets/js/home.js" defer></script>
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <script src="assets/js/home.js?v=20260712d" defer></script>
 </head>
 <body>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4HJBBE2WF"></script>
@@ -18,31 +19,68 @@
     gtag("config", "G-Z4HJBBE2WF");
   </script>
 
+  <a class="skip-link" href="#main-content">跳至主要內容</a>
+
   <header class="site-header">
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="index.html">
-        <img class="brand-mark" src="assets/img/logo.ico" alt="" />
+    <nav class="site-nav" aria-label="主要導覽">
+      <a class="brand" href="index.html" aria-current="page">
+        <img src="assets/img/logo.ico" alt="" width="30" height="30" />
         <span>Xu Yu-Chia</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="about/index.html">About</a></li>
-        <li><a href="projects/index.html">Projects</a></li>
-        <li><a href="https://xu-yu-chia.github.io/blog/">Notes</a></li>
-        <li><a href="sports/index.html">Sports</a></li>
-        <li><a href="contact/index.html">Contact</a></li>
-        <li><a href="links/index.html">Private</a></li>
-      </ul>
+
+      <button class="menu-button home-menu-button" type="button" aria-expanded="false" aria-controls="home-navigation">
+        <span>Menu</span>
+        <span class="menu-icon home-menu-icon" aria-hidden="true"></span>
+      </button>
+
+      <div class="nav-panel home-nav-panel" id="home-navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="projects/index.html">Projects</a>
+        <a href="sports/index.html">Sports</a>
+        <a href="https://xu-yu-chia.github.io/blog/">Blog</a>
+        <a href="contact/index.html">Contact</a>
+      </div>
     </nav>
   </header>
 
-  <main class="page home-simple">
-    <section class="home-intro" data-home-interactive>
-      <h1 class="home-name">
-        <span>許彧嘉</span>
-        <span lang="en">Xu Yu-Chia</span>
-      </h1>
-      <p class="home-role">國立中央大學 電機工程學系</p>
+  <main class="home-main" id="main-content">
+    <section class="home-hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Portfolio / 2026</p>
+
+      <div class="hero-rule" aria-hidden="true"></div>
+
+      <div class="hero-grid">
+        <h1 id="hero-title">
+          <span>Hsu</span>
+          <span>Yu-Chia</span>
+        </h1>
+
+        <div class="hero-copy">
+          <p class="role">國立中央大學<br />電機工程學系</p>
+          <p class="summary">
+            關注數位系統、程式實作與工程原型，並把學習與研究過程整理成可檢查的成果。
+          </p>
+          <div class="hero-links">
+            <a href="projects/index.html">View projects <span aria-hidden="true">→</span></a>
+            <a href="mailto:joshyymmdd@gmail.com">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <dl class="hero-meta">
+        <div><dt>Focus</dt><dd>Digital Systems</dd></div>
+        <div><dt>Methods</dt><dd>Verilog · C/C++ · Arduino</dd></div>
+        <div><dt>Current</dt><dd>NCU Electrical Engineering</dd></div>
+      </dl>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <a class="footer-credit" href="links/index.html">© 2026 Xu Yu-Chia</a>
+    <div>
+      <a href="https://github.com/xu-yu-chia/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="contact/index.html">Contact</a>
+    </div>
+  </footer>
 </body>
 </html>

@@ -44,23 +44,26 @@
             transform: none !important;
         }
     </style>
+  <script src="../assets/js/home.js?v=20260712d" defer></script>
 </head>
 <body class="teacher-page">
-
   <header class="site-header">
-    <nav class="nav" aria-label="Primary navigation">
+    <nav class="nav" aria-label="主要導覽">
       <a class="brand" href="../index.html">
         <img class="brand-mark" src="../assets/img/logo.ico" alt="" />
         <span>Xu Yu-Chia</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="../about/index.html">About</a></li>
-        <li><a href="../projects/index.html">Projects</a></li>
-        <li><a href="https://xu-yu-chia.github.io/blog/">Notes</a></li>
-        <li><a href="../sports/index.html">Sports</a></li>
-        <li><a href="../contact/index.html">Contact</a></li>
-        <li><a href="../links/index.html">Private</a></li>
-      </ul>
+      <button class="menu-button home-menu-button" type="button" aria-expanded="false" aria-controls="site-navigation">
+        <span>Menu</span>
+        <span class="menu-icon home-menu-icon" aria-hidden="true"></span>
+      </button>
+      <div class="nav-panel home-nav-panel" id="site-navigation">
+        <a href="../index.html">Home</a>
+        <a href="../projects/index.html">Projects</a>
+        <a href="../sports/index.html">Sports</a>
+        <a href="https://xu-yu-chia.github.io/blog/">Blog</a>
+        <a href="../contact/index.html">Contact</a>
+      </div>
     </nav>
   </header>
 
@@ -294,8 +297,6 @@
 
 </body>
 </html>
-
-
 
 
 

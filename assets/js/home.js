@@ -1,32 +1,32 @@
 (function () {
-  const intro = document.querySelector("[data-home-interactive]");
-  const finePointer = window.matchMedia("(pointer: fine)");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const menuButton = document.querySelector(".home-menu-button");
+  const menuPanel = document.querySelector(".home-nav-panel");
 
-  if (!intro || !finePointer.matches || reducedMotion.matches) return;
-
-  let frame = 0;
-
-  function reset() {
-    intro.style.setProperty("--home-marker-x", "48px");
-    intro.style.setProperty("--home-shift-x", "0px");
-    intro.style.setProperty("--home-shift-y", "0px");
+  function setMenu(open) {
+    if (!menuButton || !menuPanel) return;
+    menuButton.setAttribute("aria-expanded", String(open));
+    menuPanel.classList.toggle("is-open", open);
   }
 
-  intro.addEventListener("pointermove", function (event) {
-    if (frame) cancelAnimationFrame(frame);
-
-    frame = requestAnimationFrame(function () {
-      const rect = intro.getBoundingClientRect();
-      const localX = Math.min(Math.max(event.clientX - rect.left, 28), rect.width - 28);
-      const normalizedX = (event.clientX - rect.left) / rect.width - 0.5;
-      const normalizedY = (event.clientY - rect.top) / rect.height - 0.5;
-
-      intro.style.setProperty("--home-marker-x", localX + "px");
-      intro.style.setProperty("--home-shift-x", normalizedX * 6 + "px");
-      intro.style.setProperty("--home-shift-y", normalizedY * 4 + "px");
+  if (menuButton && menuPanel) {
+    menuButton.addEventListener("click", function () {
+      setMenu(menuButton.getAttribute("aria-expanded") !== "true");
     });
-  });
 
-  intro.addEventListener("pointerleave", reset);
+    menuPanel.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setMenu(false);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
+        setMenu(false);
+        menuButton.focus();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 980) setMenu(false);
+    });
+  }
+
 })();
