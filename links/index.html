@@ -77,6 +77,7 @@
       const emptyText = document.getElementById("emptyText");
       const lockButton = document.getElementById("lockButton");
       const updatedText = document.getElementById("updatedText");
+      const VAULT_AAD = "xu-yu-chia.github.io/links/v2";
 
       let vault = null;
       let links = [];
@@ -95,37 +96,62 @@
 
       async function decryptVault(password) {
         if (!window.crypto || !window.crypto.subtle) throw new Error("Web Crypto is not available.");
-        if (vault.version !== 1 || vault.algorithm !== "AES-256-GCM" || vault.kdf !== "PBKDF2-SHA256") {
+        if (vault.algorithm !== "AES-256-GCM" || vault.kdf !== "PBKDF2-SHA256") {
           throw new Error("Unsupported encrypted payload.");
         }
 
         const encoder = new TextEncoder();
+        const vaultVersion = Number(vault.version);
+        const iterations = Number(vault.iterations);
+        const minimumIterations = vaultVersion === 2 ? 600000 : 100000;
+        if (!Number.isInteger(iterations) || iterations < minimumIterations || iterations > 2000000) {
+          throw new Error("Unsupported encrypted payload.");
+        }
+        if (vaultVersion === 2 && (vault.aad !== VAULT_AAD || Number(vault.tag_length) !== 128)) {
+          throw new Error("Unsupported encrypted payload.");
+        }
+        if (vaultVersion !== 1 && vaultVersion !== 2) {
+          throw new Error("Unsupported encrypted payload.");
+        }
         const keyMaterial = await crypto.subtle.importKey("raw", encoder.encode(password.trim()), "PBKDF2", false, ["deriveKey"]);
         const key = await crypto.subtle.deriveKey(
-          { name: "PBKDF2", salt: fromBase64(vault.salt), iterations: Number(vault.iterations), hash: "SHA-256" },
+          { name: "PBKDF2", salt: fromBase64(vault.salt), iterations, hash: "SHA-256" },
           keyMaterial,
           { name: "AES-GCM", length: 256 },
           false,
           ["decrypt"]
         );
-        const plain = await crypto.subtle.decrypt(
-          { name: "AES-GCM", iv: fromBase64(vault.iv), tagLength: Number(vault.tag_length || 128) },
-          key,
-          fromBase64(vault.ciphertext)
-        );
+        const decryptParams = {
+          name: "AES-GCM",
+          iv: fromBase64(vault.iv),
+          tagLength: Number(vault.tag_length || 128)
+        };
+        if (vaultVersion === 2) {
+          decryptParams.additionalData = encoder.encode(VAULT_AAD);
+        }
+        const plain = await crypto.subtle.decrypt(decryptParams, key, fromBase64(vault.ciphertext));
         return JSON.parse(new TextDecoder().decode(plain));
       }
 
       function normalizePayload(payload) {
         const rawLinks = normalizeRawLinks(payload);
         return rawLinks
-          .filter((item) => item && item.title && item.url)
+          .filter((item) => item && item.title && item.url && isSafeUrl(item.url))
           .map((item) => ({
             title: String(item.title),
             url: String(item.url),
             note: item.note || item.description || "",
             group: item.group || item.category || "Links"
           }));
+      }
+
+      function isSafeUrl(value) {
+        try {
+          const parsed = new URL(String(value));
+          return parsed.protocol === "http:" || parsed.protocol === "https:";
+        } catch (_error) {
+          return false;
+        }
       }
 
       function normalizeRawLinks(payload) {
@@ -207,7 +233,7 @@
           if (!links.length) throw new Error("empty");
           lockedView.classList.add("hidden");
           unlockedView.classList.remove("hidden");
-          updatedText.textContent = vault.updatedAt ? "Updated " + new Date(vault.updatedAt).toLocaleString("zh-TW") : "";
+          updatedText.textContent = vault.version === 2 ? "已使用本機解密" : "舊版 vault，請重新執行加密 workflow";
           passwordInput.value = "";
           render();
           searchInput.focus();

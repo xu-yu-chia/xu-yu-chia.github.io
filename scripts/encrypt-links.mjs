@@ -7,7 +7,9 @@ const outputPath = process.argv[2] || "links/vault.json";
 const inputPath = process.argv[3] || process.env.QUICK_LINKS_JSON_PATH || "links/links.json";
 const password = cleanSecret(process.env.HIDE_LINK || process.env.QUICK_LINKS_PASSWORD || "");
 let plainJson = process.env.QUICK_LINKS_JSON;
-const iterations = Number(process.env.QUICK_LINKS_ITERATIONS || 250000);
+const iterations = Number(process.env.QUICK_LINKS_ITERATIONS || 600000);
+const vaultVersion = 2;
+const aadText = "xu-yu-chia.github.io/links/v2";
 
 try {
   if (!password) {
@@ -15,6 +17,9 @@ try {
   }
 
   if (!plainJson) {
+    if (process.env.GITHUB_ACTIONS === "true") {
+      throw new Error("Missing QUICK_LINKS_JSON. GitHub Actions must never read a public fallback file.");
+    }
     if (!existsSync(inputPath)) {
       throw new Error(
         `Missing quick links JSON. Set QUICK_LINKS_JSON, or create ${inputPath} for local encryption.`
@@ -23,8 +28,8 @@ try {
     plainJson = await readFile(inputPath, "utf8");
   }
 
-  if (!Number.isInteger(iterations) || iterations < 100000) {
-    throw new Error("QUICK_LINKS_ITERATIONS must be an integer >= 100000.");
+  if (!Number.isInteger(iterations) || iterations < 600000) {
+    throw new Error("QUICK_LINKS_ITERATIONS must be an integer >= 600000.");
   }
 
   const payload = normalizePayload(parseJson(plainJson));
@@ -37,6 +42,7 @@ try {
   const salt = randomBytes(16);
   const iv = randomBytes(12);
   const subtle = webcrypto.subtle;
+  const additionalData = encoder.encode(aadText);
 
   const keyMaterial = await subtle.importKey(
     "raw",
@@ -52,18 +58,22 @@ try {
     false,
     ["encrypt"]
   );
-  const encrypted = await subtle.encrypt({ name: "AES-GCM", iv }, key, encoder.encode(normalized));
+  const encrypted = await subtle.encrypt(
+    { name: "AES-GCM", iv, additionalData, tagLength: 128 },
+    key,
+    encoder.encode(normalized)
+  );
 
   const vault = {
-    version: 1,
+    version: vaultVersion,
     algorithm: "AES-256-GCM",
     kdf: "PBKDF2-SHA256",
     iterations,
     salt: Buffer.from(salt).toString("base64"),
     iv: Buffer.from(iv).toString("base64"),
     tag_length: 128,
+    aad: aadText,
     ciphertext: Buffer.from(encrypted).toString("base64"),
-    updatedAt: new Date().toISOString()
   };
 
   await mkdir(dirname(outputPath), { recursive: true });
@@ -123,10 +133,10 @@ function normalizePayload(payload) {
   if (!payload || typeof payload !== "object") return { links: [] };
 
   const directLinks = linksFromKnownKeys(payload);
-  if (directLinks.length) return { ...payload, links: directLinks };
+  if (directLinks.length) return { links: directLinks };
 
   const groupedLinks = linksFromGroups(payload.groups || payload.group || payload.categories);
-  if (groupedLinks.length) return { ...payload, links: groupedLinks };
+  if (groupedLinks.length) return { links: groupedLinks };
 
   const mapLinks = linksFromMap(payload);
   if (mapLinks.length) return { links: mapLinks };
@@ -170,7 +180,12 @@ function normalizeLink(item, group) {
   if (!item || typeof item !== "object") return null;
   const url = item.url || item.href || item.link;
   const title = item.title || item.name || item.label || safeHostname(url);
-  return { ...item, title, url, group: item.group || item.category || group || "Links" };
+  return {
+    title,
+    url,
+    note: item.note || item.description || "",
+    group: item.group || item.category || group || "Links"
+  };
 }
 
 function linksFromMap(map) {

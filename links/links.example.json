@@ -1,23 +1,23 @@
 {
   "links": [
     {
-      "title": "Google Drive(網頁站存)",
-      "url": "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing",
-      "note": "Common folder",
+      "title": "Example website",
+      "url": "https://example.com/website",
+      "note": "Replace this example only in QUICK_LINKS_JSON",
       "group": "Cloud",
       "icon": "fa-cloud"
     },
     {
-      "title": "Google Drive(電工實驗)",
-      "url": "https://drive.google.com/drive/folders/1H9GcwvpzeMFe6XpJAkb-HH9Dzw7xVomu?usp=sharing",
-      "note": "Common folder",
+      "title": "Example documentation",
+      "url": "https://example.com/docs",
+      "note": "Public schema example",
       "group": "Cloud",
       "icon": "fa-cloud"
     },
     {
       "title": "Report",
-      "url": "https://docs.google.com/document/d/REPLACE_ME/edit",
-      "note": "Class or project report",
+      "url": "https://example.com/report",
+      "note": "Public schema example",
       "group": "Reports",
       "icon": "fa-file-alt"
     }

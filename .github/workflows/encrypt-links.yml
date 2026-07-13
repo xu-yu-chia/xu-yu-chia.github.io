@@ -5,17 +5,18 @@ on:
     branches: [main]
     paths:
       - "links/index.html"
-      - "links/links.example.json"
       - "scripts/encrypt-links.mjs"
       - ".github/workflows/encrypt-links.yml"
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   encrypt:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v5
         with:
@@ -25,12 +26,18 @@ jobs:
         name: Encrypt vault
         env:
           HIDE_LINK: ${{ secrets.HIDE_LINK }}
+          QUICK_LINKS_JSON: ${{ secrets.QUICK_LINKS_JSON }}
+          QUICK_LINKS_ITERATIONS: "600000"
         run: |
           if [ -z "$HIDE_LINK" ]; then
             echo "GitHub Secret HIDE_LINK is required as the unlock key."
-            exit 0
+            exit 1
           fi
-          node scripts/encrypt-links.mjs links/vault.json links/links.example.json
+          if [ -z "$QUICK_LINKS_JSON" ]; then
+            echo "GitHub Secret QUICK_LINKS_JSON is required as the encrypted source."
+            exit 1
+          fi
+          node scripts/encrypt-links.mjs links/vault.json
           echo "vault_ready=true" >> "$GITHUB_OUTPUT"
 
       - name: Commit encrypted vault

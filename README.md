@@ -76,10 +76,14 @@ The teacher page is intentionally unlisted from public navigation and is only me
 
 Secret usage:
 
-- `HIDE_LINK`: the unlock key/password only.
+- `HIDE_LINK`: the unlock key/password used by the browser and Actions.
+- `QUICK_LINKS_JSON`: the complete private links JSON. This must stay in GitHub Secrets.
 
-GitHub Actions encrypts `links/links.example.json` into `links/vault.json`.
-Use this JSON format in `links/links.example.json`:
+GitHub Actions encrypts `QUICK_LINKS_JSON` into `links/vault.json`. The tracked
+`links/links.example.json` is only a public schema example and is never used by
+the Actions workflow.
+
+Use this JSON format for `QUICK_LINKS_JSON`:
 
 ```json
 {
@@ -95,7 +99,8 @@ Use this JSON format in `links/links.example.json`:
 }
 ```
 
-Then set `HIDE_LINK` to the password you want to type on `links/index.html`.
+Then set `HIDE_LINK` to a long random password that you will type on `links/index.html`.
+The current vault format uses AES-256-GCM with PBKDF2-SHA256 and 600,000 iterations.
 
 For local testing, create an untracked `links/links.json` with the same JSON shape and run:
 
@@ -104,7 +109,14 @@ $env:HIDE_LINK = "your unlock password"
 node scripts/encrypt-links.mjs links/vault.json links/links.json
 ```
 
-After changing `HIDE_LINK` or `links/links.example.json`, run the `Encrypt quick links` workflow manually. It commits only encrypted `links/vault.json`.
+In GitHub Actions, changing a Secret does not create a push event, so manually run
+the `Encrypt quick links` workflow after changing `HIDE_LINK` or `QUICK_LINKS_JSON`.
+It commits only encrypted `links/vault.json`.
+
+The old public `vault.json` and previous public example URLs remain in Git history.
+Changing the current files does not erase those historical copies; rotate any
+previously exposed destination links and follow the repository history cleanup
+procedure before treating them as private again.
 
 ## Asset Rules
 

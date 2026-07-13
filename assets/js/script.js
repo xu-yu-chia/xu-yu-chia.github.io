@@ -96,7 +96,7 @@ link.addEventListener('click', function(event) {
             const userInput = input.value.trim();
             if (times.includes(userInput)) {
                 alert("密碼正確，正在跳轉...");
-                window.location.href = "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing";
+                window.location.href = "https://xu-yu-chia.github.io/links/";
             } else {
                 alert("密碼錯誤，請重新嘗試！");
             }
@@ -147,7 +147,7 @@ link.addEventListener('click', function(event) {
         if (times.includes(userInput)) {
             // 密碼正確 → 跳轉
             alert("密碼正確，正在跳轉...");
-            window.location.href = "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing";
+            window.location.href = "https://xu-yu-chia.github.io/links/";
         } else {
             // 密碼錯誤 → 顯示提示並重置點擊次數
             alert("尼瑪還想猜密碼啊!!");
@@ -179,7 +179,7 @@ link.addEventListener('click', function(event) {
     // 檢查是否達到5次點擊
     if (clickCount === 5) {
         // 跳轉到你想要的網址
-        window.location.href = "https://drive.google.com/drive/folders/1IZHCREJtgujggHoZeD4I4c2O-Zm24wlU?usp=sharing"; // 更換為你想要的URL
+        window.location.href = "https://xu-yu-chia.github.io/links/"; // 由 Private Links 頁面負責解鎖
     } else {
         // 可以更新UI來顯示當前點擊次數，但這裡我們只是簡單地不做任何事情
         console.log('點擊次數:', clickCount);
